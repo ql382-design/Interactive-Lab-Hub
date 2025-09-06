@@ -280,4 +280,6 @@ In Storyboards 1–3, the fruit plate is shown under different lighting: neutral
 In Storyboards 4–6, the pumpkin is lit with neutral, dark, and warm orange light. The changes highlight different atmospheres, from calm to eerie to intense.
 The storyboard illustrates how the prop projects colored lights onto stage objects, enhancing dramatic storytelling through visual emphasis. 
 
+<img src="Storyboards%20.JPG" alt="Storyboards 2" width="300"/>  
+
 
