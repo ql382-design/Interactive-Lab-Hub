@@ -235,9 +235,49 @@ You will be assigned three partners from other groups. Go to their github pages,
 
 ## Make it your own
 
-Do last week’s assignment again, but this time: 
-1) It doesn’t have to (just) use light, 
-2) You can use any modality (e.g., vibration, sound) to prototype the behaviors! Again, be creative! Feel free to fork and modify the tinkerbell code! 
-3) We will be grading with an emphasis on creativity. 
 
 \*\***Document everything here. (Particularly, we would like to see the storyboard and video, although photos of the prototype are also great.)**\*\*
+
+
+## Part A. Plan 
+
+
+\*\***Describe your setting, players, activity and goals here.**\*\*
+
+**Setting:**
+
+The interaction takes place during a stage performance. The props are designed to enhance dramatic tension through light, sound, and vibration effects.
+
+**Players:**
+
+The prop master coordinates the devices. For example for the the story involves characters such as the king, maid, queen, and knight. Each character’s actions are emphasized through the props: lighting shifts, sound effects, and subtle vibrations create an immersive atmosphere for both actors and the audience.
+
+
+**Activity:**
+
+he props play an active role in advancing the dramatic storyline, particularly in the Lab1a scenes of the king’s assassination ((Detailed staging of these scenes can be seen in the lab1a video.)
+). For example:
+
+- In the first scene, the maid offers a poisoned fruit plate, with flashing lights that shift colors to draw attention and signal danger.
+  
+- In the second scene, the queen serves poisoned wine, and subtle vibrations make the glass tremble to reveal hidden menace. When they clink their glasses together, a clear and crisp sound of glassware can be heard.
+  
+- In the third scene, the knight strikes the king, accompanied by sharp sound effects that heighten the tension and impact of the action.
+
+Beyond this specific play, the same props can be adapted to different stage settings. A lighting designer could, for instance, create a wintry mood with alternating icy blue and white tones, or evoke autumn with dynamic transitions between yellow, orange, and red lights. These effects require close collaboration between different prop masters (lighting crew, sound designers, and stage decorators).
+
+
+
+**Goals:**
+
+The goal of the prop team is to use these interactive effects to elevate the performance, making it more engaging, expressive, and memorable for the audience.
+
+\*\***Include pictures of your storyboards here**\*\*
+
+This storyboard demonstrates how the prop’s lighting effect can change the mood of a scene.
+
+In Storyboards 1–3, the fruit plate is shown under different lighting: neutral, red, and orange. These variations signal shifting meanings, such as normal, danger, or tension.
+In Storyboards 4–6, the pumpkin is lit with neutral, dark, and warm orange light. The changes highlight different atmospheres, from calm to eerie to intense.
+The storyboard illustrates how the prop projects colored lights onto stage objects, enhancing dramatic storytelling through visual emphasis. 
+
+
