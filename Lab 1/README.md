@@ -274,29 +274,138 @@ The goal of the prop team is to use these interactive effects to elevate the per
 
 \*\***Include pictures of your storyboards here**\*\*
 
-This storyboard demonstrates how the prop’s lighting effect can change the mood of a scene.
 
-In Storyboards 1–3, the fruit plate is shown under different lighting: neutral, red, and orange. These variations signal shifting meanings, such as normal, danger, or tension.
-In Storyboards 4–6, the pumpkin is lit with neutral, dark, and warm orange light. The changes highlight different atmospheres, from calm to eerie to intense.
-The storyboard illustrates how the prop projects colored lights onto stage objects, enhancing dramatic storytelling through visual emphasis. 
+
+**Storyboards 2**
 
 <img src="Storyboards%202.jpg" alt="Storyboards 2" width="400"/>  
 
+Storyboards 2 demonstrates how the prop’s lighting effect can change the mood of a scene.
+
+In scenes 1–3, the fruit plate is shown under different lighting: neutral, red, and orange. These variations signal shifting meanings, such as normal, danger, or tension.
+In scense 4–6, the pumpkin is lit with neutral, dark, and warm orange light. The changes highlight different atmospheres, from calm to eerie to intense.
+Storyboard 2 illustrates how the prop projects colored lights onto stage objects, enhancing dramatic storytelling through visual emphasis. 
+
+
+**Storyboards 3**
+
+
 <img src="storyboard3.png" alt="Storyboards 3" width="400"/>  
 
-## Part B. Act out the Interaction
+Storyboards 3 illustrates how our product enhances three different stage scenarios by adding immersive effects.
 
-Try physically acting out the interaction you planned. For now, you can just pretend the device is doing the things you’ve scripted for it. 
+- Scene 1: Celebration
+  
+In this joyful moment, dynamic lighting combined with sound effects emphasizes the significance of the scene, drawing the audience deeper into the festive atmosphere.
+
+- Scene 2: Assassination Performance
+  
+During tense and dramatic assassination sequences, our product heightens the suspense by synchronizing glowing sword effects with sharp metallic sound cues, creating a thrilling and immersive experience for the audience.
+
+- Scene 3: Classic Fairy Tale (Snow White)
+  
+In timeless plays such as Snow White, the apple glows green to subtly suggest its poisonous nature. A crisp biting sound accompanies the moment Snow White takes a bite, underlining the importance of this turning point in the narrative.
+
+Through these examples, our product demonstrates how it enriches stage performances—making emotions clearer, storytelling more engaging, and the dramatic flow more impactful for the audience.
+
+## Part B. Act out the Interaction Again!
+
 
 \*\***Are there things that seemed better on paper than acted out?**\*\*
 
-Yes — on paper the assassination scene looked very dramatic, but when we acted it out in pantomime it felt harder to show tension clearly. In our storyboard, we used 2D comic-style expressions and added thought bubbles to convey the characters’ emotions. When we actually start shooting, what we need to present is a 3D scene. We might have to deal with lacking the depiction of the characters' expressions and postures to enrich this 3D performance. We need to make comprehensive preparations covering various aspects, such as changes in lighting, the portrayal of character states, and if possible, using simple props to enable the audience to understand the complete storyline.
+Yes. Some effects that looked powerful in the storyboard felt a bit exaggerated when acted out on stage. For example, the shaking background that was meant to symbolize drunkenness worked visually, but in performance it distracted from the dialogue. This showed us that certain ideas need to be toned down to keep the audience focused on the story.
 
 \*\***Are there new ideas that occur to you or your collaborator that come up from the acting?**\*\*
 
-Yes - We came up with using poker cards to represent each character. The lighting can help the audience understand the atmosphere of the story's progression. We also decided to add background music to help drive the plot forward. To avoid overshadowing the main content, we wanted to highlight the significance of lighting in the performance. For this reason, we chose not to include voiceovers in the video. Instead, we used black-and-white subtitles, allowing the audience to immerse themselves in the story while clearly following its development.
+Absolutely. While rehearsing, we realized that sound effects could be layered more subtly—for example, combining a faint heartbeat with the glowing sword scene to build suspense. My collaborator also suggested giving the audience’s phones a soft pulse of light during key moments, which adds a collective sense of tension that we had not imagined during the initial planning.
+
+## Part C. Prototype the device
 
 
+**New features based on Tinkerbelle.**
 
 
+# ✨ Interactive Controller Features
 
+This project enhances the basic control system with **three key effects**:  
+
+---
+
+## 🎨 Color Effects
+
+- **Real-time Color Picker**  
+  - Integrated Pickr tool to adjust background colors instantly.  
+  - Colors are synced across all connected clients via Socket for collaborative interaction.  
+
+- **Mode Switching**  
+  - **Controller Mode**: Visible color picker for free adjustment.  
+  - **Light Mode**: Fullscreen display with hidden picker, focusing on stage presentation.  
+
+---
+
+## 🔊 Sound Features
+
+- **Single Global Audio System**  
+  - Uses one shared `Audio` object for all playback, avoiding overlap and conflicts.  
+
+- **Controller ↔ Light Synchronization**  
+  - Controller sends `audio` / `pauseAudio` events via Socket.  
+  - Light devices (e.g., mobile phones) play or stop sounds accordingly.  
+
+- **Custom Input Playback**  
+  - Type a sound name in the input box and press **Play** → Controller emits it, Light plays it.  
+
+- **Quick Sound Buttons**  
+  - Pre-bound to common effects (e.g., `thunder`, `laugh`, `eatfull`, `drum`, `explosion`, `clap`).  
+  - One click = instant sound effect across all Light clients.  
+  - Button highlights briefly (green flash) for feedback.  
+
+- **Local Sound Library**  
+  - Sounds stored under `/static/sounds/` (e.g., `static/sounds/thunder.mp3`).  
+  - Easy to extend — just add new `.mp3` files and bind them with `bindSoundButton(id, filename)`.  
+
+
+---
+
+## 📳 Screen Shake (Vibration)
+
+- **Generic Shake**  
+  - `triggerShake(duration)` applies a brief vibration effect on the screen to add visual impact.  
+
+- **Sound-linked Shake**  
+  - Small shakes are triggered when sounds are played.  
+  - The `wineBtn` not only plays audio but also creates a **5-second continuous shake**.  
+
+- **Gyroscope Integration**  
+  - On mobile devices, orientation sensors enhance interactivity:  
+    - Tilting the device adjusts screen brightness.  
+    - Exceeding a tilt threshold triggers a shake feedback.  
+
+---
+
+## Part D. Wizard the device
+
+- Color Effects
+
+[![Color Effects](https://www.youtube.com/watch?v=pGlznBV1fC4)  
+
+- Sounds + Screen Shake Effects
+
+[![Sounds + Screen Shake Effects](https://youtu.be/OM1hdqViYhQ)  
+
+## Limitations & Decisions
+
+Mobile vibration (iOS restriction)
+We originally planned to implement continuous vibration on mobile devices. However, due to system restrictions on iOS, true vibration is not possible.
+
+Workaround: screen shaking
+As a substitute, we implemented on-screen shaking effects. During testing, we found the effect was not very noticeable, especially when phones were wrapped inside stage props.
+
+Final decision: focus on sound
+Given the limitations, we decided to rely on sound and color effects as the primary enhancements. Sounds and Lights provided clearer feedback and a stronger immersive impact for both actors and the audience.
+
+
+## 🎬 Summary
+
+By combining **Color, Sound, and Screen Shake**,  
+this system creates an immersive and interactive experience for stage performances, parties, or live events.
