@@ -385,13 +385,12 @@ This project enhances the basic control system with **three key effects**:
 
 ## Part D. Wizard the device
 
-- Color Effects
+- Color Effects  
+[![Color Effects](https://img.youtube.com/vi/pGlznBV1fC4/0.jpg)](https://www.youtube.com/watch?v=pGlznBV1fC4)
 
-[![Color Effects](https://www.youtube.com/watch?v=pGlznBV1fC4)  
+- Sounds + Screen Shake Effects  
+[![Sounds + Screen Shake Effects](https://img.youtube.com/vi/OM1hdqViYhQ/0.jpg)](https://youtu.be/OM1hdqViYhQ)
 
-- Sounds + Screen Shake Effects
-
-[![Sounds + Screen Shake Effects](https://youtu.be/OM1hdqViYhQ)  
 
 ## Limitations & Decisions
 
