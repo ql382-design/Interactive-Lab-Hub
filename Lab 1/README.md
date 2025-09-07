@@ -329,9 +329,9 @@ Absolutely. While rehearsing, we realized that sound effects could be layered mo
 
 This project enhances the basic control system with **three key effects**:  
 
----
 
-## 🎨 Color Effects
+
+### 🎨 Color Effects
 
 - **Real-time Color Picker**  
   - Integrated Pickr tool to adjust background colors instantly.  
@@ -341,9 +341,10 @@ This project enhances the basic control system with **three key effects**:
   - **Controller Mode**: Visible color picker for free adjustment.  
   - **Light Mode**: Fullscreen display with hidden picker, focusing on stage presentation.  
 
----
 
-## 🔊 Sound Features
+
+
+### 🔊 Sound Features
 
 - **Single Global Audio System**  
   - Uses one shared `Audio` object for all playback, avoiding overlap and conflicts.  
@@ -365,9 +366,9 @@ This project enhances the basic control system with **three key effects**:
   - Easy to extend — just add new `.mp3` files and bind them with `bindSoundButton(id, filename)`.  
 
 
----
 
-## 📳 Screen Shake (Vibration)
+
+### 📳 Screen Shake (Vibration)
 
 - **Generic Shake**  
   - `triggerShake(duration)` applies a brief vibration effect on the screen to add visual impact.  
@@ -392,7 +393,7 @@ This project enhances the basic control system with **three key effects**:
 [![Sounds + Screen Shake Effects](https://img.youtube.com/vi/OM1hdqViYhQ/0.jpg)](https://youtu.be/OM1hdqViYhQ)
 
 
-## Limitations & Decisions
+### Limitations & Decisions
 
 Mobile vibration (iOS restriction)
 We originally planned to implement continuous vibration on mobile devices. However, due to system restrictions on iOS, true vibration is not possible.
