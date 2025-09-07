@@ -402,7 +402,7 @@ Workaround: screen shaking
 As a substitute, we implemented on-screen shaking effects. During testing, we found the effect was not very noticeable, especially when phones were wrapped inside stage props.
 
 Final decision: focus on sound
-Given the limitations, we decided to rely on sound and color effects as the primary enhancements. Sounds and Lights provided clearer feedback and a stronger immersive impact for both actors and the audience.
+Given the limitations, we decided to rely on sound and color effects as the primary enhancements. Sounds and Lights provided clearer feedback and a stronger immersive impact for both actors and the audience. Even though vibration cannot currently be realized through code on iOS devices, we believe it remains a valuable interaction. In our product vision, vibration feedback should be retained as a design feature, to be enabled once technical or hardware conditions allow.
 
 ## Part E. Costume the device
 
@@ -415,7 +415,37 @@ Sound Effect: Built-in speakers on the sides of the device produce immersive aud
 
 <img src="prop.png" alt="prop" width="500"/>  
 
-## 🎬 Summary
+## Part F. Record
 
-By combining **Color, Sound, and Screen Shake**,  
-this system creates an immersive and interactive experience for stage performances, parties, or live events.
+\*\***Take a video of your prototyped interaction.**\*\*
+
+This video demonstrates the prototyped interaction for our Lab1b lighting function. The device is used as a stage lighting prop that automatically switches between selected colors at fixed time intervals. In the video, warm tones such as red, orange, and yellow are applied to a fruit plate prop. The gradual color transitions highlight the fruits, making them appear more vivid and easier for the audience to notice during a performance. This showcases how the lighting effect can enhance the visibility and expressiveness of different stage props in theatrical settings. 
+
+- Color Effects  
+[![Color Effects](https://img.youtube.com/vi/gxWBAg7dB6A/0.jpg)](https://www.youtube.com/watch?v=gxWBAg7dB6A)
+
+
+---
+
+## 🎬 Summary  
+
+By combining **Color, Sound, and Screen Shake**, this system creates an immersive and interactive experience for stage performances, parties, or live events. The integration of lighting, audio cues, and motion effects allows directors and performers to amplify emotions, highlight key story moments, and engage the audience in real time. Compared with traditional stage tools, this system is lightweight, network-synchronized, and flexible, making it easy to adapt to different creative scenarios.  
+
+---
+
+### 🌟 Reflection  
+During the development process, we discovered both the potential and the limitations of mobile-based stage interactions. For example, while iOS restrictions prevent true vibration feedback, the attempt to simulate it with screen shaking revealed the importance of multi-sensory cues. This limitation also inspired us to shift focus toward **sound and color**, which proved more impactful in live tests.  
+
+The project taught me that design is often about balancing ambition with technical constraints, while still keeping the vision for future possibilities. It also made me think about how small details—like a sound cue or a flash of color—can drastically change how an audience interprets and feels a performance.  
+
+---
+
+### 👥 Collaboration  
+
+This project was a collaborative effort with **Jiayi Sun (Joy)** and **Huiying Zhuang**:  
+
+- **Jiayi Sun (Joy):** focused on developing the **sound effects**.  
+- **Huiying Zhuang:** led the **automatic lighting functions**.  
+- **Me:** explored the **vibration and screen shaking effect**.  
+
+Together, we also created two new storyboards together, illustrating how these features could be applied in real stage settings.  
