@@ -413,6 +413,8 @@ Sound Effect: Built-in speakers on the sides of the device produce immersive aud
 
 - Detachable Vibration Effect: The base is equipped with a vibration module that makes the device shake slightly. The unit is detachable and can also be mounted onto different stage props to create vibration effects as needed.
 
+<img src="prop.png" alt="prop" width="500"/>  
+
 ## 🎬 Summary
 
 By combining **Color, Sound, and Screen Shake**,  
