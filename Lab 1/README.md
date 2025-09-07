@@ -404,6 +404,14 @@ As a substitute, we implemented on-screen shaking effects. During testing, we fo
 Final decision: focus on sound
 Given the limitations, we decided to rely on sound and color effects as the primary enhancements. Sounds and Lights provided clearer feedback and a stronger immersive impact for both actors and the audience.
 
+## Part E. Costume the device
+
+This prop is designed as a simple stage device that combines lighting, sound, and vibration to support theatrical performance.
+
+- Lighting Effect: A small spotlight mounted on the top projects light. It can shift colors to match different moods and scenes.
+Sound Effect: Built-in speakers on the sides of the device produce immersive audio, such as sound effects or ambient cues.
+
+- Detachable Vibration Effect: The base is equipped with a vibration module that makes the device shake slightly. The unit is detachable and can also be mounted onto different stage props to create vibration effects as needed.
 
 ## 🎬 Summary
 
