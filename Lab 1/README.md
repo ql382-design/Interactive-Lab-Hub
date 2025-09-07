@@ -398,10 +398,10 @@ This project enhances the basic control system with **three key effects**:
 Mobile vibration (iOS restriction)
 We originally planned to implement continuous vibration on mobile devices. However, due to system restrictions on iOS, true vibration is not possible.
 
-Workaround: screen shaking
+Workaround: 
 As a substitute, we implemented on-screen shaking effects. During testing, we found the effect was not very noticeable, especially when phones were wrapped inside stage props.
 
-Final decision: focus on sound
+Final decision: 
 Given the limitations, we decided to rely on sound and color effects as the primary enhancements. Sounds and Lights provided clearer feedback and a stronger immersive impact for both actors and the audience. Even though vibration cannot currently be realized through code on iOS devices, we believe it remains a valuable interaction. In our product vision, vibration feedback should be retained as a design feature, to be enabled once technical or hardware conditions allow.
 
 ## Part E. Costume the device
