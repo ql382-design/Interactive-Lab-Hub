@@ -407,8 +407,11 @@ This project enhances the basic control system with **three key effects**:
 - Color Effects  
 [![Color Effects](https://img.youtube.com/vi/pGlznBV1fC4/0.jpg)](https://www.youtube.com/watch?v=pGlznBV1fC4)
 
-- Sounds + Screen Shake Effects  
-[![Sounds + Screen Shake Effects](https://img.youtube.com/vi/OM1hdqViYhQ/0.jpg)](https://youtu.be/OM1hdqViYhQ)
+- Screen Shake Effects  
+[![Screen Shake Effects](https://img.youtube.com/vi/OM1hdqViYhQ/0.jpg)](https://youtu.be/OM1hdqViYhQ)
+
+- Sound Effects
+[![Sounds Effects](https://img.youtube.com/vi/TQONw32uM00/0.jpg)](https://youtu.be/TQONw32uM00)
 
 
 ### Limitations & Decisions
@@ -441,6 +444,19 @@ This video demonstrates the prototyped interaction for our Lab1b lighting functi
 
 - Color Effects  
 [![Color Effects](https://img.youtube.com/vi/gxWBAg7dB6A/0.jpg)](https://www.youtube.com/watch?v=gxWBAg7dB6A)
+
+
+This following video demonstrates the prototyped interaction for our Lab1b sound effects function. The device is used as a stage prop controller that triggers different sound effects in real time during a performance. In the video, six distinct sounds — thunder, laughter, eating, drum, explosion, and applause — are assigned to buttons on the controller. When pressed, the corresponding sound is immediately played on the stage prop device (a smartphone).
+These effects are applied to dramatize key moments of a theatrical performance: thunder emphasizes tension in a storm scene, laughter highlights irony in dialogue, eating underscores the banquet setting, drums enhance dramatic build-ups, explosions mark climactic action, and applause provides closure to a scene. By integrating these sound effects into stage action, the prototype showcases how interactive technology can enrich the audience’s sensory experience and amplify the emotional impact of live theatre.
+
+
+- Sound Effects--Assassination scene
+
+[![Sound Effects](https://img.youtube.com/vi/xM0MV5j1-60?si=PocSgRw18hESC5kb/0.jpg)](https://youtu.be/xM0MV5j1-60?si=PocSgRw18hESC5kb)
+
+- Just For Fun--a sumptuous party Scene
+  
+[![For Fun](https://img.youtube.com/vi/G2aA-YXLc8Y?si=kg5IEFqaYFNeC0AA/0.jpg)](https://youtu.be/G2aA-YXLc8Y?si=kg5IEFqaYFNeC0AA)
 
 
 ---
