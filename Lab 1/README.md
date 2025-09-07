@@ -231,7 +231,25 @@ This describes the second week's work for this lab activity.
 
 You will be assigned three partners from other groups. Go to their github pages, view their videos, and provide them with reactions, suggestions & feedback: explain to them what you saw happening in their video. Guess the scene and the goals of the character. Ask them about anything that wasn’t clear. 
 
-\*\***Summarize feedback from your partners here.**\*\*
+## 🤝 Peer Feedback Summary  
+
+After reviewing the videos from three partner groups, I received the following feedback on my project:  
+
+- **Clarity & Storytelling**  
+  Partners noted that the **color changes effects** successfully conveyed emotional shifts on stage. They could clearly guess the intended scene transitions, such as celebration, conflict, or suspense.  
+
+
+- **Areas of Confusion**  
+  Some peers mentioned that they don't understanding why the sword glowed and what purpose it had. We explained to them that we aim to use our product to ehance the stage perform. So is cruical to use strong lighting effect to express different motions and plots.
+
+- **Suggestions for Improvement**  
+  - Add more variety in sound effects to match different dramatic beats.  
+  - Provide clearer cues in the video about when the controller is triggering actions versus when the lights are reacting.  
+  - Consider demonstrating the system in a **full stage rehearsal** to show how it integrates with live acting.  
+
+Overall, partners understood the goals of enhancing stage performance with multisensory effects and encouraged further exploration of vibration or motion-based interactions in future iterations.  
+
+
 
 ## Make it your own
 
