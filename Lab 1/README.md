@@ -282,7 +282,7 @@ The storyboard illustrates how the prop projects colored lights onto stage objec
 
 <img src="Storyboards%202.jpg" alt="Storyboards 2" width="400"/>  
 
-<img src="storyboard%203.png" alt="Storyboards 3" width="400"/>  
+<img src="storyboard3.png" alt="Storyboards 3" width="400"/>  
 
 ## Part B. Act out the Interaction
 
