@@ -280,6 +280,23 @@ In Storyboards 1–3, the fruit plate is shown under different lighting: neutral
 In Storyboards 4–6, the pumpkin is lit with neutral, dark, and warm orange light. The changes highlight different atmospheres, from calm to eerie to intense.
 The storyboard illustrates how the prop projects colored lights onto stage objects, enhancing dramatic storytelling through visual emphasis. 
 
-<img src="Storyboards%202.jpg" alt="Storyboards 2" width="300"/>  
+<img src="Storyboards%202.jpg" alt="Storyboards 2" width="400"/>  
+
+<img src="storyboard%203.png" alt="Storyboards 3" width="400"/>  
+
+## Part B. Act out the Interaction
+
+Try physically acting out the interaction you planned. For now, you can just pretend the device is doing the things you’ve scripted for it. 
+
+\*\***Are there things that seemed better on paper than acted out?**\*\*
+
+Yes — on paper the assassination scene looked very dramatic, but when we acted it out in pantomime it felt harder to show tension clearly. In our storyboard, we used 2D comic-style expressions and added thought bubbles to convey the characters’ emotions. When we actually start shooting, what we need to present is a 3D scene. We might have to deal with lacking the depiction of the characters' expressions and postures to enrich this 3D performance. We need to make comprehensive preparations covering various aspects, such as changes in lighting, the portrayal of character states, and if possible, using simple props to enable the audience to understand the complete storyline.
+
+\*\***Are there new ideas that occur to you or your collaborator that come up from the acting?**\*\*
+
+Yes - We came up with using poker cards to represent each character. The lighting can help the audience understand the atmosphere of the story's progression. We also decided to add background music to help drive the plot forward. To avoid overshadowing the main content, we wanted to highlight the significance of lighting in the performance. For this reason, we chose not to include voiceovers in the video. Instead, we used black-and-white subtitles, allowing the audience to immerse themselves in the story while clearly following its development.
+
+
+
 
 
