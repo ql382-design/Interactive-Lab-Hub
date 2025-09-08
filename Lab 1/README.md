@@ -343,7 +343,6 @@ Absolutely. While rehearsing, we realized that sound effects could be layered mo
 **New features based on Tinkerbelle.**
 
 
-# ✨ Interactive Controller Features
 
 This project enhances the basic control system with **three key effects**:  
 
