@@ -193,7 +193,7 @@ Pro Tip: Using tools like [code-server](https://coder.com/docs/code-server/lates
 
 ## River of Memories Clock
 
-![River of Memories](assets/River%20of%20Memories.png)
+![River of Memories](River%20of%20Memories.png)
 
 **Idea:**  
 Time flows like a river.  
