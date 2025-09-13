@@ -1,5 +1,5 @@
 # Interactive Prototyping: The Clock of Pi
-**NAMES OF COLLABORATORS HERE**
+**Hester Li**
 
 Does it feel like time is moving strangely during this semester?
 
@@ -191,6 +191,20 @@ Pro Tip: Using tools like [code-server](https://coder.com/docs/code-server/lates
 ## Part G. 
 ## Sketch and brainstorm further interactions and features you would like for your clock for Part 2.
 
+## River of Memories Clock
+
+![River of Memories](assets/River%20of%20Memories.png)
+
+**Idea:**  
+Time flows like a river.  
+- Each moment = a glowing droplet drifting downstream  
+- Important memories = colorful sparks on the water  
+- Buttons = interact with time  
+  * A → speed up flow  
+  * B → reverse stream  
+  * C → freeze moment  
+
+This design rejects linear clock faces, showing time as an experiential flow instead.
 
 # Prep for Part 2
 
