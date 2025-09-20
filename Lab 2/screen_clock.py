@@ -64,6 +64,16 @@ while True:
     draw.rectangle((0, 0, width, height), outline=0, fill=(0, 0, 0))
     current_time = time.strftime("%H:%M:%S")
     draw.text((10, height // 2), current_time, font=font, fill=(255, 255, 255))
+
+    # Draw a black filled box to clear the image.
+    draw.rectangle((0, 0, width, height), outline=0, fill=(0, 0, 0))
+
+    #TODO: Lab 2 part D work should be filled in here. You should be able to look in cli_clock.py and stats.py 
+    current_time = time.strftime("%H:%M:%S")
+    draw.text((10, height // 2), current_time, font=font, fill=(255, 255, 255))
+ 
+    # Display image.
+ 7fdebfd (Add river_time.py with VNC + MiniPiTFT button support)
     disp.image(image, rotation)
     time.sleep(1)
 
