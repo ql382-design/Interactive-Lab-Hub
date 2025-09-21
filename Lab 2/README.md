@@ -243,8 +243,7 @@ I initially implemented the river concept based on last week's initial idea, but
 
 
 ### **Final Version- Snow clock**
-
- [my_script.py](./river_time.py)
+[snow_clock.py](./river_time.py)
 
 
 After that I noticed these cursors resembled snowflakes against the blue background, prompting me to make a small adjustment. I changed the horizontally moving cursors into vertically falling snowflakes, with each flake representing one second. Pressing and holding the top button makes the snowflake reverse its flow back toward the sky; releasing it allows the snowflake to fall normally. The bottom button can pause the snowflake mid-air; pressing it again resumes its descent. Pressing both buttons simultaneously signifies a crucial second in life, causing the snowflake to transform into a randomly colored one. We can interact with both VNC Keyboard Control and physically with MiniPiTFT buttons.
