@@ -231,6 +231,37 @@ Please sketch/diagram your clock idea. (Try using a [Verplank digram](http://www
 
 \*\*\***Take a video of your PiClock.**\*\*\*
 
+
+I initially implemented the river concept based on last week's initial idea, but found that generating a cursor effect every minute didn't work well—it failed to create the fluid movement I envisioned. So I switched to generating a cursor every second. This was the initial test result. 
+
+### **First Version- River clock**
+
+
+[![Watch the video](https://img.youtube.com/vi/Hd1qTtRE3yQ/maxresdefault.jpg)](https://youtu.be/Hd1qTtRE3yQ)
+
+
+
+
+### **Final Version- Snow clock**
+
+After that I noticed these cursors resembled snowflakes against the blue background, prompting me to make a small adjustment. I changed the horizontally moving cursors into vertically falling snowflakes, with each flake representing one second. Pressing and holding the top button makes the snowflake reverse its flow back toward the sky; releasing it allows the snowflake to fall normally. The bottom button can pause the snowflake mid-air; pressing it again resumes its descent. Pressing both buttons simultaneously signifies a crucial second in life, causing the snowflake to transform into a randomly colored one. We can interact with both VNC Keyboard Control and physically with MiniPiTFT buttons.
+
+- **VNC Keyboard Control**
+
+[![Video 1](https://img.youtube.com/vi/v-edsQKnJTc/maxresdefault.jpg)](https://youtu.be/v-edsQKnJTc)
+
+
+- **MiniPiTFT buttons**
+
+
+[![Video 2](https://img.youtube.com/vi/-_DrzJDt40Q/maxresdefault.jpg)](https://youtu.be/-_DrzJDt40Q)
+
+
+
+
+My project reimagines the passage of time by transforming each second into a falling snowflake. Instead of treating time as an abstract, linear count, the interaction makes it tangible, emotional, and personal.The experience is not just visual but also reflective. Watching the snow accumulate encourages mindfulness, while interacting with the controls invites users to consider how time can feel fluid, interruptible, or deeply significant. In this way, I would say my product serves as both an artistic exploration of time and a tool for self-awareness, reminding us that every second—ordinary or extraordinary—carries value. I also want to encourage users to value time more consciously so i hope the snow clock can offers a way for people to “capture” their precious moments, reminding us to cherish every second rather than let it slip away unnoticed.
+
+---
 After you edit and work on the scripts for Lab 2, the files should be upload back to your own GitHub repo! You can push to your personal github repo by adding the files here, commiting and pushing.
 
 ```
