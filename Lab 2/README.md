@@ -206,12 +206,8 @@ Time flows like a river.
 
 This design rejects linear clock faces, showing time as an experiential flow instead.
 
-# Prep for Part 2
 
-1. Pick up remaining parts for kit on Thursday lab class. Check the updated [parts list inventory](partslist.md) and let the TA know if there is any part missing.
-  
-
-2. Look at and give feedback on the Part G. for at least 2 other people in the class (and get 2 people to comment on your Part G!)
+---
 
 # Lab 2 Part 2
 
