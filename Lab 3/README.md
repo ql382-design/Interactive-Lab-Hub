@@ -291,7 +291,7 @@ answer = ask_ai("How should I greet users?")
 \*\***Try creating a simple voice interaction that combines speech recognition, Ollama processing, and text-to-speech output. Document what you built and how users responded to it.**\*\*
 
 
-[here is the code](./ollama/voice_loop.py)
+**[here is the code voice_loop.py](./ollama/voice_loop.py)**
 
 ### What I Built
 I created a **voice assistant system** on the Raspberry Pi that integrates:
@@ -316,6 +316,15 @@ The system recognized spoken questions quickly, but generating answers took long
 <a href="https://youtube.com/shorts/VMBLrYsMnXI?si=cO7h-tI8ODJqN5Ft">
   <img src="https://img.youtube.com/vi/VMBLrYsMnXI/0.jpg" width="300">
 </a>
+
+### 🔎 Reflection & Improvements
+Through this part, I found that the system worked reliably for **short, simple questions**, but struggled with **longer or more complex queries**. Whisper was fast at capturing speech, yet sensitive to noise and required **slow, clear articulation** from the user. Response generation with Ollama sometimes took up to **15 seconds**, which made the interaction feel less natural.  
+
+For improvement, I plan to:  
+- Experiment with **larger Whisper models** (e.g., base or small) for better accuracy.  
+- Replace `espeak` with **Piper** for more natural speech output.  
+- Try to see if i can impelement **conversation history** so Ollama can provide more contextual answers.  
+- Optimize system settings (such as beam search or quantization) to reduce latency.  
 
 
 
@@ -411,6 +420,7 @@ Answer the following:
 ### How could you use your system to create a dataset of interaction? What other sensing modalities would make sense to capture?
 
 \*\**your answer here*\*\*
+
 
 
 
