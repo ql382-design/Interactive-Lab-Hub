@@ -151,6 +151,69 @@ python faster_whisper_try.py
 ```
 \*\***Write your own shell file that verbally asks for a numerical based input (such as a phone number, zipcode, number of pets, etc) and records the answer the respondent provides.**\*\*
 
+**here are my two files:**
+
+[VOSK](./speech-scripts/ask_number.sh)
+
+[Whisper](./speech-scripts/ask_number_whisper.sh)
+
+here is the output for VOSK:
+
+`(.venv) pi@pi-hester:~/Interactive-Lab-Hub/Lab 3/speech-scripts $ ./ask_number.sh
+Playing WAVE 'prompt.wav' : Signed 16 bit Little Endian, Rate 22050 Hz, Mono
+Recording WAVE 'answer.wav' : Signed 16 bit Little Endian, Rate 16000 Hz, Mono
+LOG (VoskAPI:ReadDataFiles():model.cc:213) Decoding params beam=10 max-active=3000 lattice-beam=2
+LOG (VoskAPI:ReadDataFiles():model.cc:216) Silence phones 1:2:3:4:5:6:7:8:9:10
+LOG (VoskAPI:RemoveOrphanNodes():nnet-nnet.cc:948) Removed 0 orphan nodes.
+LOG (VoskAPI:RemoveOrphanComponents():nnet-nnet.cc:847) Removing 0 orphan components.
+LOG (VoskAPI:ReadDataFiles():model.cc:248) Loading i-vector extractor from /home/pi/.cache/vosk/vosk-model-small-en-us-0.15/ivector/final.ie
+LOG (VoskAPI:ComputeDerivedVars():ivector-extractor.cc:183) Computing derived variables for iVector extractor
+LOG (VoskAPI:ComputeDerivedVars():ivector-extractor.cc:204) Done.
+LOG (VoskAPI:ReadDataFiles():model.cc:282) Loading HCL and G from /home/pi/.cache/vosk/vosk-model-small-en-us-0.15/graph/HCLr.fst /home/pi/.cache/vosk/vosk-model-small-en-us-0.15/graph/Gr.fst
+LOG (VoskAPI:ReadDataFiles():model.cc:308) Loading winfo /home/pi/.cache/vosk/vosk-model-small-en-us-0.15/graph/phones/word_boundary.int
+INFO:root:Recognizing answer.wav
+INFO:root:{'partial': 'one'}
+INFO:root:{'partial': 'one'}
+INFO:root:{'partial': 'one'}
+INFO:root:{'partial': 'one'}
+INFO:root:{'partial': 'one zero'}
+INFO:root:{'partial': 'one zero'}
+INFO:root:{'partial': 'one zero zero'}
+INFO:root:{'partial': 'one zero zero'}
+INFO:root:{'partial': 'one zero zero'}
+INFO:root:{'partial': 'one zero zero'}
+INFO:root:{'partial': 'one zero zero five'}
+INFO:root:{'partial': 'one zero zero five'}
+INFO:root:{'partial': 'one zero zero'}
+INFO:root:{'partial': 'one zero zero'}
+INFO:root:{'partial': 'one zero zero'}
+INFO:root:{'partial': 'one zero zero'}
+INFO:root:{'partial': 'one zero zero for'}
+INFO:root:{'partial': 'one zero zero for'}
+INFO:root:{'partial': 'one zero zero for'}
+INFO:root:{'partial': 'one zero zero for'}
+INFO:root:{'partial': 'one zero zero for for'}
+INFO:root:{'partial': 'one zero zero for for'}
+INFO:root:{'partial': 'one zero zero for for'}
+INFO:root:{'partial': 'one zero zero for for'}
+INFO:root:{'partial': 'one zero zero for for'}
+INFO:root:{'result': [{'conf': 1.0, 'end': 0.6, 'start': 0.09, 'word': 'one'}, {'conf': 1.0, 'end': 1.2, 'start': 0.66, 'word': 'zero'}, {'conf': 1.0, 'end': 1.8, 'start': 1.2, 'word': 'zero'}, {'conf': 0.563652, 'end': 2.34, 'start': 1.8, 'word': 'four'}, {'conf': 0.529306, 'end': 2.97, 'start': 2.34, 'word': 'four'}], 'text': 'one zero zero four four'}
+INFO:root:File result.txt processing complete
+INFO:root:Execution time: 1.141 sec; xRT 0.228
+You said:
+one zero zero four four`
+
+Here is the output for Whisper:
+
+`(.venv) pi@pi-hester:~/Interactive-Lab-Hub/Lab 3/speech-scripts $ ./ask_number_whisper.sh
+Playing WAVE 'prompt.wav' : Signed 16 bit Little Endian, Rate 22050 Hz, Mono
+Recording WAVE 'answer.wav' : Signed 16 bit Little Endian, Rate 16000 Hz, Mono
+Transcribing: answer.wav
+[0.00s -> 2.00s]  1-0-0-4-4
+Program executed in 3.414687 seconds`
+
+
+
 ### 🤖 NEW: AI-Powered Conversations with Ollama
 
 Want to add intelligent conversation capabilities to your voice projects? **Ollama** lets you run AI models locally on your Raspberry Pi for sophisticated dialogue without requiring internet connectivity!
@@ -310,6 +373,7 @@ Answer the following:
 ### How could you use your system to create a dataset of interaction? What other sensing modalities would make sense to capture?
 
 \*\**your answer here*\*\*
+
 
 
 
