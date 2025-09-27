@@ -286,6 +286,9 @@ def ask_ai(question):
 answer = ask_ai("How should I greet users?")
 ```
 
+![quick_start](quick_start.png)
+
+
 **📖 Complete Setup Guide**: See `OLLAMA_SETUP.md` for detailed instructions, troubleshooting, and advanced usage!
 
 \*\***Try creating a simple voice interaction that combines speech recognition, Ollama processing, and text-to-speech output. Document what you built and how users responded to it.**\*\*
@@ -311,11 +314,16 @@ The system recognized spoken questions quickly, but generating answers took long
   <img src="https://img.youtube.com/vi/jhnWe78scmc/0.jpg" width="300">
 </a>
 
+![easy](easy.png)
+
+
 **demo video w/ wrong speech recognition**
 
 <a href="https://youtube.com/shorts/VMBLrYsMnXI?si=cO7h-tI8ODJqN5Ft">
   <img src="https://img.youtube.com/vi/VMBLrYsMnXI/0.jpg" width="300">
 </a>
+
+![hard](hard.png)
 
 ### 🔎 Reflection & Improvements
 Through this part, I found that the system worked reliably for **short, simple questions**, but struggled with **longer or more complex queries**. Whisper was fast at capturing speech, yet sensitive to noise and required **slow, clear articulation** from the user. Response generation with Ollama sometimes took up to **15 seconds**, which made the interaction feel less natural.  
@@ -345,6 +353,9 @@ pi@ixe00:~/Interactive-Lab-Hub/Lab 3 $ python server.py
  * Debugger PIN: 162-573-883
 ```
 From a remote browser on the same network, check to make sure your webserver is working by going to `http://<YourPiIPAddress>:5000`. You should be able to see "Hello World" on the webpage.
+
+![test](test.png)
+
 
 ### Storyboard
 
@@ -420,6 +431,7 @@ Answer the following:
 ### How could you use your system to create a dataset of interaction? What other sensing modalities would make sense to capture?
 
 \*\**your answer here*\*\*
+
 
 
 
