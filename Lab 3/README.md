@@ -367,9 +367,29 @@ Write out what you imagine the dialogue to be. Use cards, post-its, or whatever 
 
 \*\***Please describe and document your process.**\*\*
 
+### Process
+I started by brainstorming the idea of an **AI Roast Buddy** — a device that argues back with witty, sarcastic lines. The design goal was to give users a safe and funny outlet to vent frustration while ending up laughing. In daily life, stress can build up, and people need different ways to release it. Sometimes you feel lonely, with no one around to even argue with. Other times, you might want to argue but worry that it could escalate into a real fight and damage relationships. The Roast Buddy provides a playful alternative: it lets you argue without consequences, knowing the "fight" will always stay humorous.  
+
+I created a storyboard to map out the interaction flow (user insult → AI roast → user reaction), and then wrote out dialogue options to explore different tones of humor and sarcasm. Finally, I acted as the AI while my partner acted as the user, so that the responses could feel more spontaneous and natural.
+
+
 ### Acting out the dialogue
 
 Find a partner, and *without sharing the script with your partner* try out the dialogue you've designed, where you (as the device designer) act as the device you are designing.  Please record this interaction (for example, using Zoom's record feature).
+
+<a href="https://youtu.be/r7PUSGjZxzU?si=0WK0TBZNLb5Ew3kc">
+  <img src="https://img.youtube.com/vi/r7PUSGjZxzU/0.jpg" width="320" alt="Demo Video Thumbnail">
+</a>
+
+
+### Reflection
+
+I invited my boyfriend to act out the scenario with me over Zoom. Initially, I assumed that with a little provocation and playful arguments he would get upset, but the result was quite different. Instead of reacting angrily, he seemed more confused and resigned. I even asked him to show some irritation to simulate a real “argument,” but because he wasn’t actually stressed or needing to vent, his responses stayed mild.
+
+Meanwhile, I played the AI and deliberately gave humorous, sarcastic replies. This threw him off a bit, because he didn’t expect the machine-like “roasts” to be so playful. Afterward, I interviewed him about the experience. He said he never felt truly offended; all of my AI-style replies stayed in a “safe zone.” He also noted that if he were actually annoyed or stressed, he could imagine using this type of system to “trade roasts” with for a while and feel relieved.
+
+This acting-out session showed me that **the Roast Buddy works best when the user genuinely wants to release tension**. Without that emotional context, the interaction feels more like a game or improv practice. But with the right mood, it could be a surprisingly effective and safe outlet for frustration.
+
 
 \*\***Describe if the dialogue seemed different than what you imagined when it was acted out, and how.**\*\*
 
@@ -431,6 +451,7 @@ Answer the following:
 ### How could you use your system to create a dataset of interaction? What other sensing modalities would make sense to capture?
 
 \*\**your answer here*\*\*
+
 
 
 
