@@ -219,7 +219,8 @@ Program executed in 3.414687 seconds`
 <sub>Click the thumbnail to watch Video 2</sub>
 
 
-In my test with the input 10044, Vosk produced the output “one zero zero four four”, while Whisper generated “1-0-0-4-4.” Both systems captured the numbers accurately, but their formatting differed: Vosk expressed the digits as words, whereas Whisper returned them as separated digits. In terms of speed, Vosk completed the transcription in about 1.14 seconds, faster than Whisper’s 3.41 seconds. Overall, both models were correct in recognition, with Whisper offering clearer digit-based formatting and Vosk providing faster response time.
+
+**In my test with the input 10044, Vosk produced the output “one zero zero four four”, while Whisper generated “1-0-0-4-4.” Both systems captured the numbers accurately, but their formatting differed: Vosk expressed the digits as words, whereas Whisper returned them as separated digits. In terms of speed, Vosk completed the transcription in about 1.14 seconds, faster than Whisper’s 3.41 seconds. Overall, both models were correct in recognition, with Whisper offering clearer digit-based formatting and Vosk providing faster response time.**
 
 
 ### 🤖 NEW: AI-Powered Conversations with Ollama
@@ -288,6 +289,35 @@ answer = ask_ai("How should I greet users?")
 **📖 Complete Setup Guide**: See `OLLAMA_SETUP.md` for detailed instructions, troubleshooting, and advanced usage!
 
 \*\***Try creating a simple voice interaction that combines speech recognition, Ollama processing, and text-to-speech output. Document what you built and how users responded to it.**\*\*
+
+
+[here is the code](./ollama/voice_loop.py)
+
+### What I Built
+I created a **voice assistant system** on the Raspberry Pi that integrates:
+- **Speech Recognition**: Whisper (`tiny` int8, CPU) transcribes microphone input.
+- **AI Processing**: The transcription is sent to the Ollama server running the `phi3:mini` model, which generates a natural-language response.
+- **Text-to-Speech**: The reply is spoken back using `espeak`.
+
+This creates a full offline loop: **User speaks → Whisper transcribes → Ollama replies → Pi speaks response**.
+
+### Observations
+The system recognized spoken questions quickly, but generating answers took longer (around **15 seconds per response**). Whisper was sensitive to background noise and required the user to speak slowly and clearly each time. For simple questions like *“What’s your name?”* or *“How was your day?”*, the responses were complete and accurate. However, when I asked more complex questions such as *“Who is your favorite author?”*, my speech was misrecognized as Japanese, and the system produced a reply in Japanese instead.
+
+**demo video w/ right speech recognition**
+
+
+<a href="https://youtube.com/shorts/jhnWe78scmc?si=1ceeXrooXAq-nxEq">
+  <img src="https://img.youtube.com/vi/jhnWe78scmc/0.jpg" width="300">
+</a>
+
+**demo video w/ wrong speech recognition**
+
+<a href="https://youtube.com/shorts/VMBLrYsMnXI?si=cO7h-tI8ODJqN5Ft">
+  <img src="https://img.youtube.com/vi/VMBLrYsMnXI/0.jpg" width="300">
+</a>
+
+
 
 ### Serving Pages
 
@@ -381,6 +411,7 @@ Answer the following:
 ### How could you use your system to create a dataset of interaction? What other sensing modalities would make sense to capture?
 
 \*\**your answer here*\*\*
+
 
 
 
