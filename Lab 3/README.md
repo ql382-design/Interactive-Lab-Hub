@@ -203,6 +203,8 @@ INFO:root:Execution time: 1.141 sec; xRT 0.228
 You said:
 one zero zero four four`
 
+<iframe width="320" height="240" src="https://www.youtube.com/embed/ncNVlyOkUmU" frameborder="0" allowfullscreen></iframe>
+
 Here is the output for Whisper:
 
 `(.venv) pi@pi-hester:~/Interactive-Lab-Hub/Lab 3/speech-scripts $ ./ask_number_whisper.sh
@@ -212,6 +214,10 @@ Transcribing: answer.wav
 [0.00s -> 2.00s]  1-0-0-4-4
 Program executed in 3.414687 seconds`
 
+<iframe width="320" height="240" src="https://www.youtube.com/embed/ZUgXjk2XSH8" frameborder="0" allowfullscreen></iframe>
+
+
+In my test with the input 10044, Vosk produced the output “one zero zero four four”, while Whisper generated “1-0-0-4-4.” Both systems captured the numbers accurately, but their formatting differed: Vosk expressed the digits as words, whereas Whisper returned them as separated digits. In terms of speed, Vosk completed the transcription in about 1.14 seconds, faster than Whisper’s 3.41 seconds. Overall, both models were correct in recognition, with Whisper offering clearer digit-based formatting and Vosk providing faster response time.
 
 
 ### 🤖 NEW: AI-Powered Conversations with Ollama
@@ -373,6 +379,7 @@ Answer the following:
 ### How could you use your system to create a dataset of interaction? What other sensing modalities would make sense to capture?
 
 \*\**your answer here*\*\*
+
 
 
 
