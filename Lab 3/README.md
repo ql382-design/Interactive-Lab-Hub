@@ -407,13 +407,29 @@ In the [demo directory](./demo), you will find an example Wizard of Oz project. 
 
 # Lab 3 Part 2
 
-For Part 2, you will redesign the interaction with the speech-enabled device using the data collected, as well as feedback from part 1.
+Feedback:
+
+- You identified real emotional scenarios that make the product relatable.
+- The use of sarcasm and wit helps create a distinct personality for the device, making it more engaging.
+- Define whether the device is meant for short entertainment sessions or deeper emotional coping — right now, it sits in between.
+- Be mindful of users who are emotionally sensitive — ensure the AI never crosses into hurtful or triggering content
+- Could the AI adapt over time based on user reactions (e.g., detecting laughter or silence to calibrate tone)?
+
 
 ## Prep for Part 2
 
 1. What are concrete things that could use improvement in the design of your device? For example: wording, timing, anticipation of misunderstandings...
+   
+- One concrete improvement would be refining the tone and timing of the AI’s responses — some roasts might feel too harsh or too delayed, breaking the humorous rhythm. I could also make the humor adjustable, allowing users to choose between “gentle,” “sarcastic,” or “savage” modes to better match their comfort level.
+   
 2. What are other modes of interaction _beyond speech_ that you might also use to clarify how to interact?
+   
+- Beyond speech, the device could use facial expressions, lights, or haptic feedback to signal tone or emotion — for example, flashing playful lights when delivering a roast or glowing softly when sensing the user’s frustration.
+- 
 3. Make a new storyboard, diagram and/or script based on these reflections.
+
+
+
 
 ## Prototype your system
 
@@ -458,6 +474,7 @@ Answer the following:
 ### How could you use your system to create a dataset of interaction? What other sensing modalities would make sense to capture?
 
 \*\**your answer here*\*\*
+
 
 
 
