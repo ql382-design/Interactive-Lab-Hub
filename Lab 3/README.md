@@ -2,7 +2,7 @@
 Hester Li
 
 <details>
-  <summary><strong>Submission Cleanup Reminder (Click to Expand)</strong></summary>
+  <summary><strong>(Click to Expand)</strong></summary>
   
 [![Watch the video](https://user-images.githubusercontent.com/1128669/135009222-111fe522-e6ba-46ad-b6dc-d1633d21129c.png)](https://www.youtube.com/embed/Q8FWzLMobx0?start=19)
 
@@ -33,7 +33,8 @@ pi@ixe00:~/Interactive-Lab-Hub $ git push
 ```
 
 Option 2: On your your own GitHub repo, [create pull request](https://github.com/FAR-Lab/Developing-and-Designing-Interactive-Devices/blob/2022Fall/readings/Submitting%20Labs.md) to get updates from the class Interactive-Lab-Hub. After you have latest updates online, go on your Pi, `cd` to your `Interactive-Lab-Hub` and use `git pull` to get updates from your own GitHub repo.
-<details>
+
+</details>
   
 ## Part 1.
 
@@ -486,6 +487,7 @@ Answer the following:
 ### How could you use your system to create a dataset of interaction? What other sensing modalities would make sense to capture?
 
 \*\**your answer here*\*\*
+
 
 
 
