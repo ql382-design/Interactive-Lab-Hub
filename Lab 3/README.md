@@ -38,8 +38,7 @@ Option 2: On your your own GitHub repo, [create pull request](https://github.com
   
 ## Part 1.
 
-<details>
-  <summary><strong>Submission Cleanup Reminder (Click to Expand)</strong></summary>
+
   
 ### Setup 
 
@@ -83,7 +82,7 @@ You can test the commands by running
 ```
 echo "Just what do you think you're doing, Dave?" | festival --tts
 ```
-<details>
+
   
 Now, you might wonder what exactly is a `.sh` file? 
 Typically, a `.sh` file is a shell script which you can execute in a terminal. The example files we offer here are for you to figure out the ways to play with audio on your Pi!
@@ -487,6 +486,7 @@ Answer the following:
 ### How could you use your system to create a dataset of interaction? What other sensing modalities would make sense to capture?
 
 \*\**your answer here*\*\*
+
 
 
 
