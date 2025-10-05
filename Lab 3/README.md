@@ -256,6 +256,9 @@ Program executed in 3.414687 seconds`
 
 Want to add intelligent conversation capabilities to your voice projects? **Ollama** lets you run AI models locally on your Raspberry Pi for sophisticated dialogue without requiring internet connectivity!
 
+<details>
+  <summary><strong>(Click to Expand)</strong></summary>
+  
 #### Quick Start with Ollama
 
 **Installation** (takes ~5 minutes):
@@ -314,7 +317,8 @@ def ask_ai(question):
 # Use it anywhere!
 answer = ask_ai("How should I greet users?")
 ```
-
+<\ details>
+  
 ![quick_start](quick_start.png)
 
 
@@ -503,6 +507,7 @@ Answer the following:
 ### How could you use your system to create a dataset of interaction? What other sensing modalities would make sense to capture?
 
 \*\**your answer here*\*\*
+
 
 
 
