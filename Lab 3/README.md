@@ -1,6 +1,9 @@
 # Chatterboxes
 Hester Li
 
+<details>
+  <summary><strong>Submission Cleanup Reminder (Click to Expand)</strong></summary>
+  
 [![Watch the video](https://user-images.githubusercontent.com/1128669/135009222-111fe522-e6ba-46ad-b6dc-d1633d21129c.png)](https://www.youtube.com/embed/Q8FWzLMobx0?start=19)
 
 In this lab, we want you to design interaction with a speech-enabled device--something that listens and talks to you. This device can do anything *but* control lights (since we already did that in Lab 1).  First, we want you first to storyboard what you imagine the conversational interaction to be like. Then, you will use wizarding techniques to elicit examples of what people might say, ask, or respond.  We then want you to use the examples collected from at least two other people to inform the redesign of the device.
@@ -30,8 +33,13 @@ pi@ixe00:~/Interactive-Lab-Hub $ git push
 ```
 
 Option 2: On your your own GitHub repo, [create pull request](https://github.com/FAR-Lab/Developing-and-Designing-Interactive-Devices/blob/2022Fall/readings/Submitting%20Labs.md) to get updates from the class Interactive-Lab-Hub. After you have latest updates online, go on your Pi, `cd` to your `Interactive-Lab-Hub` and use `git pull` to get updates from your own GitHub repo.
-
+<details>
+  
 ## Part 1.
+
+<details>
+  <summary><strong>Submission Cleanup Reminder (Click to Expand)</strong></summary>
+  
 ### Setup 
 
 Activate your virtual environment
@@ -74,7 +82,8 @@ You can test the commands by running
 ```
 echo "Just what do you think you're doing, Dave?" | festival --tts
 ```
-
+<details>
+  
 Now, you might wonder what exactly is a `.sh` file? 
 Typically, a `.sh` file is a shell script which you can execute in a terminal. The example files we offer here are for you to figure out the ways to play with audio on your Pi!
 
@@ -109,6 +118,9 @@ echo 'This sentence is spoken first. This sentence is synthesized while the firs
   
 ### Speech to Text
 
+<details>
+  <summary><strong>Submission Cleanup Reminder (Click to Expand)</strong></summary>
+  
 Next setup speech to text. We are using a speech recognition engine, [Vosk](https://alphacephei.com/vosk/), which is made by researchers at Carnegie Mellon University. Vosk is amazing because it is an offline speech recognition engine; that is, all the processing for the speech recognition is happening onboard the Raspberry Pi. 
 
 Make sure you're running in your virtual environment with the dependencies already installed:
@@ -126,7 +138,7 @@ You can use vosk with the microphone by running
 ```
 python test_microphone.py -m en
 ```
-
+<details>
 ---
 Bonus:
 [Whisper](https://openai.com/index/whisper/) is a neural network–based speech-to-text (STT) model developed and open-sourced by OpenAI. Compared to Vosk, Whisper generally achieves higher accuracy, particularly on noisy audio and diverse accents. It is available in multiple model sizes; for edge devices such as the Raspberry Pi 5 used in this class, the tiny.en model runs with reasonable latency even without a GPU.
@@ -425,7 +437,7 @@ Feedback:
 2. What are other modes of interaction _beyond speech_ that you might also use to clarify how to interact?
    
 - Beyond speech, the device could use facial expressions, lights, or haptic feedback to signal tone or emotion — for example, flashing playful lights when delivering a roast or glowing softly when sensing the user’s frustration.
-- 
+
 3. Make a new storyboard, diagram and/or script based on these reflections.
 
 
@@ -474,6 +486,7 @@ Answer the following:
 ### How could you use your system to create a dataset of interaction? What other sensing modalities would make sense to capture?
 
 \*\**your answer here*\*\*
+
 
 
 
