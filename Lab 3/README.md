@@ -142,7 +142,7 @@ You can use vosk with the microphone by running
 ```
 python test_microphone.py -m en
 ```
-<details>
+</details>
 ---
 Bonus:
 [Whisper](https://openai.com/index/whisper/) is a neural network–based speech-to-text (STT) model developed and open-sourced by OpenAI. Compared to Vosk, Whisper generally achieves higher accuracy, particularly on noisy audio and diverse accents. It is available in multiple model sizes; for edge devices such as the Raspberry Pi 5 used in this class, the tiny.en model runs with reasonable latency even without a GPU.
@@ -468,6 +468,7 @@ The system should:
   - Your final submission should be neat, focused on your own work, and easy to read for grading.
   
   This helps ensure your README.md is clear professional and uniquely yours!
+  
 </details>
 
 ## Test the system
@@ -490,6 +491,7 @@ Answer the following:
 ### How could you use your system to create a dataset of interaction? What other sensing modalities would make sense to capture?
 
 \*\**your answer here*\*\*
+
 
 
 
