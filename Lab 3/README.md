@@ -100,6 +100,8 @@ You can also play audio files directly with `aplay filename`. Try typing `aplay 
 
 [Run greet_me.sh](./speech-scripts/greet_me.sh)
 
+<details>
+  <summary><strong>(Bonus)</strong></summary> 
 ---
 Bonus:
 [Piper](https://github.com/rhasspy/piper) is another fast neural based text to speech package for raspberry pi which can be installed easily through python with:
@@ -119,7 +121,8 @@ echo 'This sentence is spoken first. This sentence is synthesized while the firs
   piper --model en_US-lessac-medium --output-raw | \
   aplay -r 22050 -f S16_LE -t raw -
 ```
-  
+</details>
+
 ### Speech to Text
 
 <details>
@@ -498,6 +501,7 @@ Answer the following:
 ### How could you use your system to create a dataset of interaction? What other sensing modalities would make sense to capture?
 
 \*\**your answer here*\*\*
+
 
 
 
