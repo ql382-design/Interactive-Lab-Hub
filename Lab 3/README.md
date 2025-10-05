@@ -461,8 +461,10 @@ Feedback:
 
 3. Make a new storyboard, diagram and/or script based on these reflections.
 
+![new](new.png)
 
 
+---
 
 ## Prototype your system
 
@@ -473,20 +475,68 @@ The system should:
 
 *Document how the system works*
 
+### ⚙️Final System Workflow
+
+1. **Gesture Activation (Sensor Input)**  
+   - The APDS9960 proximity & gesture sensor continuously monitors for hand movement.  
+   - When a **wave gesture** (left/right) is detected, it triggers the device to start a new conversation round.  
+   - This replaces manual button pressing or terminal input.
+
+2. **Speech Capture and Recognition (Vosk Engine)**  
+   - Once activated, the Raspberry Pi starts listening for a short audio clip (default 5 seconds).  
+   - The **Vosk offline model** converts the user’s speech to text — ensuring low-latency and privacy-preserving recognition.
+
+3. **AI Response Generation (Roasting Logic)**  
+   - Based on the recognized text, the system selects a witty or sarcastic response from a predefined list.  
+   - If the user says **“stop,” “enough,” “I’m done,” “shut up,” or “peace”**,  
+     the system instead replies with a friendly message like _“Fine, truce for now.”_ and ends the current conversation loop.
+
+4. **Voice Feedback (TTS Output)**  
+   - The chosen AI response is spoken aloud through the speaker using the **espeak** offline text-to-speech engine.  
+   - Example:  
+     ```
+     User: I’m so smart.  
+     AI: You call that an argument? Try harder.
+     ```
+
+5. **Web Interface (Flask + Socket.IO)**  
+   - A simple web dashboard shows the current conversation in real time.  
+   - Access it by visiting:  
+     👉 `http://<YourPiIP>:5000`  
+   - The interface dynamically updates using Socket.IO:
+     - **User:** what you said  
+     - **AI:** the system’s roast or reply
+
+### 🧩 Hardware Components
+
+| Component | Function |
+|------------|-----------|
+| Raspberry Pi 5 | Main controller |
+| USB Microphone | Captures voice input |
+| Speaker | Outputs AI responses |
+| APDS9960 Gesture Sensor | Detects wave gesture to start conversation |
+| (Optional) PiTFT Display | replaced by web UI |
+
+
 *Include videos or screencaptures of both the system and the controller.*
 
-<details>
-  <summary><strong>Submission Cleanup Reminder (Click to Expand)</strong></summary>
-  
-  **Before submitting your README.md:**
-  - This readme.md file has a lot of extra text for guidance.
-  - Remove all instructional text and example prompts from this file.
-  - You may either delete these sections or use the toggle/hide feature in VS Code to collapse them for a cleaner look.
-  - Your final submission should be neat, focused on your own work, and easy to read for grading.
-  
-  This helps ensure your README.md is clear professional and uniquely yours!
-  
-</details>
+In this updated version of AI Roast Buddy, I integrated a gesture-based interaction system using the APDS9960 proximity and gesture sensor. The system can now detect a hand wave to automatically start a new voice conversation, making the interaction more natural and hands-free.
+
+<a href="https://youtu.be/UjXNzI_m1v8?si=DfnczAHxtdsgPAYn">
+  <img src="https://img.youtube.com/vi/UjXNzI_m1v8/0.jpg" width="300">
+</a>
+
+### 🧪 Interaction Flow Summary
+
+| Step | Action | Feedback |
+|------|---------|----------|
+| 1 | Wave your hand in front of the sensor | “Gesture detected: starting conversation…” |
+| 2 | Speak naturally | Vosk converts speech to text |
+| 3 | AI generates roast | Random witty response chosen |
+| 4 | AI speaks aloud | “Keep talking, I need background noise.” |
+| 5 | Say “stop / peace / enough” | AI replies: “Fine, truce… for now.” |
+
+
 
 ## Test the system
 Try to get at least two people to interact with your system. (Ideally, you would inform them that there is a wizard _after_ the interaction, but we recognize that can be hard.)
@@ -494,20 +544,22 @@ Try to get at least two people to interact with your system. (Ideally, you would
 Answer the following:
 
 ### What worked well about the system and what didn't?
-\*\**your answer here*\*\*
+
+The system worked surprisingly well once the speech recognition started running — it could clearly pick up short phrases and respond instantly with funny roast lines. The integration with the webpage made it easy to visualize the conversation in real time. However, the gesture trigger was sometimes unreliable — the hand wave didn’t always get detected, and users had to wave multiple times to start the interaction.
 
 ### What worked well about the controller and what didn't?
 
-\*\**your answer here*\*\*
+Using the gesture sensor as a “start” controller felt natural and fun, like physically initiating a conversation. It made the experience feel more interactive than just pressing a button. The downside is that the sensor’s range and sensitivity were inconsistent, especially under different lighting conditions or hand angles, which frustrated a few testers.
 
 ### What lessons can you take away from the WoZ interactions for designing a more autonomous version of the system?
 
-\*\**your answer here*\*\*
+From the Wizard-of-Oz testing, I learned that the AI’s timing and tone matter a lot — the responses need to feel reactive but not repetitive. Users liked when the AI’s tone matched their speech energy. For a more autonomous system, I would add context awareness so the roasts feel more “personalized” and human-like instead of random.
 
 
 ### How could you use your system to create a dataset of interaction? What other sensing modalities would make sense to capture?
 
-\*\**your answer here*\*\*
+The system could easily log pairs of “user speech” and “AI roast” as labeled conversation data for training a dialogue model. Adding sensing modalities like facial expression detection from a webcam or gesture intensity from the APDS9960 could help capture emotion and engagement levels — giving richer signals for when to roast, pause, or de-escalate the interaction.
+
 
 
 
