@@ -317,7 +317,9 @@ def ask_ai(question):
 # Use it anywhere!
 answer = ask_ai("How should I greet users?")
 ```
+
 <\details>
+
   
 ![quick_start](quick_start.png)
 
@@ -507,6 +509,7 @@ Answer the following:
 ### How could you use your system to create a dataset of interaction? What other sensing modalities would make sense to capture?
 
 \*\**your answer here*\*\*
+
 
 
 
