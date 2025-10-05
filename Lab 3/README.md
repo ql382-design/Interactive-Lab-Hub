@@ -39,7 +39,9 @@ Option 2: On your your own GitHub repo, [create pull request](https://github.com
 ## Part 1.
 
 
-  
+<details>
+  <summary><strong>(Click to Expand)</strong></summary>
+
 ### Setup 
 
 Activate your virtual environment
@@ -88,6 +90,8 @@ Now, you might wonder what exactly is a `.sh` file?
 Typically, a `.sh` file is a shell script which you can execute in a terminal. The example files we offer here are for you to figure out the ways to play with audio on your Pi!
 
 You can also play audio files directly with `aplay filename`. Try typing `aplay lookdave.wav`.
+
+</details>
 
 \*\***Write your own shell file to use your favorite of these TTS engines to have your Pi greet you by name.**\*\*
 (This shell file should be saved to your own repo for this lab.)
@@ -486,6 +490,7 @@ Answer the following:
 ### How could you use your system to create a dataset of interaction? What other sensing modalities would make sense to capture?
 
 \*\**your answer here*\*\*
+
 
 
 
