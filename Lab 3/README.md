@@ -524,6 +524,8 @@ In this updated version of AI Roast Buddy, I integrated a gesture-based interact
 
 ![ai](ai.png)
 
+**VIDEOS**
+
 <a href="https://youtu.be/UjXNzI_m1v8?si=DfnczAHxtdsgPAYn">
   <img src="https://img.youtube.com/vi/UjXNzI_m1v8/0.jpg" width="350">
 </a>
@@ -561,6 +563,7 @@ From the Wizard-of-Oz testing, I learned that the AI’s timing and tone matter 
 ### How could you use your system to create a dataset of interaction? What other sensing modalities would make sense to capture?
 
 The system could easily log pairs of “user speech” and “AI roast” as labeled conversation data for training a dialogue model. Adding sensing modalities like facial expression detection from a webcam or gesture intensity from the APDS9960 could help capture emotion and engagement levels — giving richer signals for when to roast, pause, or de-escalate the interaction.
+
 
 
 
