@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>AI Roast Buddy</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #1e1e1e;
+            color: #f0f0f0;
+            margin-top: 60px;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #2c2c2c;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+        }
+        #status {
+            font-size: 18px;
+            color: #90ee90;
+            margin: 15px 0;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background: #008CBA;
+            border: none;
+            color: white;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #005f73;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>AI Roast Buddy</h1>
+        <p id="status">Waiting for your wave...</p>
+        <p id="user"><b>You:</b> <span>---</span></p>
+        <p id="roast"><b>AI:</b> <span>---</span></p>
+        <button id="record">Manual Start</button>
+    </div>
+
+    <script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
+    <script>
+        const socket = io();
+
+        socket.on('update_text', data => {
+            document.querySelector('#user span').textContent = data.user;
+            document.querySelector('#roast span').textContent = data.roast;
+        });
+
+        // Listen for wave / status updates
+        socket.on('status_update', data => {
+            document.getElementById('status').textContent = data.status;
+        });
+
+        // Button fallback (manual start)
+        document.querySelector('#record').addEventListener('click', () => {
+            alert("Press ENTER on your Pi terminal to start recording manually.");
+        });
+    </script>
+</body>
+</html>
+
