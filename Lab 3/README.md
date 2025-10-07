@@ -545,6 +545,14 @@ In this updated version of AI Roast Buddy, I integrated a gesture-based interact
 ## Test the system
 Try to get at least two people to interact with your system. (Ideally, you would inform them that there is a wizard _after_ the interaction, but we recognize that can be hard.)
 
+I invited my mom and my boyfriend to test the system, since both of them are usually quite good at arguing. My boyfriend had also participated in the user testing for Lab 3A, so he was already familiar with the project. Their reactions were really amusing — the AI Roaster Buddy stayed calm the whole time, responding with sarcastic but witty lines. This made them fall into a loop of meaningless comebacks like “you are you dumb,” and soon they both couldn’t stop laughing.
+
+**Feedback 1 – From My Mom**
+"Honestly, I didn’t expect to enjoy arguing with a machine. At first, I tried to ‘win’ the argument, but the AI’s calm and sarcastic tone made it impossible. Every time I tried to provoke it, it just gave me another funny and smart remark. I ended up laughing instead of getting angry. It actually made me realize how ridiculous some real arguments can sound when there’s no emotion on the other side. I think it’s a clever and funny concept — maybe too calm for me, but definitely entertaining."
+
+**Feedback 2 – From My Boyfriend**
+"Since I helped with the earlier lab test, I already knew what to expect — but this final version was way funnier. The AI roasts hit just the right level between playful and insulting. At one point I said ‘I’m done,’ and it replied, ‘Fine, truce for now,’ which cracked me up. It’s like arguing with a comedian who never loses his temper. I think this kind of interaction could be great for stress relief or for people who just want a quick laugh. It almost felt like having a stand-up show in our living room.The only aspect that I think could be improved is that the gesture sensor feels a bit insensitive. Every time, it takes about 10-15 seconds to recognize my waving gesture. At that time, the AI recognized my language very quickly, and the translation of the response was also very fast."
+
 Answer the following:
 
 ### What worked well about the system and what didn't?
@@ -563,6 +571,7 @@ From the Wizard-of-Oz testing, I learned that the AI’s timing and tone matter 
 ### How could you use your system to create a dataset of interaction? What other sensing modalities would make sense to capture?
 
 The system could easily log pairs of “user speech” and “AI roast” as labeled conversation data for training a dialogue model. Adding sensing modalities like facial expression detection from a webcam or gesture intensity from the APDS9960 could help capture emotion and engagement levels — giving richer signals for when to roast, pause, or de-escalate the interaction.
+
 
 
 
