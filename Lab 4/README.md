@@ -186,6 +186,8 @@ Twizzler 6 touched!
 
 **setups:**
 
+Since I didn’t have Twizzlers available, I experimented with alternative conductive objects. I connected a metal spoon to pad 6 and a silver ring to pad 10 using alligator clips. Both objects were detected immediately upon touch, and the ring surprisingly responded even faster, possibly due to the smaller surface area making contact more concentrated.
+
 <img src="Twizzler.png" alt="Twizzler" width="300">
 
 <a href="https://youtube.com/shorts/_7dlhKXxuh8?si=-6HPd2uPL9u-wGYs">
@@ -196,6 +198,8 @@ Twizzler 6 touched!
 
 
 <img src="capacitive.png" alt="capacitive" width="400">
+
+Using unconventional conductive objects like a spoon and a ring made the interaction feel more personal and less like a lab demo. It made me realize that choosing the right material can influence how “alive” or responsive the interface feels, even when the code stays exactly the same.
 
 
 ### Part B
