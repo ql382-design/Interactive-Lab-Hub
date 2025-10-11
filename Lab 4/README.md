@@ -186,7 +186,7 @@ Twizzler 6 touched!
 
 **setups:**
 
-![Twizzler](Twizzler.png)
+<img src="Twizzler.png" alt="Twizzler" width="300">
 
 <a href="https://youtube.com/shorts/_7dlhKXxuh8?si=-6HPd2uPL9u-wGYs">
   <img src="https://img.youtube.com/vi/_7dlhKXxuh8/0.jpg" width="300">
@@ -194,7 +194,8 @@ Twizzler 6 touched!
 
 **output:**
 
-![capacitive](capacitive.png)
+
+<img src="capacitive.png" alt="capacitive" width="300">
 
 
 ### Part B
