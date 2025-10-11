@@ -195,7 +195,7 @@ Twizzler 6 touched!
 **output:**
 
 
-<img src="capacitive.png" alt="capacitive" width="300">
+<img src="capacitive.png" alt="capacitive" width="400">
 
 
 ### Part B
@@ -257,7 +257,7 @@ You can go to the [Adafruit Learn Page](https://learn.adafruit.com/adafruit-i2c-
 
 **output:**
 
-![encoder](encoder.png)
+<img src="encoder.png" alt="encoder" width="400">
 
 #### Joystick 
 
@@ -318,8 +318,8 @@ You can go to the [SparkFun GitHub Page](https://github.com/sparkfun/Qwiic_Proxi
 
 **output:**
 
-![distance](distance.png)
 
+<img src="distance.png" alt="distance" width="400">
 
 
 ### Part C
