@@ -184,9 +184,18 @@ Twizzler 6 touched!
 ```
 </details>
 
+**setups:**
+
+![Twizzler](Twizzler.png)
+
 <a href="https://youtube.com/shorts/_7dlhKXxuh8?si=-6HPd2uPL9u-wGYs">
   <img src="https://img.youtube.com/vi/_7dlhKXxuh8/0.jpg" width="300">
 </a>
+
+**output:**
+
+![capacitive](capacitive.png)
+
 
 ### Part B
 ### More sensors
@@ -216,6 +225,7 @@ You can go the the [Adafruit GitHub Page](https://github.com/adafruit/Adafruit_C
 
 </details>
 
+
 #### Rotary Encoder 
 
 <details>
@@ -244,6 +254,10 @@ You can go to the [Adafruit Learn Page](https://learn.adafruit.com/adafruit-i2c-
   <img src="https://img.youtube.com/vi/xo6mFgckvEc/0.jpg" width="300">
 </a>
 
+**output:**
+
+![encoder](encoder.png)
+
 #### Joystick 
 
 <details>
@@ -271,6 +285,9 @@ You can go to the [SparkFun GitHub Page](https://github.com/sparkfun/Qwiic_Joyst
   <img src="https://img.youtube.com/vi/E5EZj5MNu90/0.jpg" width="300">
 </a>
 
+**output:**
+
+
 
 #### Distance Sensor
 
@@ -297,6 +314,12 @@ You can go to the [SparkFun GitHub Page](https://github.com/sparkfun/Qwiic_Proxi
 <a href="https://youtu.be/xo6mFgckvEc?si=bvXn7n_sCs7Swc0y">
   <img src="https://img.youtube.com/vi/xo6mFgckvEc/0.jpg" width="300">
 </a>
+
+**output:**
+
+![distance](distance.png)
+
+
 
 ### Part C
 ### Physical considerations for sensing
