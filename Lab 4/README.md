@@ -230,6 +230,48 @@ You can go the the [Adafruit GitHub Page](https://github.com/adafruit/Adafruit_C
 
 </details>
 
+**proximity_test:**
+
+<a href="https://youtu.be/PDQ4QGDGU5c?si=eQWmitJMrcxUD4yw">
+  <img src="https://img.youtube.com/vi/PDQ4QGDGU5c/0.jpg" alt="YouTube Thumbnail - PDQ4QGDGU5c" width="300">
+</a>
+
+output:
+
+<img src="prox.png" alt="prox" width="400">
+
+When running proximity_test.py, the sensor started outputting low values like 0 and 1, which seems to be its idle state. Once I moved my hand closer, the numbers began to rise gradually and peaked around 31.
+
+I also noticed that the readings drop back to 0 very quickly once I pull my hand away, meaning the sensor is highly reactive but not smoothed, unlike the SparkFun proximity sensor I tested later that produced large jumps like 3000+. This one feels more binary-like, giving a small range but fast enough to detect motion instead of just distance.
+
+**gesture_test:**
+
+<a href="https://youtube.com/shorts/s2Hibrgg9U8?si=Zle7ZT7yj3JZ0oax">
+  <img src="https://img.youtube.com/vi/s2Hibrgg9U8/0.jpg" alt="YouTube Thumbnail - s2Hibrgg9U8" width="300">
+</a>
+
+
+output:
+
+<img src="gesture.png" alt="gesture" width="400">
+
+What I noticed during testing is that horizontal gestures (left/right) were picked up more reliably than vertical ones, especially when moving slowly. The down gesture triggered most consistently, which suggests the IR sensor alignment might be slightly more sensitive in that axis. Also, when I repeated the same gesture twice (like down → down), the sensor still registered both events instead of treating it as a single continuous motion, which means it can be used to detect repeated swipes as separate actions rather than just orientation.
+
+**color_test:**
+
+<a href="https://youtube.com/shorts/song3fdmUCc?si=8XHMFZV-sYbGwsFp">
+  <img src="https://img.youtube.com/vi/song3fdmUCc/0.jpg" alt="YouTube Thumbnail - song3fdmUCc" width="300">
+</a>
+
+output:
+
+<img src="color.png" alt="color" width="400">
+
+<img src="color2.png" alt="color2" width="400">
+
+I noticed that the red / green / blue / clear values shifted noticeably each time I swapped the object. For the red bag, the red channel clearly dominated, and the color temperature stayed around 1600–2500, suggesting a warmer reading. When I switched to the green gum wrapper, the green values became more prominent and the color temp increased toward the 4000–4500 range, which felt closer to a "neutral light" reading.
+
+The most interesting part was the yellow tea packaging: even though yellow is a mix of red and green, the readings reflected that — both red and green values stayed relatively high, while blue remained lower, which matches how yellow behaves in RGB space. The lux readings also jumped, meaning the reflective yellow surface bounced more light into the sensor.
 
 #### Rotary Encoder 
 
@@ -296,7 +338,11 @@ You can go to the [SparkFun GitHub Page](https://github.com/sparkfun/Qwiic_Joyst
 
 **output:**
 
+<img src="joystick.png" alt="joystick" width="400">
 
+While testing the joystick, I noticed that the button state flips between 1 and 0 depending on press action. When the joystick is released, the log shows Button: 1, and pressing it down switches it to Button: 0, which confirms that the default state is HIGH and becomes LOW when clicked, is useful to remember if I plan to use it as a trigger input.
+
+For directional movement, shifting the stick left/right changes the X value significantly, peaking near 1023 on one side and dropping close to 300–400 on the other. The Y values showed similar jumps when I pushed it vertically. This confirms that the joystick behaves more like an analog continuous input rather than just directional switches, meaning I could map ranges to different interaction modes instead of treating it as binary directions.
 
 #### Distance Sensor
 
