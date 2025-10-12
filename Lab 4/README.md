@@ -387,90 +387,107 @@ Interestingly, when I held my hand still in front of it, the value didn’t rema
 Usually, sensors need to be positioned in specific locations or orientations to make them useful for their application. Now that you've tried a bunch of the sensors, pick one that you would like to use, and an application where you use the output of that sensor for an interaction. For example, you can use a distance sensor to measure someone's height if you position it overhead and get them to stand under it.
 
 
-**\*\*\*Draw 5 sketches of different ways you might use your sensor, and how the larger device needs to be shaped in order to make the sensor useful.\*\*\***
+**\*\*\*Draw 5 sketches of different ways you might use your sensor, and how the larger device needs to be shaped in order to make the sensor useful.\*\*\*** + **\*\*\*What are some things these sketches raise as questions? What do you need to physically prototype to understand how to anwer those questions?\*\*\***
 
-**1. Flat Touch Pad Panel – Horizontal Control Surface**
+
+**1. Mood Radio — Emotional Tuning Dial**
    
 <img src="1.png" alt="1" width="400">
 
-How the device needs to be shaped:
+Concept Description:
+A rotary encoder is used like a classic FM radio tuner to “tune” between emotional states (Calm → Stressed → Meltdown). LED indicators act like frequency markers that light up as the user rotates through mood levels.
 
-To make touch meaningful, the sensor must be mounted under a flat, clearly defined surface so that each copper pad acts like a physical “button zone.” The panel must stay horizontal and stable so the user’s finger can tap from above without accidental multi-contact. A clear layout grid helps define interaction boundaries.
+How the larger device needs to be shaped:
+The device should resemble a flat radio panel with a clearly visible curved or linear scale above the knob. The circular knob must be centered and ergonomically positioned so the user naturally grips and rotates it like a tuning dial.
 
-**2. Edge Grip Strip – Side Contact Activation**
+How many mood “steps” feel intuitive along the dial?
+
+Should the LED scale arc above the knob or align horizontally like a radio tuner?
+
+Does pressing down after tuning feel like a natural confirmation action?
+→ A cardboard mockup is needed to test knob placement, labeling readability, and hand comfort when rotating.
+
+**2. Decision Wheel**
    
 <img src="2.png" alt="2" width="400">
 
-How the device needs to be shaped:
+Concept Description:
+The rotary encoder simulates a roulette-style choice mechanism, where rotating between YES and NO zones gamifies self-control around snacks. A press confirms the final decision.
 
-This configuration requires the device to be tall and narrow, with the copper electrode placed on a vertical edge to encourage a grip interaction rather than tapping. The side must be comfortable to hold, and the sensor must be positioned where the palm naturally wraps around.
+How the larger device needs to be shaped:
+The physical device should take the form of a circular panel resembling a game wheel or fortune spinner, with clear left/right color-coded zones. The knob sits at the center like a “spin trigger.”
 
-**3. Curved Cylinder Wrap – Circular Sliding Interaction**
+Questions raised & prototype needs:
+
+How large should the zones be to make the YES/NO states visually clear?
+
+Does the knob placement in the center feel like a natural “spin” input?
+
+Is pressing down satisfying enough as a "lock-in" action?
+→ A simple cardboard wheel with printed or drawn zones can validate visual legibility and gesture intention.
+
+**3.Emotional Detonator — Countdown Stress Dial**
 
 <img src="3.png" alt="3" width="400">
 
-How the device needs to be shaped:
+Concept Description:
+The encoder acts as an activation trigger for a dramatic “emotional bomb.” Rotating increases countdown intensity (LED segments fill up), while pressing detonates with sound/flash feedback.
 
-To enable rotary sliding input, the electrode must be placed on a curved cylindrical surface so the hand can slide around continuously. A cup-like or dial-shaped enclosure supports the gesture better than a flat board and encourages a rotational mental model.
+How the larger device needs to be shaped:
+The device should look like a bomb trigger interface — a rectangular or square board with a row of LED-like markers above the knob. The knob must be placed low and central, mimicking a real detonation dial.
 
-**4. Object-Embedded Touch Tokens – Contact Through Discrete Objects**
+Questions raised & prototype needs:
+
+Does a horizontal LED bar above the knob convey “countdown” clearly?
+
+How far should rotation travel before triggering visual excitement or tension?
+
+Is downward press after rotation a natural metaphor for “confirm / detonate”?
+→ A paper prototype can help test whether users understand the bomb metaphor through layout alone.
+
+**4. Lazy Clock — Passive-Aggressive Alarm Controller**
 
 <img src="4.png" alt="4" width="400">
 
-How the device needs to be shaped:
+Concept Description:
+A satirical alarm clock controller where turning the knob delays or advances the alarm. LEDs show +5 or -5 minutes depending on rotation direction, and pressing confirms with snarky feedback.
 
-Here, the device must physically separate the electrodes by embedding them into distinct physical objects (like a spoon, ring, or metal disc). The enclosure must hold or present these objects clearly, rather than hiding them on a flat panel, so that object identity and touch become part of the interaction.
+How the larger device needs to be shaped:
+The housing should mimic the front face of a clock, with the knob placed where traditional alarm-setting knobs are found. LED indicators or arrows should be positioned clearly on left and right sides of the knob.
 
-**5. Radial Distributed Touch Points – Spatial Touch**
+Questions raised & prototype needs:
+
+Will users immediately recognize the clock layout and understand the +/− metaphor?
+
+Should the LED indicators sit near the edges or closer to the knob?
+
+Does pressing after rotation feel like setting a timer, or do users expect an automatic confirmation?
+→ A cardboard clock front helps test affordances and gesture expectations connected to conventional alarm devices.
+
+**5. Spin-to-Manifest — Cosmic Wish Dial**
 
 <img src="5.png" alt="5" width="400">
 
-How the device needs to be shaped:
+Concept Description:
+The encoder becomes a mystical ritual control, where rotating adjusts "faith energy" between HOPE and DOUBT. LEDs show cosmic activation, and pressing sends a final “universe request.”
 
-To support direction-based interaction, the device must extend electrode pads outward in multiple directions like arms from a hub. The central part houses MPR121, and the outward pads allow the user to approach from different sides, creating a spatial directional UI rather than linear buttons.
+How the larger device needs to be shaped:
+The body should resemble a mystical panel or oracle board, possibly vertical like a shrine or tarot stand. The LED arc must visually indicate energy rising as the knob moves upward (clockwise). The knob should be positioned like a ceremonial activation button.
 
-**\*\*\*What are some things these sketches raise as questions? What do you need to physically prototype to understand how to anwer those questions?\*\*\***
+Questions raised & prototype needs:
 
+Should the LED arc be circular above the knob or linear across the top to convey “energy build-up”?
 
-**1. Flat Touch Pad Panel – Horizontal Control Surface**
+Does the mystical layout successfully communicate that pressing is a final ritual action instead of just a technical input?
 
-- Will users accurately target individual pads, or will pads need spacing/separation ridges?
+Is the metaphor clear enough without text, or do we need visual symbols (stars, arcane icons)?
+→ A drawn mockup with cosmic styling can test if the metaphor is readable without explanation and whether the knob feels like a ritual control.
 
-- Is direct finger touch enough, or does it require ground reference / conductive object?
-
-- Does the panel flex or false-trigger if the cardboard bends?
-
-**2. Edge Grip Strip – Side Contact Activation**
-
-- Does side contact from the whole palm produce a strong enough capacitive signal, or does it only work on fingertips?
-
-- Should the edge be flat, curved, or padded for better grip detection?
-
-- Does gripping from different angles accidentally trigger other pads?
-
-**3. Curved Cylinder Wrap – Circular Sliding Interaction**
-
--Does curvature improve sliding feedback, or does it reduce sensitivity in the middle due to uneven grounding?
-
--Is it better to segment the wrap into zones or use one continuous band?
-
--Can users consistently maintain contact while rotating, or do they lift and lose detection?
-
-**4. Object-Embedded Touch Tokens – Contact Through Discrete Objects**
-
-- Does distance from MPR121 (via wires) reduce signal stability?
-
-- Do different material masses (metal vs aluminum vs plastic foil) affect capacitance?
-
-**5. Radial Distributed Touch Points – Spatial Touch**
-
-- Is pad reachability equal from all angles, or does orientation bias sensitivity?
-
-- Do users instinctively touch from the edge, or do they still go to the center?
-  
 **\*\*\*Pick one of these designs to prototype.\*\*\***
 
-I selected the **3. Curved Wrap** configuration because it transforms the capacitive sensor from a flat, button-like interface into a continuous, spatial gesture control surface. By wrapping the electrode segments around a cylindrical or cup-like form, the interaction shifts from discrete tapping to a rotational sliding gesture, which naturally suggests the metaphor of a dial, a time wheel, or a control ring. This introduces a sense of directional progression and fluid control that is not present in flat touch panels.
+I decided to prototype the Decision Roulette Dial, a rotary-encoder-based device designed to help with everyday indecision. The concept is expanded into a universal decision helper for people with decision paralysis. By rotating the knob between YES and NO (or even multiple decision outcomes), and pressing down to “lock in fate”, the device turns hesitation into a playful ritual.
+
+This design is ideal for prototyping because it requires only one rotary encoder and a cardboard surface, yet it supports clear directional interaction (clockwise vs. counterclockwise) and a meaningful press-to-confirm moment. The circular wheel layout also provides strong visual affordance—the user intuitively understands that rotation represents “thinking” and pressing represents “committing.”
 
 ### Part D
 ### Physical considerations for displaying information and housing parts
