@@ -400,6 +400,8 @@ A rotary encoder is used like a classic FM radio tuner to “tune” between emo
 How the larger device needs to be shaped:
 The device should resemble a flat radio panel with a clearly visible curved or linear scale above the knob. The circular knob must be centered and ergonomically positioned so the user naturally grips and rotates it like a tuning dial.
 
+**Questions raised & prototype needs:**
+
 How many mood “steps” feel intuitive along the dial?
 
 Should the LED scale arc above the knob or align horizontally like a radio tuner?
@@ -417,7 +419,7 @@ The rotary encoder simulates a roulette-style choice mechanism, where rotating b
 How the larger device needs to be shaped:
 The physical device should take the form of a circular panel resembling a game wheel or fortune spinner, with clear left/right color-coded zones. The knob sits at the center like a “spin trigger.”
 
-Questions raised & prototype needs:
+**Questions raised & prototype needs:**
 
 How large should the zones be to make the YES/NO states visually clear?
 
@@ -436,7 +438,7 @@ The encoder acts as an activation trigger for a dramatic “emotional bomb.” R
 How the larger device needs to be shaped:
 The device should look like a bomb trigger interface — a rectangular or square board with a row of LED-like markers above the knob. The knob must be placed low and central, mimicking a real detonation dial.
 
-Questions raised & prototype needs:
+**Questions raised & prototype needs:**
 
 Does a horizontal LED bar above the knob convey “countdown” clearly?
 
@@ -455,7 +457,7 @@ A satirical alarm clock controller where turning the knob delays or advances the
 How the larger device needs to be shaped:
 The housing should mimic the front face of a clock, with the knob placed where traditional alarm-setting knobs are found. LED indicators or arrows should be positioned clearly on left and right sides of the knob.
 
-Questions raised & prototype needs:
+**Questions raised & prototype needs:**
 
 Will users immediately recognize the clock layout and understand the +/− metaphor?
 
@@ -474,8 +476,7 @@ The encoder becomes a mystical ritual control, where rotating adjusts "faith ene
 How the larger device needs to be shaped:
 The body should resemble a mystical panel or oracle board, possibly vertical like a shrine or tarot stand. The LED arc must visually indicate energy rising as the knob moves upward (clockwise). The knob should be positioned like a ceremonial activation button.
 
-Questions raised & prototype needs:
-
+**Questions raised & prototype needs:**
 Should the LED arc be circular above the knob or linear across the top to convey “energy build-up”?
 
 Does the mystical layout successfully communicate that pressing is a final ritual action instead of just a technical input?
@@ -531,6 +532,9 @@ Here is an example:
 Think about how you want to present the information about what your sensor is sensing! Design a paper display for your project that communicates the state of the Pi and a sensor. Ideally you should design it so that you can slide the Pi out to work on the circuit or programming, and then slide it back in and reattach a few wires to be back in operation.
  
 **\*\*\*Sketch 5 designs for how you would physically position your display and any buttons or knobs needed to interact with it.\*\*\***
+
+<img src="11.png" alt="11" width="400">
+<img src="22.png" alt="22" width="400">
 
 **\*\*\*What are some things these sketches raise as questions? What do you need to physically prototype to understand how to anwer those questions?\*\*\***
 
