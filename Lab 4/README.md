@@ -493,7 +493,8 @@ This design is ideal for prototyping because it requires only one rotary encoder
 ### Part D
 ### Physical considerations for displaying information and housing parts
 
-
+<details>
+	<summary><strong>(Click to Expand)</strong></summary>
 
 Here is a Pi with a paper faceplate on it to turn it into a display interface:
 
@@ -530,19 +531,95 @@ Here is an example:
 <img src="https://github.com/FAR-Lab/Developing-and-Designing-Interactive-Devices/blob/2020Fall/images/horoscope.png?raw=true"  width="250"/>
 
 Think about how you want to present the information about what your sensor is sensing! Design a paper display for your project that communicates the state of the Pi and a sensor. Ideally you should design it so that you can slide the Pi out to work on the circuit or programming, and then slide it back in and reattach a few wires to be back in operation.
+
  
+</details>
+
+
 **\*\*\*Sketch 5 designs for how you would physically position your display and any buttons or knobs needed to interact with it.\*\*\***
 
 <img src="11.png" alt="11" width="400">
 <img src="22.png" alt="22" width="400">
 
+1. Fortune Teller Console — Standing Oracle Panel
+
+Description:
+The device is built like a mini fortune-telling booth. The OLED display sits in the center like a crystal ball reveal window, with the rotary encoder placed below on a small paper pedestal, acting as the “activation dial.” Labels such as YES / NO / DELAY / ASK AGAIN / FATE are printed around the upper arc to reinforce the oracle metaphor. The cardboard body is upright, allowing the user to approach it like a fortune counter and “consult fate” by spinning and pressing.
+
+2. Tilted Mirror-Style Decision Shrine
+
+Description:
+This version uses a slanted cardboard surface at around a 60-degree viewing angle, similar to a makeup mirror or tarot reading board. The OLED display is mounted at the top of the slanted plane, making it easy to read without leaning forward. The rotary encoder is placed below it, positioned where the user’s hand naturally rests, giving a ritual-like gesture of “placing your hand to decide.” Optional LED marker graphics can be drawn around the edges to mimic a ceremonial circuit.
+
+3. Radio Console Version — Decision Frequency Tuner
+
+Description:
+Inspired by vintage radios, this layout places the OLED screen directly in the center as a “decision frequency display.” The rotary encoder is positioned on the right side, similar to traditional tuning knobs. The left side of the panel may include printed fake speaker grills or decorative lines to reinforce the radio aesthetic. The user rotates the dial as if tuning between life choices, with the OLED updating the “station” (YES / NO / LATER), then presses to “lock the channel.”
+
+4. Gacha / Capsule Machine Version
+
+Description:
+This version mimics a gacha toy dispenser. The top part of the cardboard shows a large drawn circular capsule chamber for visual drama. The actual interaction happens below: the OLED sits in a rectangular window like a “capsule slot,” and the rotary encoder functions as the classic twist handle. Once the user rotates the encoder to a fate state, pressing it simulates the action of releasing a capsule—visually and conceptually turning hesitation into a ritualized draw.
+
+5. Monitor & Mouse Metaphor — Fate Terminal Interface
+
+Description:
+This version stylizes the interface like a quirky desktop computer. The OLED acts as a “mini monitor” placed at the top of a flat display panel. The rotary encoder is placed lower down and slightly forward, intentionally mimicking a computer mouse or trackball input device. The user “navigates” between decisions by rotating, with pressing acting as a left-click confirmation. The metaphor reframes indecision as a GUI interaction, giving it a humorous productivity-software twist.
+
 **\*\*\*What are some things these sketches raise as questions? What do you need to physically prototype to understand how to anwer those questions?\*\*\***
 
+Is the OLED screen clearly readable from the user’s natural viewing angle?
+→ Physical mockups are needed to test screen height, tilt angle, and distance relative to the rotary encoder.
+
+Does the placement of the rotary encoder match the expected hand movement metaphor?
+→ For designs like the radio console or gacha machine, we need to check if users instinctively rotate the encoder in the intended way (horizontal twist vs. downward pull gesture).
+
+Do visual elements (labels, illustrations, fake hardware graphics) successfully communicate interaction states without explanation?
+→ A cardboard faceplate with drawn elements will help determine whether the YES / NO / DELAY / ASK AGAIN zones are legible and whether users understand that press = confirm / fate reveal.
+
+How much decoration is “fun and thematic” versus distracting from the core interaction?
+→ A quick paper facade test will help balance visual style vs. clarity of input/output feedback.
+
+Can the Raspberry Pi and OLED be easily removed and reinserted during testing without damaging the cardboard frame?
+→ We need to prototype a sliding or removable back panel to validate maintenance access.
+
 **\*\*\*Pick one of these display designs to integrate into your prototype.\*\*\***
+
+I chose to proceed with the Gacha Machine-style display housing for the prototype. This form factor strongly reinforces the playful nature of the Decision Roulette concept—rotating the encoder feels like twisting a capsule machine handle, and the OLED positioned like a capsule output window creates a clear, engaging metaphor for “locking in fate.” It also allows for a clean front-facing cardboard panel with a flat surface for labels and cutouts, while leaving enough interior space to hide the Pi and wiring.
 
 **\*\*\*Explain the rationale for the design.\*\*\*** (e.g. Does it need to be a certain size or form or need to be able to be seen from a certain distance?)
 
 Build a cardboard prototype of your design.
+
+## 🎲 Display & Housing Rationale — Fate Gacha Machine
+
+I chose a **Gacha/Capsule Machine style housing** because it visually and culturally reinforces the idea of *decision as fate/luck*, instead of a purely functional UI. The physical form supports **dramatic interaction**, encouraging the user to “commit” to the decision like drawing a capsule from a toy machine.
+
+### Why this shape and size?
+
+- **Front-facing arcade/gacha-like panel** makes the interaction visible to an audience, which is ideal for performative testing and demo recording.
+- The **OLED screen is positioned at eye height** when the device sits on a desk, making it readable without leaning forward.
+- The **Rotary Encoder is placed in the traditional gacha-twist position** (center-lower area), creating a direct metaphor between turning the knob and twisting a capsule handle.
+- The **flat vertical cardboard faceplate** allows for large, high-contrast labels such as *YES / NO / DELAY / ASK AGAIN*, which makes the decision states easy to interpret from a distance (>1 meter).
+- The cardboard structure also allows the **Pi and wires to be hidden behind the front facade**, but still accessible through a removable back panel for development.
+
+### Rotary Encoder Interaction Logic for Fate Gacha Machine
+
+| Interaction          | Meaning / Narrative Interpretation                          | OLED Feedback Example                                         |
+|---------------------|-------------------------------------------------------------|--------------------------------------------------------------|
+| Rotate Clockwise     | Increasing urge / leaning towards YES / impulsive action   | `"Spinning... Fate leaning toward YES"`                      |
+| Rotate Counterclockwise | Pulling back / hesitation / logical resistance              | `"Doubt rising... State moving toward NO"`                   |
+| Press to Confirm     | Final fate trigger (like releasing the capsule)            | `"Capsule Released... Stand by for Result"`                  |
+| (Optional) Over-Rotate | Enters chaotic/self-sabotage state                         | `"⚠ Excessive twisting detected — CHAOS MODE ENGAGED"`       |
+
+This interaction metaphor transforms a simple knob into a **mini theatre of decision-making**, where the **rotation becomes the “thinking” phase** and **the press becomes the “act of accepting fate.”**
+
+### Designed as a Prop for Ritual Interaction
+
+This device is intentionally designed not just as a tool, but as a **performative prop**.  
+- The exaggerated gacha-machine visuals invite dramatic interaction.
+- The user is expected to **hover their hand, spin slowly, hesitate, and then press with commitment**, creating **observable emotional tension**.
+- This aligns with the idea that **designing interactive objects is not only about input/output, but about staging human behavior**.
 
 
 **\*\*\*Document your rough prototype.\*\*\***
