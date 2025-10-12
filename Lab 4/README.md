@@ -623,8 +623,8 @@ This device is intentionally designed not just as a tool, but as a **performativ
 
 **\*\*\*Document your rough prototype.\*\*\***
 
-<img src="prop1.png" alt="prop1" width="400">
-<img src="prop2.png" alt="prop2" width="400">
+<img src="prop1.JPG" alt="prop1" width="400">
+<img src="prop2.JPG" alt="prop2" width="400">
 
 # LAB PART 2
 
