@@ -389,13 +389,88 @@ Usually, sensors need to be positioned in specific locations or orientations to 
 
 **\*\*\*Draw 5 sketches of different ways you might use your sensor, and how the larger device needs to be shaped in order to make the sensor useful.\*\*\***
 
+**1. Flat Touch Pad Panel – Horizontal Control Surface**
+   
+<img src="1.png" alt="1" width="400">
 
+How the device needs to be shaped:
 
+To make touch meaningful, the sensor must be mounted under a flat, clearly defined surface so that each copper pad acts like a physical “button zone.” The panel must stay horizontal and stable so the user’s finger can tap from above without accidental multi-contact. A clear layout grid helps define interaction boundaries.
+
+**2. Edge Grip Strip – Side Contact Activation**
+   
+<img src="2.png" alt="2" width="400">
+
+How the device needs to be shaped:
+
+This configuration requires the device to be tall and narrow, with the copper electrode placed on a vertical edge to encourage a grip interaction rather than tapping. The side must be comfortable to hold, and the sensor must be positioned where the palm naturally wraps around.
+
+**3. Curved Cylinder Wrap – Circular Sliding Interaction**
+
+<img src="3.png" alt="3" width="400">
+
+How the device needs to be shaped:
+
+To enable rotary sliding input, the electrode must be placed on a curved cylindrical surface so the hand can slide around continuously. A cup-like or dial-shaped enclosure supports the gesture better than a flat board and encourages a rotational mental model.
+
+**4. Object-Embedded Touch Tokens – Contact Through Discrete Objects**
+
+<img src="4.png" alt="4" width="400">
+
+How the device needs to be shaped:
+
+Here, the device must physically separate the electrodes by embedding them into distinct physical objects (like a spoon, ring, or metal disc). The enclosure must hold or present these objects clearly, rather than hiding them on a flat panel, so that object identity and touch become part of the interaction.
+
+**5. Radial Distributed Touch Points – Spatial Touch**
+
+<img src="5.png" alt="5" width="400">
+
+How the device needs to be shaped:
+
+To support direction-based interaction, the device must extend electrode pads outward in multiple directions like arms from a hub. The central part houses MPR121, and the outward pads allow the user to approach from different sides, creating a spatial directional UI rather than linear buttons.
 
 **\*\*\*What are some things these sketches raise as questions? What do you need to physically prototype to understand how to anwer those questions?\*\*\***
 
+
+**1. Flat Touch Pad Panel – Horizontal Control Surface**
+
+- Will users accurately target individual pads, or will pads need spacing/separation ridges?
+
+- Is direct finger touch enough, or does it require ground reference / conductive object?
+
+- Does the panel flex or false-trigger if the cardboard bends?
+
+**2. Edge Grip Strip – Side Contact Activation**
+
+- Does side contact from the whole palm produce a strong enough capacitive signal, or does it only work on fingertips?
+
+- Should the edge be flat, curved, or padded for better grip detection?
+
+- Does gripping from different angles accidentally trigger other pads?
+
+**3. Curved Cylinder Wrap – Circular Sliding Interaction**
+
+-Does curvature improve sliding feedback, or does it reduce sensitivity in the middle due to uneven grounding?
+
+-Is it better to segment the wrap into zones or use one continuous band?
+
+-Can users consistently maintain contact while rotating, or do they lift and lose detection?
+
+**4. Object-Embedded Touch Tokens – Contact Through Discrete Objects**
+
+- Does distance from MPR121 (via wires) reduce signal stability?
+
+- Do different material masses (metal vs aluminum vs plastic foil) affect capacitance?
+
+**5. Radial Distributed Touch Points – Spatial Touch**
+
+- Is pad reachability equal from all angles, or does orientation bias sensitivity?
+
+- Do users instinctively touch from the edge, or do they still go to the center?
+  
 **\*\*\*Pick one of these designs to prototype.\*\*\***
 
+I selected the **3. Curved Wrap** configuration because it transforms the capacitive sensor from a flat, button-like interface into a continuous, spatial gesture control surface. By wrapping the electrode segments around a cylindrical or cup-like form, the interaction shifts from discrete tapping to a rotational sliding gesture, which naturally suggests the metaphor of a dial, a time wheel, or a control ring. This introduces a sense of directional progression and fluid control that is not present in flat touch panels.
 
 ### Part D
 ### Physical considerations for displaying information and housing parts
