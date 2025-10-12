@@ -589,7 +589,6 @@ I chose to proceed with the Gacha Machine-style display housing for the prototyp
 
 **\*\*\*Explain the rationale for the design.\*\*\*** (e.g. Does it need to be a certain size or form or need to be able to be seen from a certain distance?)
 
-Build a cardboard prototype of your design.
 
 ## 🎲 Display & Housing Rationale — Fate Gacha Machine
 
@@ -624,6 +623,8 @@ This device is intentionally designed not just as a tool, but as a **performativ
 
 **\*\*\*Document your rough prototype.\*\*\***
 
+<img src="prop1.png" alt="prop1" width="400">
+<img src="prop2.png" alt="prop2" width="400">
 
 # LAB PART 2
 
