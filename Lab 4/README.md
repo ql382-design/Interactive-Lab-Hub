@@ -271,7 +271,7 @@ output:
 
 I noticed that the red / green / blue / clear values shifted noticeably each time I swapped the object. For the red bag, the red channel clearly dominated, and the color temperature stayed around 1600–2500, suggesting a warmer reading. When I switched to the green gum wrapper, the green values became more prominent and the color temp increased toward the 4000–4500 range, which felt closer to a "neutral light" reading.
 
-The most interesting part was the yellow tea packaging: even though yellow is a mix of red and green, the readings reflected that — both red and green values stayed relatively high, while blue remained lower, which matches how yellow behaves in RGB space. The lux readings also jumped, meaning the reflective yellow surface bounced more light into the sensor.
+The most interesting part was the yellow tea packaging: even though yellow is a mix of red and green, the readings reflected that both red and green values stayed relatively high, while blue remained lower, which matches how yellow behaves in RGB space. The lux readings also jumped, meaning the reflective yellow surface bounced more light into the sensor.
 
 #### Rotary Encoder 
 
