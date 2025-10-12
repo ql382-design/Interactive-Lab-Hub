@@ -263,6 +263,10 @@ You can go to the [Adafruit Learn Page](https://learn.adafruit.com/adafruit-i2c-
 
 <img src="encoder.png" alt="encoder" width="400">
 
+After wiring the rotary encoder, I tested both the rotational output and the push-button input. The serial output showed a smooth count sequence when rotating clockwise and counterclockwise, and I intentionally rotated it quickly at one point, that’s where the reading suddenly jumped from -6 to -12 and -13, which suggests the sensor can register fast consecutive pulses without lag.
+
+The button input also worked reliably. I got a consistent “Button pressed / Button released” pattern every time I clicked it. The mechanical click feedback matched the serial log timing, so I can probably use this as a mode switch or confirm input in later interactions.
+
 #### Joystick 
 
 <details>
@@ -324,6 +328,10 @@ You can go to the [SparkFun GitHub Page](https://github.com/sparkfun/Qwiic_Proxi
 
 
 <img src="distance.png" alt="distance" width="400">
+
+When I first ran the proximity test, the readings stayed low (1–6 range) until I moved my hand closer. As soon as I crossed a certain threshold, the values spiked dramatically.I got jumps like 276 → 360 → 799 → 3910, and at one point it even went above 4000, which confirms that the sensor reacts more to sudden movement than to static distance.
+
+Interestingly, when I held my hand still in front of it, the value didn’t remain stable, it kept oscillating between mid and low values (around 90 → 1432 → 436 → 92 → 1), which makes me think the raw output is slightly noisy and would probably need smoothing or a moving average if I want to use it for a more controlled interaction.
 
 
 ### Part C
