@@ -650,13 +650,60 @@ For Part 2, you will design and build a fun interactive prototype using multiple
 - A simple interaction diagram or sketch showing how inputs and outputs are connected and interact
 - Written reflection: What did you learn about multi-input/multi-output interaction? What was fun, surprising, or challenging?
 
-**Questions to consider:**
-- What new types of interaction become possible when you combine two or more sensors or actuators?
-- How does the physical arrangement of devices (e.g., where the encoder or sensor is placed) change the user experience?
-- What happens if you use one device to control or modulate another (e.g., encoder sets a threshold, sensor triggers an action)?
-- How does the system feel if you swap which device is "primary" and which is "secondary"?
+## 🎮 Interaction Reflections (Part E — Multi-Device Insights)
 
-Try chaining different combinations and document what you discover!
+### 1. What new types of interaction become possible when you combine two or more sensors or actuators?
+
+I will combining the **rotary encoder** with a **dedicated Qwiic button** and **multi-color LEDs (white, yellow, orange, blue)**. The interaction shifts from a single-function control into a ritualistic, multi-phase experience.  
+Instead of a direct "input → output" interaction, the device allows for staged emotional buildup:
+
+- **Encoder rotation** introduces **gradual decision tension** (hesitation phase).
+- **Button press** becomes a **commitment action** rather than just another input.
+- **LED colors** act as emotional cues — for example:
+  - **Yellow** → Uncertain / Thinking
+  - **Blue** → Calm / Delayed fate
+  - **Orange** → Rising urge / Impulse
+  - **White** → Final reveal moment
+
+This multi-sensor setup makes the interaction feel more like **drawing fate rather than simply pressing a UI element**.
+
+---
+
+### 2. How does the physical arrangement of devices change the user experience?
+
+The **encoder placed low and centered** feels like the “twisting handle” of a gacha machine — it naturally invites a **dramatic rotating gesture**.  
+The **button positioned higher or isolated visually** creates a moment of **spatial and emotional separation**, signaling that **“this press is different — it's the moment of fate.”**
+
+Physical layout communicates interaction intent without any text.  
+Even from a distance (>1 meter), the user can **read the ritual sequence just by how the devices are arranged**:
+> *Twist here → pause → press there → LEDs react → OLED reveals fate.*
+
+---
+
+### 3. What happens when one device modulates another?
+
+When the encoder is used **not just to navigate but to modulate the LED and OLED states**, it transforms into a **"fate tension dial"**:
+
+- **Low rotation** → LEDs stay **blue (calm fate)**.
+- **Mid rotation** → LEDs shift to **yellow/orange (uncertainty building)**.
+- **High rotation or over-twisting** → LEDs flicker, signaling **chaos mode**.
+
+Here, the encoder isn't just an input device — it becomes a **parameter controller that emotionally loads the button press**.  
+The button no longer *just* confirms; it **unleashes whatever "fate energy" the encoder has built up**.
+
+---
+
+### 4. How does the system feel when you swap primary and secondary roles?
+
+- When **encoder is primary**, it feels like **"I shape my fate through hesitation and gradual input."**
+- When **button is primary**, the interaction becomes **binary and abrupt**, more like a standard "press to decide" interface.
+- Swapping roles reveals that **who controls tension vs. who triggers release** fundamentally changes the emotional rhythm of interaction.
+  - **Encoder-primary + Button-secondary** → **Narrative, cinematic, ritualistic**
+  - **Button-primary + Encoder-secondary** → **Game-like toggle system, faster but less dramatic**
+
+This experiment highlights that **sensor hierarchy is not just electrical — it defines narrative timing and emotional pacing**.
+
+
 
 See encoder_accel_servo_dashboard.py in the Lab 4 folder for an example of chaining together three devices.
 
