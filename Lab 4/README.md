@@ -654,55 +654,64 @@ For Part 2, you will design and build a fun interactive prototype using multiple
 
 ### 1. What new types of interaction become possible when you combine two or more sensors or actuators?
 
-I will combining the **rotary encoder** with a **dedicated Qwiic button** and **multi-color LEDs (white, yellow, orange, blue)**. The interaction shifts from a single-function control into a ritualistic, multi-phase experience.  
-Instead of a direct "input → output" interaction, the device allows for staged emotional buildup:
+In this prototype, I combine a **rotary encoder** with a **Qwiic button**, and use **speaker audio output + OLED fate display** as feedback channels.  
+This transforms the interaction from a simple binary control into a **layered ritual sequence**:
 
-- **Encoder rotation** introduces **gradual decision tension** (hesitation phase).
-- **Button press** becomes a **commitment action** rather than just another input.
-- **LED colors** act as emotional cues — for example:
-  - **Yellow** → Uncertain / Thinking
-  - **Blue** → Calm / Delayed fate
-  - **Orange** → Rising urge / Impulse
-  - **White** → Final reveal moment
+- **Encoder rotation** generates **gradual tension**, simulating hesitation and emotional buildup.
+- **Button press** acts as a **commitment gesture**, similar to “pulling the lever” on a gacha machine.
+- **Speaker output** conveys emotional tone using **pitch, rhythm, and frequency shifts**:
+  - Soft chime → Indecision
+  - Rising tone → Growing urge
+  - Harsh buzz → Fate rejection
+  - Chaotic frequency sweep → **CHAOS / uncontrollable destiny**
+- **OLED display** presents the final **fate reveal message (YES / NO / DELAY / CHAOS)** like a prophecy screen.
 
-This multi-sensor setup makes the interaction feel more like **drawing fate rather than simply pressing a UI element**.
+Together, these elements turn a simple electronic interaction into a **mini dramatic performance of fate negotiation**, rather than just “pressing a button to see a result.”
 
 ---
 
 ### 2. How does the physical arrangement of devices change the user experience?
 
-The **encoder placed low and centered** feels like the “twisting handle” of a gacha machine — it naturally invites a **dramatic rotating gesture**.  
-The **button positioned higher or isolated visually** creates a moment of **spatial and emotional separation**, signaling that **“this press is different — it's the moment of fate.”**
+The **encoder is placed low and centered**, mimicking the physical handle of a capsule toy or arcade gacha machine — users naturally perform a **theatrical twisting gesture**.
 
-Physical layout communicates interaction intent without any text.  
-Even from a distance (>1 meter), the user can **read the ritual sequence just by how the devices are arranged**:
-> *Twist here → pause → press there → LEDs react → OLED reveals fate.*
+The **button is positioned separately**, slightly elevated or isolated, to clearly communicate that **this is the decisive input**, distinct from the exploratory nature of rotation.
+
+Placing the **speaker inside the enclosure** makes the sound feel like it is coming from within the machine — as if the system is "thinking" or "speaking" its fate.  
+Meanwhile, the **OLED is positioned at eye level**, functioning visually as a **fortune display window**.
+
+Layout alone communicates the interaction sequence without text:
+
+> **Twist → Pause → Press → Machine speaks → Fate appears**
 
 ---
 
 ### 3. What happens when one device modulates another?
 
-When the encoder is used **not just to navigate but to modulate the LED and OLED states**, it transforms into a **"fate tension dial"**:
+Instead of treating components separately, I allow the **encoder to dynamically influence the speaker output before fate is confirmed**:
 
-- **Low rotation** → LEDs stay **blue (calm fate)**.
-- **Mid rotation** → LEDs shift to **yellow/orange (uncertainty building)**.
-- **High rotation or over-twisting** → LEDs flicker, signaling **chaos mode**.
+| Encoder Behavior            | Speaker Feedback (before confirmation)                   |
+|---------------------------|----------------------------------------------------------|
+| Slow rotation / hesitation | Low ticking or subtle hum                               |
+| Fast rotation / impulse    | Rising pitch tone                                       |
+| Over-rotation / chaos      | Irregular sweep tone (unstable, distorted)              |
 
-Here, the encoder isn't just an input device — it becomes a **parameter controller that emotionally loads the button press**.  
-The button no longer *just* confirms; it **unleashes whatever "fate energy" the encoder has built up**.
+Once the button is pressed, the **stored tension is released** as a short **audio signature**, followed by a final **OLED display message**.
+
+This makes the encoder feel less like an input device and more like a **"fate tension dial"**, charging emotional energy before release.
 
 ---
 
 ### 4. How does the system feel when you swap primary and secondary roles?
 
-- When **encoder is primary**, it feels like **"I shape my fate through hesitation and gradual input."**
-- When **button is primary**, the interaction becomes **binary and abrupt**, more like a standard "press to decide" interface.
-- Swapping roles reveals that **who controls tension vs. who triggers release** fundamentally changes the emotional rhythm of interaction.
-  - **Encoder-primary + Button-secondary** → **Narrative, cinematic, ritualistic**
-  - **Button-primary + Encoder-secondary** → **Game-like toggle system, faster but less dramatic**
+| Configuration                            | Emotional Feel                                        |
+|-----------------------------------------|------------------------------------------------------|
+| **Encoder as primary, button secondary** | Cinematic and ritualistic — user "negotiates fate"   |
+| **Button as primary, encoder secondary** | Game-like and immediate — quick trigger interaction  |
 
-This experiment highlights that **sensor hierarchy is not just electrical — it defines narrative timing and emotional pacing**.
+When the **encoder leads**, users feel like they are **actively shaping their destiny**.  
+When the **button leads**, the experience becomes **binary and abrupt**, similar to a normal consumer device.
 
+This demonstrates that **input hierarchy is not just a technical decision — it defines the entire emotional pacing of interaction.**
 
 
 See encoder_accel_servo_dashboard.py in the Lab 4 folder for an example of chaining together three devices.
