@@ -11,7 +11,6 @@
 	- Your final submission should be neat, focused on your own work, and easy to read for grading.
   
 	This helps ensure your README.md is clear, professional, and uniquely yours!
-</details>
 
 ---
 
@@ -53,6 +52,7 @@
 	- Reflection on what you learned and next steps
 
 ---
+</details>
 
 ## Lab Overview
 **Hester Li**
