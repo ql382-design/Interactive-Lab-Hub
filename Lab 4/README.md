@@ -720,7 +720,7 @@ By **letting the encoder control anticipation and the button control irreversibl
 This demonstrates that **sensor hierarchy + staged audio feedback = emotional interface design, not just digital I/O.**
 
 
-### **CODE CAN BE FIND HERE`Lab 4/FateGachaMachine.py`**
+### **CODE CAN BE FIND HERE`Lab 4/FateGachaMachine`**
 
 
 ### Diagram & Photos of Final Prototype
