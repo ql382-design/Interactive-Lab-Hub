@@ -731,21 +731,21 @@ This demonstrates that **sensor hierarchy + staged audio feedback = emotional in
 
 **Front:**
 
-<img src="front.png" alt="front" width="400">
+<img src="front.JPG" alt="front" width="400">
 
 > In the final version, I add a green Qwiic button at front as a fate commit trigger
 > Only the **ritual controls** (Encoder knob + Fate Button + OLED prophecy window + speaker voice) are visible.  
 
 **Back:**
 
-<img src="back.png" alt="back" width="400">
+<img src="back.JPG" alt="back" width="400">
 
 > The **Qwiic I²C cable chain (Button → Encoder → OLED)** is deliberately **routed to the back of the prototype enclosure**.  The cables are **hidden from the user's direct view** to maintain a **clean ritual interface**, where the interaction feels more like **a mystical artifact** rather than an exposed electronics rig.
 
 
 **Inside:**
 
-<img src="inside.png" alt="inside" width="400">
+<img src="inside.JPG" alt="inside" width="400">
 
 > Speaker, Pi are hidden inside the box
 
