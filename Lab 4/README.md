@@ -626,6 +626,8 @@ This device is intentionally designed not just as a tool, but as a **performativ
 <img src="prop1.JPG" alt="prop1" width="400">
 <img src="prop2.JPG" alt="prop2" width="400">
 
+---
+
 # LAB PART 2
 
 ### Part 2
@@ -636,6 +638,9 @@ Following exploration and reflection from Part 1, complete the "looks like," "wo
 
 ### Part E
 
+<details>
+	<summary><strong>(Click to Expand)</strong></summary>
+	
 #### Chaining Devices and Exploring Interaction Effects
 
 For Part 2, you will design and build a fun interactive prototype using multiple inputs and outputs. This means chaining Qwiic and STEMMA QT devices (e.g., buttons, encoders, sensors, servos, displays) and/or combining with traditional breadboard prototyping (e.g., LEDs, buzzers, etc.).
@@ -650,73 +655,159 @@ For Part 2, you will design and build a fun interactive prototype using multiple
 - A simple interaction diagram or sketch showing how inputs and outputs are connected and interact
 - Written reflection: What did you learn about multi-input/multi-output interaction? What was fun, surprising, or challenging?
 
-## 🎮 Interaction Reflections (Part E — Multi-Device Insights)
+</details>
 
-### 1. What new types of interaction become possible when you combine two or more sensors or actuators?
+### 🎮 Interaction Reflections (Part E — Multi-Device Insights)
 
-In this prototype, I combine a **rotary encoder** with a **Qwiic button**, and use **speaker audio output + OLED fate display** as feedback channels.  
-This transforms the interaction from a simple binary control into a **layered ritual sequence**:
 
-- **Encoder rotation** generates **gradual tension**, simulating hesitation and emotional buildup.
-- **Button press** acts as a **commitment gesture**, similar to “pulling the lever” on a gacha machine.
-- **Speaker output** conveys emotional tone using **pitch, rhythm, and frequency shifts**:
-  - Soft chime → Indecision
-  - Rising tone → Growing urge
-  - Harsh buzz → Fate rejection
-  - Chaotic frequency sweep → **CHAOS / uncontrollable destiny**
-- **OLED display** presents the final **fate reveal message (YES / NO / DELAY / CHAOS)** like a prophecy screen.
+#### 1. What new types of interaction become possible when you combine multiple sensors and staged audio output?
 
-Together, these elements turn a simple electronic interaction into a **mini dramatic performance of fate negotiation**, rather than just “pressing a button to see a result.”
+In this prototype, I combine a **rotary encoder (tension input)**, a **Qwiic button (fate commit trigger)**, and **multi-layered audio + OLED prophecy display** as ritual feedback.  
+Instead of a typical “input → output” interaction, the system now behaves like a **fortune mechanism with emotional staging**:
 
----
+- **Encoder rotation** gradually builds "fate energy", simulating hesitation, resistance, or chaotic impulse.
+- **Button press** acts as a **decisive ritual trigger**, which **first plays a mechanical `button-2.wav`**, signaling that the fate is now locked in.
+- Then, a **fate audio tone** plays (`yes.wav`, `no.wav`, `delay.wav`, or `chaos.wav`), using pitch and rhythm to emotionally preload the result.
+- After a **0.3 second ritual pause**, a **witch/oracle-style voice** delivers the final prophecy:
+  - ✅ `yes_voice.wav` — *"Destiny aligns... YES."*
+  - ✅ `no_voice.wav` — *"The threads of fate say... NO."*
+  - ✅ `delay_voice.wav` — *"The future is clouded... Ask again."*
+  - ✅ `chaos_voice.wav` — *"CHAOS stirs... Fate spirals beyond control."*
+- The **OLED display** simultaneously reveals the textual fate outcome, reinforcing the ritual act.
 
-### 2. How does the physical arrangement of devices change the user experience?
-
-The **encoder is placed low and centered**, mimicking the physical handle of a capsule toy or arcade gacha machine — users naturally perform a **theatrical twisting gesture**.
-
-The **button is positioned separately**, slightly elevated or isolated, to clearly communicate that **this is the decisive input**, distinct from the exploratory nature of rotation.
-
-Placing the **speaker inside the enclosure** makes the sound feel like it is coming from within the machine — as if the system is "thinking" or "speaking" its fate.  
-Meanwhile, the **OLED is positioned at eye level**, functioning visually as a **fortune display window**.
-
-Layout alone communicates the interaction sequence without text:
-
-> **Twist → Pause → Press → Machine speaks → Fate appears**
+This layered combination transforms a simple electronic circuit into a **narrative-driven fate negotiation ritual**.
 
 ---
 
-### 3. What happens when one device modulates another?
+#### 2. How does the physical arrangement of the ritual interface change the user experience?
 
-Instead of treating components separately, I allow the **encoder to dynamically influence the speaker output before fate is confirmed**:
+The **encoder is positioned like a gacha wheel**, encouraging a dramatic twisting gesture that feels like "charging fate".  
+The **button is physically separated**, so pressing it feels like **a point of no return**.
 
-| Encoder Behavior            | Speaker Feedback (before confirmation)                   |
-|---------------------------|----------------------------------------------------------|
-| Slow rotation / hesitation | Low ticking or subtle hum                               |
-| Fast rotation / impulse    | Rising pitch tone                                       |
-| Over-rotation / chaos      | Irregular sweep tone (unstable, distorted)              |
+The **speaker hidden inside the enclosure** makes the audio feel like it comes from the “spirit of the machine,” while the **OLED placed at eye level** acts as a **prophecy reveal panel**.
 
-Once the button is pressed, the **stored tension is released** as a short **audio signature**, followed by a final **OLED display message**.
+The physical arrangement silently communicates the ritual order:
 
-This makes the encoder feel less like an input device and more like a **"fate tension dial"**, charging emotional energy before release.
+> **Turn → Accumulate tension → Commit → Audio omen → Voice prophecy**
 
 ---
 
-### 4. How does the system feel when you swap primary and secondary roles?
+#### 3. What happens when one device modulates another with staged feedback?
 
-| Configuration                            | Emotional Feel                                        |
-|-----------------------------------------|------------------------------------------------------|
-| **Encoder as primary, button secondary** | Cinematic and ritualistic — user "negotiates fate"   |
-| **Button as primary, encoder secondary** | Game-like and immediate — quick trigger interaction  |
+Rather than simply triggering output, the **encoder influences the emotional intensity of the final result**:
 
-When the **encoder leads**, users feel like they are **actively shaping their destiny**.  
-When the **button leads**, the experience becomes **binary and abrupt**, similar to a normal consumer device.
+| Encoder Tension Level | Audio Feedback Before Prophecy |
+|----------------------|--------------------------------|
+| Gentle rotation       | Calm or hesitant tone (`delay.wav`) |
+| Strong rotation       | Sharp or confident tone (`yes.wav` / `no.wav`) |
+| Excessive twist       | **CHAOS trigger → glitch/unstable sweep tone** (`chaos.wav`) |
 
-This demonstrates that **input hierarchy is not just a technical decision — it defines the entire emotional pacing of interaction.**
+Only **after** the button is pressed does the **ceremony complete**: `click → fate tone → pause → prophecy voice`.
+
+The audio pipeline itself becomes part of the user experience — **not just feedback, but ritual escalation**.
+
+---
+
+#### 4. How does swapping input hierarchy change the emotional pacing?
+
+| Role Hierarchy | Experience |
+|----------------|-----------|
+| **Encoder primary, Button secondary** | Feels like **deliberate fate shaping** — the user stirs destiny before committing. |
+| **Button primary, Encoder secondary** | Interaction becomes **instant and game-like**, with no emotional buildup. |
+
+By **letting the encoder control anticipation and the button control irreversible commitment**, the system achieves a **cinematic pacing**: tension → silence → reveal.
+
+This demonstrates that **sensor hierarchy + staged audio feedback = emotional interface design, not just digital I/O.**
 
 
-See encoder_accel_servo_dashboard.py in the Lab 4 folder for an example of chaining together three devices.
+### **CODE CAN BE FIND HERE`Lab 4/FateGachaMachine.py`**
 
-**`Lab 4/encoder_accel_servo_dashboard.py`**
+
+### Diagram & Photos of Final Prototype
+
+**Diagram:**
+
+<img src="diagram.png" alt="diagram" width="400">
+
+**Front:**
+
+<img src="front.png" alt="front" width="400">
+
+> In the final version, I add a green Qwiic button at front as a fate commit trigger
+> Only the **ritual controls** (Encoder knob + Fate Button + OLED prophecy window + speaker voice) are visible.  
+
+**Back:**
+
+<img src="back.png" alt="back" width="400">
+
+> The **Qwiic I²C cable chain (Button → Encoder → OLED)** is deliberately **routed to the back of the prototype enclosure**.  The cables are **hidden from the user's direct view** to maintain a **clean ritual interface**, where the interaction feels more like **a mystical artifact** rather than an exposed electronics rig.
+
+
+**Inside:**
+
+<img src="inside.png" alt="inside" width="400">
+
+> Speaker, Pi are hidden inside the box
+
+### 🎥 Fate Gacha Machine — Demo Videos
+
+[![Demo Video 1](https://img.youtube.com/vi/36wllkjDB4g/hqdefault.jpg)](https://youtu.be/36wllkjDB4g?si=HVJIDhQuBDR3uNR7)
+> **Demo 1 Works like —  working prototype in action**
+
+
+[![Demo Video 3](https://img.youtube.com/vi/M4OqC6_lt3M/hqdefault.jpg)](https://youtube.com/shorts/M4OqC6_lt3M?si=1rF6T5CcuOSRnALu)
+> **Demo 2 Acts like - Interact with User**
+
+> In this first demo, I intentionally perform the ritual myself as both **designer and user**.  
+> I ask the machine: **“Will I get a good grade in this class?”**  
+> Knowing how the system works, I **intentionally rotate the encoder in a confident, steady direction**, increasing the probability of a **YES** outcome.  
+> The machine responds accordingly — **ritual confirmed, fate aligned**.
+
+[![Demo Video 2](https://img.youtube.com/vi/enwQGLCpCDs/hqdefault.jpg)](https://youtube.com/shorts/enwQGLCpCDs?si=zb-HEkym95LMAnIT)
+> **Demo 3 More Interaction — Chaos Mode Activation**
+
+> In this session, I invited a friend who **had no knowledge of the fate logic** behind the machine.  
+> He first asked: **“Will I have the chance to go to China this year?”**  
+> Without understanding the tension mechanic, he made **random chaotic rotations**, causing the system to respond with **DELAY — Ask Again**.  
+> He asked a second time, spun even more chaotically, and **triggered CHAOS mode**, followed by the oracle voice:  
+> **“CHAOS stirs... Fate spirals beyond control.”**  
+> → This moment revealed how the machine **creates emotional stakes even without traditional UI**, purely through physical input and staged audio feedback.
+
+#### 🎤 Playtester Feedback
+
+ ✅ What worked well
+ 
+- The clean facade helps the object feel like a finished artifact, not a prototype, which increases user buy-in.
+-  YES/NO/DELAY/CHAOS are perceptually distinct in both sound and copy, reducing ambiguity about what happened.
+- DELAY and CHAOS encourage users to try again, revealing different behaviors and deepening engagement.
+
+🔧 Opportunities to improve
+- For naive users, chaotic spinning often yields CHAOS; consider smoothing or weighting so moderate turns feel more “discoverable” and less punitive.
+- When users ask the same question twice in a row, consider a distinct “acknowledged repeat” behavior to signal system memory (even if simulated).
+- Instead of using LEDs as indicators, they could be used as **emotional glow** e.g., a faint pulsing light during tension build-up, a flash for CHAOS, or a soft fade-out after prophecy delivery.
+
+
+
+### 🔍 Written Reflection — What I Learned from Multi-Input / Multi-Output Interaction
+
+Designing this fate machine taught me that once you combine multiple inputs and multiple expressive outputs, an interface can start to feel less like a tool and more like a ritual object.
+
+The rotary encoder introduced something I didn’t expect at first: it created tension before the decision. Simply turning a knob shouldn’t feel emotional, but once the twist action started affecting fate probability, it transformed into a sort of "fate charging" gesture. Meanwhile, the button gained a new meaning and it was no longer just a digital trigger, but a commitment point, a moment of “no turning back.”
+
+What surprised me the most was observing someone else using it. When I tested it myself, I already knew how to “manipulate destiny” by rotating the encoder deliberately to pull a YES result. But when I handed it to a friend who had no idea how the tension worked, he spun the encoder chaotically, laughed at the "DELAY" result, tried again with even more chaos, and triggered CHAOS mode. That moment revealed something important: multi-input systems allow players to project emotion into the interface, even if they don’t fully understand the logic underneath.
+
+The most challenging part was not the wiring or code, it was figuring out how to pace the outputs so they feel like a psychological sequence instead of raw signals. Multi-output interaction isn’t just about “show this + play that.” It’s about **designing an emotional arc through sound, text, and timing.
+
+In short, I learned that multi-input/multi-output interaction is not just a technical configuration but it is a narrative system.  When inputs shape anticipation, and outputs are staged like theater cues, even a small circuit can feel like it has personality, mood, and ritual power.
+
+
+
+<details>
+	<summary><strong>(Click to Expand)</strong></summary>
+
+
+
+
 
 #### Using Multiple Qwiic Buttons: Changing I2C Address (Physically & Digitally)
 
@@ -863,3 +954,4 @@ Document all the prototypes and iterations you have designed and worked on! Agai
 * "Works like": shows what the device can do
 * "Acts like": shows how a person would interact with the device
 
+</details>
