@@ -152,12 +152,28 @@ Teachable machines provides an audio classifier too. If you want to use audio cl
 In an earlier version of this class students experimented with foundational computer vision techniques such as face and flow detection. Techniques like these can be sufficient, more performant, and allow non discrete classification. Find the material here:
 [CV_optional/cv.md](CV_optional/cv.md).
 
-### Part B
-### Construct a simple interaction.
+###  Part B — Construct a Simple Interaction
 
-* Pick one of the models you have tried, and experiment with prototyping an interaction.
-* This can be as simple as the boat detector shown in lecture.
-* Try out different interaction outputs and inputs.
+In this lab, I built a gesture-based lighting interaction using **MediaPipe Hands** for visual sensing and the **SparkFun Qwiic GPIO** board for physical output control on the Raspberry Pi.  
+The goal was to connect a machine-learning perception model with a tangible, real-time feedback system.
+
+At this initial stage, the LED logic was **inverted** — each LED was **ON by default** when the program started, and it **turned OFF or flickered** when gestures were detected.  
+This behavior came from the Qwiic GPIO module’s **current-sinking** design:  
+a `LOW` signal sinks current and lights the LED, while a `HIGH` signal releases it.  
+Although the result looked reversed, this prototype helped reveal how sensing logic maps to hardware feedback.
+
+Three gesture inputs were mapped to different LEDs:
+
+- **Pinch Gesture** (thumb + index close) → Yellow LED (Pin 0)  
+- **Open Hand** → White LED (Pin 2)  
+- **Quiet Coyote Gesture** (thumb + pinky close) → Blue LED (Pin 5)
+
+During experimentation, the LEDs responded correctly to each gesture but often stayed on or flashed quickly when the hand hovered near the detection thresholds.  
+These flickers highlighted how small variations in distance or lighting could trigger rapid state changes — a useful observation that guided later improvements, such as adding a debounce delay and reversing the logic for more natural “off-by-default” behavior.
+
+**Full interaction code:**  
+👉 [mediapipe_qwiic_led.py](./mediapipe_qwiic_led.py)
+
 
 
 **\*\*\*Describe and detail the interaction, as well as your experimentation here.\*\*\***
@@ -165,33 +181,72 @@ In an earlier version of this class students experimented with foundational comp
 ### Part C
 ### Test the interaction prototype
 
-Now flight test your interactive prototype and **note down your observations**:
-For example:
-1. When does it what it is supposed to do?
-1. When does it fail?
-1. When it fails, why does it fail?
-1. Based on the behavior you have seen, what other scenarios could cause problems?
+After building the first working version, I conducted several tests to evaluate how the gesture-controlled lighting system behaves in different real-world conditions.
+
+### ✅ When it works well
+The system performs very reliably when the lighting is slightly **dim or soft** rather than bright.  
+Under these conditions, the **hand contours are clearer** and MediaPipe detects gestures with **high accuracy and very low latency**.  
+The LEDs respond almost instantly when I perform the pinch, open-hand, or Quiet Coyote gestures.
+
+### ⚠️ When it fails
+The detection becomes less stable in **bright or uneven lighting** conditions — especially when sunlight or reflections hit the camera directly.  
+In those cases, the contrast between the hand and the background decreases, and the system may misclassify gestures or fail to track fingers for a few frames.  
+Another common problem appeared between the **Pinch** and **Quiet Coyote** gestures — because both involve two fingertips closing together, the model sometimes confused one for the other, causing the wrong LED to toggle.
+
+### 💡 Why it fails
+ failures are mostly caused by:
+- Overexposed or shifting brightness in the video input.  
+- Similar hand shapes between Pinch and Quiet Coyote gestures.  
+- Slight jitter in landmark recognition due to movement or partial occlusion.  
+- The LEDs’ state being updated every frame, causing rapid toggling when classification is uncertain.
+
+### 🔍 Feedbacks and Suggestions from friends 
+- Add a **debounce delay** (implemented in later versions) to smooth out rapid state changes.
+- change the logic to use the gesture to turn on the light instead of gesture turn off the light.
+- Include **lighting compensation or automatic brightness normalization** for better stability in variable environments.  
+- Display a **status message or indicator** when gesture confidence is low, helping users understand the uncertainty.
+
 
 **\*\*\*Think about someone using the system. Describe how you think this will work.\*\*\***
-1. Are they aware of the uncertainties in the system?
-1. How bad would they be impacted by a miss classification?
-1. How could change your interactive system to address this?
-1. Are there optimizations you can try to do on your sense-making algorithm.
+
+From a user’s point of view, the interaction feels **immediate and intuitive** — the lights react quickly enough to feel like real feedback.  
+Most users would not notice the underlying uncertainty unless the flickering happens repeatedly.  
+A misclassification would only cause a light to toggle incorrectly, which is a **minor inconvenience** rather than a critical failure.  
+To improve usability, I could smooth transitions or average recognition confidence over several frames before changing the LED output.
+
+Overall, this flight test shows that even simple vision-based sensing can create expressive, real-time physical interactions — as long as environmental conditions and system feedback are thoughtfully managed.
+
 
 ### Part D
 ### Characterize your own Observant system
 
-Now that you have experimented with one or more of these sense-making systems **characterize their behavior**.
-During the lecture, we mentioned questions to help characterize a material:
-* What can you use X for?
-* What is a good environment for X?
-* What is a bad environment for X?
-* When will X break?
-* When it breaks how will X break?
-* What are other properties/behaviors of X?
-* How does X feel?
+After experimenting with the MediaPipe Hands + Qwiic GPIO system, I can describe its behavior as a material for interaction design — how it reacts, what it enables, and where it fails.
+
+In this version:
+- Added a **debounce delay** to smooth out flicker and avoid rapid switching.  
+- Introduced a **minimum-distance threshold difference** between the thumb–index and thumb–pinky pairs to better distinguish Pinch from Quiet Coyote.  
+- Reversed the LED logic so lights start **off by default**, making the interaction behavior more natural and readable.  
+
+
+| Question | Reflection |
+|-----------|-------------|
+| **What can you use X for?** | This system can be used to create **gesture-based control** for physical devices — such as lights, motors, or interfaces — without needing touch or buttons. It demonstrates how computer-vision sensing can drive tangible feedback in real time. |
+| **What is a good environment for X?** | Works best in **moderate or dim indoor lighting**, where hand contours are clear and shadows are soft. A steady camera position and a neutral background improve accuracy. |
+| **What is a bad environment for X?** | Bright sunlight, reflections, or cluttered backgrounds reduce detection accuracy. Outdoor environments or moving backgrounds can confuse the model. |
+| **When will X break?** | The system breaks when the **camera loses sight of the hand**, when **light changes suddenly**, or when **CPU load** on the Pi becomes too high. It may also fail if multiple hands appear in view. |
+| **When it breaks, how will X break?** | LEDs may **freeze in their last state**, or **flicker** rapidly as the system struggles to classify gestures. Sometimes the camera feed lags or stops updating until restarted. |
+| **What are other properties/behaviors of X?** | The system is **responsive, expressive, and scalable** — it can support additional gestures or outputs with minimal code changes. However, it is sensitive to visual noise and environmental variability. |
+| **How does X feel?** | It feels **intuitive and alive** — as if the system is watching and reacting to my motion. The connection between sight and light creates a satisfying sense of feedback and presence. |
+
 
 **\*\*\*Include a short video demonstrating the answers to these questions.\*\*\***
+
+
+The video shows:
+1. Each gesture and its corresponding LED color (Yellow – Pinch, White – Open Hand, Blue – Quiet Coyote).  
+2. The smooth transitions after logic and debounce adjustments.  
+
+
 
 ### Part 2.
 
