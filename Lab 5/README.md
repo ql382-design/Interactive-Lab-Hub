@@ -141,6 +141,13 @@ This will capture an image from your webcam and let you ask questions about it i
 
 </details>
 
+##### 🔵 Quiet Coyote Gesture Detection Test  
+[![Quiet Coyote Test](https://img.youtube.com/vi/261mZpi7W0o/hqdefault.jpg)](https://youtu.be/261mZpi7W0o?si=IxHyfl8Nkxjf6bak)
+
+##### ✋ Open Hand / Pinch Gesture Comparison  
+[![Gesture Comparison](https://img.youtube.com/vi/oyK0v95Vycg/hqdefault.jpg)](https://youtu.be/oyK0v95Vycg?si=4-aecuyVEXjyPoVe)
+
+
 #### Teachable Machines
 
 <details>
@@ -178,6 +185,9 @@ In an earlier version of this class students experimented with foundational comp
 
 </details>
 
+I trianed 4 classes include: smile, big smile, drinking water and on call. It ddetected first 3 correctly but have problem detecting on call when I switch my hand to hold phone.
+
+[![Final Prototype](https://img.youtube.com/vi/Bq0MhWsXxSI/hqdefault.jpg)](https://youtu.be/Bq0MhWsXxSI?si=w6I6uRQWYMb9l7TN)
 
 ###  Part B — Construct a Simple Interaction
 
@@ -201,6 +211,9 @@ These flickers highlighted how small variations in distance or lighting could tr
 **Full interaction code:**  
 👉 [mediapipe_qwiic_led.py](./mediapipe_qwiic_led.py)
 
+Try Out: 
+
+[![INITIAL VERSION](https://img.youtube.com/vi/DOFaW1zOxWI/hqdefault.jpg)](https://youtu.be/DOFaW1zOxWI?si=0vafDcZ6RqNrm2gC)
 
 
 **\*\*\*Describe and detail the interaction, as well as your experimentation here.\*\*\***
@@ -267,6 +280,8 @@ In this version:
 
 
 **\*\*\*Include a short video demonstrating the answers to these questions.\*\*\***
+
+[![Gesture Light Final Version](https://img.youtube.com/vi/PzQVVJZhd3g/hqdefault.jpg)](https://youtu.be/PzQVVJZhd3g?si=axHNy6YfrEzNwj_F)
 
 
 The video shows:
