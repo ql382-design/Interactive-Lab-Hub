@@ -118,6 +118,14 @@ Consider how you might use this position based approach to create an interaction
 </details>
 
 
+##### 🔵 Quiet Coyote Gesture Detection Test  
+[![Quiet Coyote Test](https://img.youtube.com/vi/261mZpi7W0o/hqdefault.jpg)](https://youtu.be/261mZpi7W0o?si=IxHyfl8Nkxjf6bak)
+
+##### ✋ Open Hand / Pinch Gesture Comparison  
+[![Gesture Comparison](https://img.youtube.com/vi/oyK0v95Vycg/hqdefault.jpg)](https://youtu.be/oyK0v95Vycg?si=4-aecuyVEXjyPoVe)
+
+
+
 #### Moondream Vision-Language Model
 
 <details>
@@ -140,13 +148,6 @@ This will capture an image from your webcam and let you ask questions about it i
 **Design consideration**: Think about how slower response times change your interaction design. What kinds of observant systems benefit from thoughtful, delayed responses rather than real-time classification? Consider systems that monitor over longer time periods or provide periodic summaries rather than instant feedback.
 
 </details>
-
-##### 🔵 Quiet Coyote Gesture Detection Test  
-[![Quiet Coyote Test](https://img.youtube.com/vi/261mZpi7W0o/hqdefault.jpg)](https://youtu.be/261mZpi7W0o?si=IxHyfl8Nkxjf6bak)
-
-##### ✋ Open Hand / Pinch Gesture Comparison  
-[![Gesture Comparison](https://img.youtube.com/vi/oyK0v95Vycg/hqdefault.jpg)](https://youtu.be/oyK0v95Vycg?si=4-aecuyVEXjyPoVe)
-
 
 #### Teachable Machines
 
