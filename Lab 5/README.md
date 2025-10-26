@@ -282,7 +282,7 @@ In this version:
 
 **\*\*\*Include a short video demonstrating the answers to these questions.\*\*\***
 
-[![Gesture Light Final Version](https://img.youtube.com/vi/PzQVVJZhd3g/hqdefault.jpg)](https://youtu.be/PzQVVJZhd3g?si=axHNy6YfrEzNwj_F)
+[![Demo Video](https://img.youtube.com/vi/awtULOnC5lI/hqdefault.jpg)](https://youtu.be/awtULOnC5lI?si=CvrKT7mQF8ulVPUU)
 
 
 The video shows:
