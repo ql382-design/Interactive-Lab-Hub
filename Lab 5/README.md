@@ -44,8 +44,13 @@ D) [Reflect](#part-d)
 ### Part A
 ### Play with different sense-making algorithms.
 
+
+	
 #### Pytorch for object recognition
 
+<details>
+	<summary><strong>(Click to Expand)</strong></summary>
+	
 For this first demo, you will be using PyTorch and running a MobileNet v2 classification model in real time (30 fps+) on the CPU. We will be following steps adapted from [this tutorial](https://pytorch.org/tutorials/intermediate/realtime_rpi.html).
 
 ![torch](Readme_files/pyt.gif)
@@ -82,8 +87,13 @@ For more details on transfer learning and deployment to embedded devices, see De
 ### Machine Vision With Other Tools
 The following sections describe tools ([MediaPipe](#mediapipe) and [Teachable Machines](#teachable-machines)).
 
+</details>
+
 #### MediaPipe
 
+<details>
+	<summary><strong>(Click to Expand)</strong></summary>
+	
 A established open source and efficient method of extracting information from video streams comes out of Google's [MediaPipe](https://mediapipe.dev/), which offers state of the art face, face mesh, hand pose, and body pose detection.
 
 ![Media pipe](Readme_files/mp.gif)
@@ -105,10 +115,14 @@ Consider how you might use this position based approach to create an interaction
 
 (You might also consider how this notion of percentage control with hand tracking might be used in some of the physical UI you may have experimented with in the last lab, for instance in controlling a servo or rotary encoder.)
 
+</details>
 
 
 #### Moondream Vision-Language Model
 
+<details>
+	<summary><strong>(Click to Expand)</strong></summary>
+	
 [Moondream](https://www.ollama.com/library/moondream) is a lightweight vision-language model that can understand and answer questions about images. Unlike the classification models above, Moondream can describe images in natural language and answer specific questions about what it sees.
 
 To use Moondream, first make sure Ollama is running and pull the model:
@@ -125,7 +139,14 @@ This will capture an image from your webcam and let you ask questions about it i
 
 **Design consideration**: Think about how slower response times change your interaction design. What kinds of observant systems benefit from thoughtful, delayed responses rather than real-time classification? Consider systems that monitor over longer time periods or provide periodic summaries rather than instant feedback.
 
+</details>
+
 #### Teachable Machines
+
+<details>
+	<summary><strong>(Click to Expand)</strong></summary>
+
+	
 Google's [TeachableMachines](https://teachablemachine.withgoogle.com/train) is very useful for prototyping with the capabilities of machine learning. We are using [a python package](https://github.com/MeqdadDev/teachable-machine-lite) with tensorflow lite to simplify the deployment process.
 
 ![Tachable Machines Pi](Readme_files/tml_pi.gif)
@@ -154,6 +175,9 @@ Teachable machines provides an audio classifier too. If you want to use audio cl
 
 In an earlier version of this class students experimented with foundational computer vision techniques such as face and flow detection. Techniques like these can be sufficient, more performant, and allow non discrete classification. Find the material here:
 [CV_optional/cv.md](CV_optional/cv.md).
+
+</details>
+
 
 ###  Part B — Construct a Simple Interaction
 
