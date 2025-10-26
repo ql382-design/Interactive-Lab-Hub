@@ -1,6 +1,6 @@
 # Observant Systems
 
-**NAMES OF COLLABORATORS HERE**
+**Hester Li**
 
 <details>
 	<summary><strong>(Click to Expand)</strong></summary>
