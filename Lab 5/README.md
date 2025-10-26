@@ -89,6 +89,12 @@ The following sections describe tools ([MediaPipe](#mediapipe) and [Teachable Ma
 
 </details>
 
+I tried using a water bottle and a perfume bottle. It doesn't detect clearly.
+
+<img src="1.png" alt="1" width="400">
+<img src="2.png" alt="2" width="400">
+
+
 #### MediaPipe
 
 <details>
@@ -148,6 +154,10 @@ This will capture an image from your webcam and let you ask questions about it i
 **Design consideration**: Think about how slower response times change your interaction design. What kinds of observant systems benefit from thoughtful, delayed responses rather than real-time classification? Consider systems that monitor over longer time periods or provide periodic summaries rather than instant feedback.
 
 </details>
+
+I took a picture of myself and it detect correctly, with people's race and facial expression.
+
+<img src="3.png" alt="3" width="400">
 
 #### Teachable Machines
 
