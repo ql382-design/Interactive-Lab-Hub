@@ -300,9 +300,154 @@ The video shows:
 2. The smooth transitions after logic and debounce adjustments.  
 
 
+**Feedbacks from other users**
+
+1. try to think some ideas more unique, emotional lamp is too common
+2. add more functions would be better, only light output is boring
+3. sometimes gesture will be misdetected, fix this problem and make it more precise
 
 ### Part 2.
 
-Following exploration and reflection from Part 1, finish building your interactive system, and demonstrate it in use with a video.
+####  🥁 Gesture Drum Synthesizer — Interactive MediaPipe + Qwiic GPIO Project
 
-**\*\*\*Include a short video demonstrating the finished result.\*\*\***
+#####  🎬 Overview
+After getting all the feedbacks from last week's lab, I decide to improve the idea and design a **Gesture Drum**. Is an interactive prototype that transforms hand gestures into synchronized **light and sound** feedback.  
+Using **MediaPipe Hands** for visual sensing and a **SparkFun Qwiic GPIO** board on Raspberry Pi for physical actuation, each gesture both lights up a colored LED and triggers a unique drum sound — turning the body into a musical controller.
+
+---
+
+#####  🧠 Design Thinking & Evolution
+
+######  🧩 Phase 1 — From Gesture to Light
+The initial prototype connected **hand gestures** detected by MediaPipe to **LED outputs** via the Qwiic GPIO board.  
+This phase focused on visualizing recognition accuracy — translating digital perception into tangible physical feedback.
+
+######  🎶 Phase 2 — Adding Sound as a Second Output
+Once the LED system worked reliably, the interaction was extended with **audio feedback** using the `pygame.mixer` library.  
+Each gesture now not only lights an LED but also plays a distinct **drum sound**, giving the system a performative, instrument-like quality.
+
+######  🧱 Phase 3 — Designing the “Gesture Drum” Concept
+The project evolved into a **Gesture Drum Synthesizer**, where:
+- Lights visualize rhythm and timing  
+- Sounds express energy and emotion  
+- The performer’s body becomes the instrument itself  
+
+The mapping between gesture, color, and sound was designed for intuitive association and clear feedback.
+
+---
+
+#####  🎨 Gesture → Color → Sound Mapping
+
+| Gesture | Description | LED Color | Sound Effect |
+|----------|--------------|-----------|---------------|
+| 🤏 **Pinch** | Thumb + Index close — precise hit | 💛 Yellow | Snare |
+| ✊ **Fist** | All fingers bent — strong beat | 🟧 Orange | Kick |
+| ☝️ **One Finger** | Only index extended — accent | 💙 Blue | Hi-Hat |
+| 🖐 **Open Hand** | Five fingers fully open — fill | 🤍 White | Tom |
+
+Each color reinforces rhythm visually, while sound provides the musical layer — merging visual and auditory cues.
+
+---
+
+#####  🔧 Technical Implementation
+
+######  Hardware
+- Raspberry Pi 5  
+- SparkFun Qwiic GPIO (I²C)  
+- 4 LEDs — Blue (P0), Yellow (P1), White (P6), Orange (P7)  
+- USB Camera for gesture input
+- Wireless Bluetooth 
+
+######  Software
+- `mediapipe` — gesture detection  
+- `opencv-python` — video feed and overlay  
+- `pygame` — sound playback  
+- `sparkfun-qwiic-gpio` — LED control  
+- `python 3.11` on Raspberry Pi  
+
+---
+
+#####  🧪 Iterative Refinement
+
+Early tests revealed after test by different user:
+- **Quiet Coyote / Pinch** confusion due to similar finger positions  
+- **One Finger** often misread as **Open Hand**  
+- **Lighting conditions** affecting landmark detection  
+
+######  Solutions
+1. **Gesture Redesign** → simpler and more distinct gestures (Pinch, Fist, One Finger, Open Hand).  
+2. **Relative Distance Logic** → compare fingertip–palm distances:  
+   - Fist → average distance < 120 px  
+   - One Finger → index − others > 80 px  
+   - Open Hand → all five > 150 px  
+3. **Priority Hierarchy** → prevents overlapping detections.  
+4. **LED Logic Correction** → matched hardware (HIGH = ON).  
+
+Each iteration balanced **recognition reliability** with **expressive control**, refining thresholds for stable performance.
+
+---
+
+#####  🧭 Interaction Summary
+
+| Mode | Input Gesture | Visual Output | Audio Output |
+|------|----------------|---------------|---------------|
+| 🤏 Pinch | Thumb + Index close | 💛 Yellow LED | Snare |
+| ✊ Fist | All fingers bent | 🟧 Orange LED | Kick |
+| ☝️ One Finger | Only Index extended | 💙 Blue LED | Hi-Hat |
+| 🖐 Open Hand | Five fingers open | 🤍 White LED | Tom |
+
+---
+
+▶️ Run the Project
+
+```bash
+python3 gesture_drum_qwiic.py
+
+
+##### 🎥 Demo Videos
+
+[![Demo Video 1](https://img.youtube.com/vi/I4TWD0MCLDg/0.jpg)](https://youtu.be/I4TWD0MCLDg?si=1BplId2CUkar7n5f)  
+**Video 1 — Full Demonstration:**  
+Shows the final complete Gesture Drum setup in action — from gesture recognition to synchronized LED and drum sound feedback.
+
+[![Demo Video 2](https://img.youtube.com/vi/MLrgyx3EbxU/0.jpg)](https://youtu.be/MLrgyx3EbxU?si=D4Jjzns8UMfyVaP3)  
+**Video 2 — Gesture Showcase:**  
+Close-up shots of each gesture (Pinch, Fist, OneFinger, OpenHand) and how the system responds with corresponding colors and sounds.
+
+---
+
+
+#####  💡 Reflection
+
+Building the **Gesture Drum** taught me how small changes in sensing logic can dramatically impact user experience.  
+The process was not just about making LEDs blink or sounds play and it was about translating *human motion* into a meaningful and expressive response.  
+Early versions revealed how computer vision can feel fragile under different lighting or hand poses, pushing me to think not only as a programmer but as a **system designer**.  
+
+By the final version, the system could reliably distinguish between subtle gestures, and the mapping between gesture, sound, and color felt natural and almost like playing a minimal digital instrument.  
+The combination of tactile feedback (LEDs), audio rhythm (drum sounds), and embodied control (hand motion) created a multisensory experience that blurred the boundary between **coding**, **music**, and **performance art**.  
+
+From a design perspective, this project also revealed how *feedback loops* shape user perception:  
+- Visual light offers **confirmation** (“yes, the gesture was recognized”).  
+- Sound provides **reward** (“you hit a beat”).  
+- Together, they form an **interaction rhythm** that keeps users engaged.  
+
+Ultimately, the biggest learning was how important it is to **design around machine errors**  instead of expecting perfect recognition, I learned to build *forgiveness* into the system through debounce delays, threshold averaging, and clear gesture distinctions.
+
+
+##### 🗣️ User Feedback
+
+I invited 3 friends to test it:
+
+**🧍‍♀️ Jack (Music Enthusiast)**  
+> “It’s surprisingly fun! I didn’t expect the gestures to feel so responsive. The yellow snare light makes it feel like I’m actually performing on stage. If it could remember short patterns and loop them, it’d be a real instrument.”
+
+**🧍 Lily (Engineer)**  
+> “The Fist and One Finger are finally distinguishable. that’s impressive. The sound delay is minimal, and the LED feedback really helps confirm detection. It’s the first vision-based control I’ve tried that feels reliable enough to use in real time.”
+
+**🧍‍♂️ CC (Casual Tester)**  
+> “At first I just waved my hand and the lights flashed and then I realized it’s playing drums! It’s simple but very satisfying. The colors help me understand which gesture I’m doing, even if the sound is fast. It would be better if I had some instructions before I test it”
+
+
+
+
+
