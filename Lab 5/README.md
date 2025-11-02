@@ -457,7 +457,15 @@ I invited 3 friends to test it:
 **🧍‍♂️ CC (Casual Tester)**  
 > “At first I just waved my hand and the lights flashed and then I realized it’s playing drums! It’s simple but very satisfying. The colors help me understand which gesture I’m doing, even if the sound is fast. It would be better if I had some instructions before I test it”
 
+While the Gesture Drum works reliably, several improvements could enhance the overall experience:
 
 
+- Fine-tune gesture thresholds or include machine learning–based classification to make recognition more consistent under varying lighting or hand angles.
+
+- Allow multiple gestures to trigger overlapping sounds, creating a more expressive and musical experience similar to real drum kits.
+
+- Add on-screen visual indicators or rhythmic animations that pulse with the beat, helping users understand timing and confidence levels.
+
+- Introduce a short calibration step where the system learns each user’s hand size and movement range to personalize gesture sensitivity.
 
 
