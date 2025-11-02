@@ -380,7 +380,8 @@ Early tests revealed after test by different user:
 - **One Finger** often misread as **Open Hand**  
 - **Lighting conditions** affecting landmark detection  
 
-######  Solutions
+##### Solutions
+
 1. **Gesture Redesign** → simpler and more distinct gestures (Pinch, Fist, One Finger, Open Hand).  
 2. **Relative Distance Logic** → compare fingertip–palm distances:  
    - Fist → average distance < 120 px  
