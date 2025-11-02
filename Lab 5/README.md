@@ -342,6 +342,8 @@ The mapping between gesture, color, and sound was designed for intuitive associa
 
 <img src="8.png" alt="3" width="400">
 
+<img src="10.png" alt="3" width="400">
+
 #####  🎨 Gesture → Color → Sound Mapping
 
 | Gesture | Description | LED Color | Sound Effect |
