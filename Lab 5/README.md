@@ -271,6 +271,8 @@ Overall, this flight test shows that even simple vision-based sensing can create
 ### Part D
 ### Characterize your own Observant system
 
+<img src="7.png" alt="3" width="400">
+
 After experimenting with the MediaPipe Hands + Qwiic GPIO system, I can describe its behavior as a material for interaction design — how it reacts, what it enables, and where it fails.
 
 In this version:
@@ -335,6 +337,10 @@ The project evolved into a **Gesture Drum Synthesizer**, where:
 The mapping between gesture, color, and sound was designed for intuitive association and clear feedback.
 
 ---
+
+<img src="9.png" alt="3" width="400">
+
+<img src="8.png" alt="3" width="400">
 
 #####  🎨 Gesture → Color → Sound Mapping
 
@@ -402,6 +408,7 @@ Each iteration balanced **recognition reliability** with **expressive control**,
 
 ```bash
 python3 gesture_drum_qwiic.py
+```
 
 
 ##### 🎥 Demo Videos
