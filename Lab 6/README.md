@@ -69,9 +69,9 @@ mosquitto_pub -h farlab.infosci.cornell.edu -p 1883 -t 'IDD/test/yourname' -m 'H
 </details>
 
 
-## 💡 Brainstorm — 5 Ideas for Messaging Between Devices
+#### 💡 Brainstorm — 5 Ideas for Messaging Between Devices
 
-### 1. Mood Lights Across Rooms
+##### 1. Mood Lights Across Rooms
 **Concept:** Each Raspberry Pi controls an RGB LED strip that reflects the user’s mood.  
 **Mechanism:**  
 - A Pi with a color sensor or slider publishes to `IDD/mood/hester → {r,g,b}`.  
@@ -81,7 +81,7 @@ mosquitto_pub -h farlab.infosci.cornell.edu -p 1883 -t 'IDD/test/yourname' -m 'H
 
 ---
 
-### 2. Presence Ping-Pong
+##### 2. Presence Ping-Pong
 **Concept:** A playful “I’m here” or “poke” system between teammates.  
 **Mechanism:**  
 - Pressing a Pi button publishes `IDD/ping/name`.  
@@ -91,7 +91,7 @@ mosquitto_pub -h farlab.infosci.cornell.edu -p 1883 -t 'IDD/test/yourname' -m 'H
 
 ---
 
-### 3. Collaborative Counter / Shared Scoreboard
+##### 3. Collaborative Counter / Shared Scoreboard
 **Concept:** Each device has a button that increases or decreases a shared counter.  
 **Mechanism:**  
 - Publish increments to `IDD/counter/increment` or `IDD/counter/decrement`.  
@@ -101,7 +101,7 @@ mosquitto_pub -h farlab.infosci.cornell.edu -p 1883 -t 'IDD/test/yourname' -m 'H
 
 ---
 
-### 4. Sound Ripple Network
+##### 4. Sound Ripple Network
 **Concept:** One device plays a tone; others echo or harmonize in sequence.  
 **Mechanism:**  
 - A Pi detects sound amplitude or button press → publishes `IDD/sound/note:C4`.  
@@ -111,7 +111,7 @@ mosquitto_pub -h farlab.infosci.cornell.edu -p 1883 -t 'IDD/test/yourname' -m 'H
 
 ---
 
-### 5. Distributed Weather Display
+##### 5. Distributed Weather Display
 **Concept:** Each device shares local sensor readings (temperature, humidity, or light).  
 **Mechanism:**  
 - Each Pi publishes `IDD/weather/piName → {temp, humidity}`.  
