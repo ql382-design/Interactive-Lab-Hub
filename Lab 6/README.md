@@ -192,6 +192,9 @@ Hold colored objects near sensor to change your pixel!
 [![Video 1](https://img.youtube.com/vi/6vmiTTxWM5w/0.jpg)](https://youtu.be/6vmiTTxWM5w)
 *Demo 1 – grid color changes.*
 
+Pi setup:
+
+<img src="1.png" alt="1" width="400">
 
 ---
 
