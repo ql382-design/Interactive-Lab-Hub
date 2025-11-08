@@ -5,6 +5,7 @@
 For submission, replace this section with your documentation!
 
 ---
+
 <details>
 	<summary><strong>(Click to Expand)</strong></summary>
 
@@ -205,6 +206,7 @@ Hold colored objects near sensor to change your pixel!
 
 [![Video 4](https://img.youtube.com/vi/I4TWD0MCLDg/0.jpg)](https://youtu.be/I4TWD0MCLDg?si=YFtWZD_QqbNtnUdA)
 *Demo 4 – test with 3 users.*
+
 
 <details>
 	<summary><strong>(Click to Expand)</strong></summary>
