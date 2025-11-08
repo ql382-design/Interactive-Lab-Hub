@@ -23,7 +23,7 @@ Build interactive systems where **multiple devices communicate over a network** 
 - B: Try collaborative pixel grid demo  
 - C: Build your own distributed system
 
-<\details>
+<\ details>
 
 ---
 
