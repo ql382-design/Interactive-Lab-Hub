@@ -1,10 +1,12 @@
 # Distributed Interaction
 
-**NAMES OF COLLABORATORS HERE**
+**Hester Li, Joy Sun, Sandy Zhan**
 
 For submission, replace this section with your documentation!
 
 ---
+<details>
+	<summary><strong>(Click to Expand)</strong></summary>
 
 ## Prep
 
@@ -20,10 +22,15 @@ Build interactive systems where **multiple devices communicate over a network** 
 - B: Try collaborative pixel grid demo  
 - C: Build your own distributed system
 
+<\details>
+
 ---
 
 ## Part A: MQTT Messaging
 
+<details>
+	<summary><strong>(Click to Expand)</strong></summary>
+ 
 MQTT = lightweight messaging for IoT. Publish/subscribe model with central broker.
 
 **Concepts:**
@@ -56,6 +63,8 @@ mosquitto_pub -h farlab.infosci.cornell.edu -p 1883 -t 'IDD/test/yourname' -m 'H
 **🔧 Debug Tool:** View all MQTT messages in real-time at `http://farlab.infosci.cornell.edu:5001`
 
 ![MQTT Explorer showing messages](imgs/MQTT-explorer.png)
+
+<\details>
 
 ## 💡 Brainstorm — 5 Ideas for Messaging Between Devices
 
@@ -110,10 +119,11 @@ mosquitto_pub -h farlab.infosci.cornell.edu -p 1883 -t 'IDD/test/yourname' -m 'H
 ---
 
 
----
-
 ## Part B: Collaborative Pixel Grid
 
+<details>
+	<summary><strong>(Click to Expand)</strong></summary>
+ 
 Each Pi = one pixel, controlled by RGB sensor, displayed in real-time grid.
 
 **Architecture:** `Pi (sensor) → MQTT → Server → Web Browser`
@@ -172,12 +182,33 @@ Hold colored objects near sensor to change your pixel!
 
 ![Pixel grid with two devices](imgs/two-devices-grid.png)
 
+<\details>
+
 **📸 Include: Screenshot of grid + photo of your Pi setup**
+
+[![Video 1](https://img.youtube.com/vi/6vmiTTxWM5w/0.jpg)](https://youtu.be/6vmiTTxWM5w)
+*Demo 1 – grid color changes.*
+
 
 ---
 
 ## Part C: Make Your Own
 
+
+[![Video 4](https://img.youtube.com/vi/HpCUQ5m_lUI/0.jpg)](https://youtu.be/HpCUQ5m_lUI)
+*Demo 2 – Successful mechanism activation & treasure reveal.*
+[![Video 3](https://img.youtube.com/vi/X49TW9GbIAs/0.jpg)](https://youtu.be/X49TW9GbIAs?si=_uI-3xRdj2L-BlTg)
+*Demo 3 – Test with ourself.*
+
+
+
+
+[![Video 4](https://img.youtube.com/vi/I4TWD0MCLDg/0.jpg)](https://youtu.be/I4TWD0MCLDg?si=YFtWZD_QqbNtnUdA)
+*Demo 4 – test with 3 users.*
+
+<details>
+	<summary><strong>(Click to Expand)</strong></summary>
+ 
 **Requirements:**
 - 3+ people, 3+ Pis
 - Each Pi contributes sensor input via MQTT
@@ -292,3 +323,5 @@ Before submitting:
 ---
 
 Resources: [MQTT Guide](https://www.hivemq.com/mqtt-essentials/) | [Paho Python](https://www.eclipse.org/paho/index.php?page=clients/python/docs/index.php) | [Flask-SocketIO](https://flask-socketio.readthedocs.io/)
+
+<\details>
