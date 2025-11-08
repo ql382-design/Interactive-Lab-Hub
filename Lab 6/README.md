@@ -65,7 +65,7 @@ mosquitto_pub -h farlab.infosci.cornell.edu -p 1883 -t 'IDD/test/yourname' -m 'H
 
 ![MQTT Explorer showing messages](imgs/MQTT-explorer.png)
 
-<\details>
+<\ details>
 
 ## 💡 Brainstorm — 5 Ideas for Messaging Between Devices
 
@@ -183,7 +183,7 @@ Hold colored objects near sensor to change your pixel!
 
 ![Pixel grid with two devices](imgs/two-devices-grid.png)
 
-<\details>
+<\ details>
 
 **📸 Include: Screenshot of grid + photo of your Pi setup**
 
@@ -326,4 +326,4 @@ Before submitting:
 
 Resources: [MQTT Guide](https://www.hivemq.com/mqtt-essentials/) | [Paho Python](https://www.eclipse.org/paho/index.php?page=clients/python/docs/index.php) | [Flask-SocketIO](https://flask-socketio.readthedocs.io/)
 
-<\details>
+<\ details>
