@@ -212,6 +212,38 @@ Pi setup:
 [![Video 4](https://img.youtube.com/vi/vdrnqq7rVQQ/0.jpg)](https://youtu.be/vdrnqq7rVQQ?si=gwL2ycjkJ4blA21E)
 *Demo 4 – test with 3 users.*
 
+##### 🧪 User Testing Summary
+
+The videos above show the final successful user test sessions of *Silent Serpents*.  
+Each player group went through around **five trial attempts** before completing the sequence smoothly.  
+Although the core mechanics are simple—direction control, rune activation, and color matching—the gameplay still required **precise coordination and timing** between participants.  
+Through multiple retries, the users learned how to communicate more efficiently and anticipate the temple’s traps together.
+
+###### 💬 User Feedback & Insights
+
+**User A:**  
+> “It felt really tense at first because every move could trigger something unexpected.  
+> Once we figured out the rhythm, it became fun and satisfying.  
+> Maybe add a short visual cue before the spikes appear—it would help new players adjust faster.”
+
+**User B:**  
+> “I like that it’s not just reaction-based but also about teamwork.  
+> We had to talk and coordinate which side to move, just like solving a puzzle under pressure.  
+> It would be nice if there were sound effects or ambient music that changes with progress.”
+
+**User C:**  
+> “The color-matching barrier was my favorite—it felt magical when it opened.  
+> But sometimes it was hard to tell when we succeeded.  
+> Maybe add a clearer success animation or light pulse to celebrate the moment.”
+
+###### 🧭 Key Takeaways & Imrpovement Suggestion
+
+- Players need **several rounds of practice** before mastering the sequence.  
+- **Team communication** dramatically improves success rate.  
+- Adding more **sensory feedback (sound, light, motion)** could make the experience more intuitive and rewarding.
+
+Overall, even as a simple prototype, *Silent Serpents Game* successfully encouraged collaboration, timing, and shared discovery—exactly the spirit of the legendary trio of thieves.
+
 
 <details>
 	<summary><strong>(Click to Expand)</strong></summary>
