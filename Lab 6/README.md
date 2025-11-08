@@ -194,7 +194,7 @@ Hold colored objects near sensor to change your pixel!
 
 Pi setup:
 
-<img src="1.png" alt="1" width="400">
+<img src="1.jpg" alt="1" width="400">
 
 ---
 
@@ -209,7 +209,7 @@ Pi setup:
 
 
 
-[![Video 4](https://img.youtube.com/vi/I4TWD0MCLDg/0.jpg)](https://youtu.be/I4TWD0MCLDg?si=YFtWZD_QqbNtnUdA)
+[![Video 4](https://img.youtube.com/vi/vdrnqq7rVQQ/0.jpg)](https://youtu.be/vdrnqq7rVQQ?si=gwL2ycjkJ4blA21E)
 *Demo 4 – test with 3 users.*
 
 
