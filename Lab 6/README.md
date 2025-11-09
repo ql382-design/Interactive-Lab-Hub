@@ -270,7 +270,7 @@ Each sensor continuously reads input and checks whether the required action has 
 
 #### - **MQTT Communication Structure**
 
-All the Code are store in: [🧩 View Lab 6 Code Folder →](./Lab%206%20code)
+All the code is stored in: [🧩 View Lab 6 Code Folder →](./Lab%206%20code)
 
 **Server files:**
 - `app.py` - Pixel grid server (Flask + WebSocket + MQTT)
@@ -327,7 +327,7 @@ Tonight, you infiltrate the ancient Temple of the Sleeping Star, a place rumored
 The temple is protected by layered traps, intricate puzzles, and arcane barriers.
 Only perfect coordination will allow you to survive… and escape with the treasure.
 
-<img src="4.jpg" alt="4" width="400">
+<img src="4.png" alt="4" width="400">
 
 ##### - Challenge 1 — The Shifting Pathway
 
