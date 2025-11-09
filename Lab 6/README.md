@@ -270,7 +270,7 @@ Each sensor continuously reads input and checks whether the required action has 
 
 #### - **MQTT Communication Structure**
 
-All the Code are store in: [🧩 View Lab 6 Code Folder →](./Lab/6/code)
+All the Code are store in: [🧩 View Lab 6 Code Folder →](./Lab6/code)
 
 **Server files:**
 - `app.py` - Pixel grid server (Flask + WebSocket + MQTT)
@@ -288,10 +288,10 @@ All the Code are store in: [🧩 View Lab 6 Code Folder →](./Lab/6/code)
 - `templates/mqtt_viewer.html` - Message viewer
 </details>
 
-- [`game_master.py`](./final_code/game_master.py) | Central controller that sends narration, assigns tasks, and evaluates results via MQTT.
-- [`Joy_Client.py`](./final_code/Joy_Client.py) | Player A’s client code (Touch sensor).
-- [`Hester_Client.py`](./final_code/Hester_Client.py) | Player B’s client code (Joystick control).
-- [`Sandy_Client.py`](./final_code/Sandy_Cilent.py) | Player C’s client code (Color sensor).
+- [`game_master.py`](./Lab6/code/game_master.py) | Central controller that sends narration, assigns tasks, and evaluates results via MQTT.
+- [`Joy_Client.py`](./Lab6/code/Joy_Client.py) | Player A’s client code (Touch sensor).
+- [`Hester_Client.py`](./Lab6/code/Hester_Client.py) | Player B’s client code (Joystick control).
+- [`Sandy_Client.py`](./Lab6/code/Sandy_Cilent.py) | Player C’s client code (Color sensor).
 
 ---
 
