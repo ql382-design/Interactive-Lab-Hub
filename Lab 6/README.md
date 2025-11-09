@@ -201,23 +201,172 @@ Pi setup:
 ## Part C: Make Your Own
 
 
+
 [![Video 4](https://img.youtube.com/vi/HpCUQ5m_lUI/0.jpg)](https://youtu.be/HpCUQ5m_lUI)
+
 *Demo 2 – Successful mechanism activation & treasure reveal.*
 [![Video 3](https://img.youtube.com/vi/X49TW9GbIAs/0.jpg)](https://youtu.be/X49TW9GbIAs?si=_uI-3xRdj2L-BlTg)
+
 *Demo 3 – Test with ourself.*
 
+---
 
+### **1. Project Description**
+This is a cooperative game in which three players attempt to retrieve a legendary treasure hidden deep inside an ancient temple. Each player controls a different physical sensor device. The Game Master script delivers the story narration and instructions over MQTT. Players must perform their assigned actions in the correct order to advance the story.
+
+The interaction becomes meaningful because:
+
+- Each player contributes a unique action.
+- No player can solve the puzzle alone.
+- Success depends on communication and timing.
+
+The story framework turns simple sensor actions into dramatic “temple mechanisms” that must be activated to progress.
+
+
+### **2. Architecture Diagram**  
+
+Three Raspberry Pis act as players:
+
+- Player A（Joy Sun） uses a touch sensor
+- Player B (Hester Li)uses a joystick
+- Player C(Sandy Zhan) uses a color sensor
+
+A central Game Master coordinates the game:
+
+1. Sends narration text to all players.
+2. Sends individual tasks privately to each player.
+3. Waits for each player to respond with either “success” or “fail.”
+4. Determines whether the group continues or the adventure ends.
+
+<img src="2.jpg" alt="2" width="400">
+
+---
+
+### **3. Build Documentation**  
+
+#### - **Hardware Setup**  
+
+Each Raspberry Pi is connected to:
+
+- Power
+- I2C communication lines for its sensor
+
+Player A interacts by touching specific pads.
+Player B interacts by moving or pressing the joystick.
+Player C interacts by showing colored objects to the APDS-9960.
+
+Each sensor continuously reads input and checks whether the required action has been performed.
+
+<img src="3.jpg" alt="3" width="400">
+
+
+---
+
+#### - **MQTT Communication Structure**
+
+All the Code are store in: [🧩 View Lab 6 Code Folder →](./final/code)
+
+**Server files:**
+- `app.py` - Pixel grid server (Flask + WebSocket + MQTT)
+- `mqtt_viewer.py` - MQTT message viewer for debugging
+- `mqtt_bridge.py` - MQTT → WebSocket bridge
+- `requirements-server.txt` - Server dependencies
+
+**Pi files:**
+- `pixel_grid_publisher.py` - Example (RGB sensor → MQTT)
+- `requirements-pi.txt` - Pi dependencies
+
+**Web interface:**
+- `templates/grid.html` - Pixel grid display
+- `templates/controller.html` - Color picker
+- `templates/mqtt_viewer.html` - Message viewer
+</details>
+
+- [`game_master.py`](./final_code/game_master.py) | Central controller that sends narration, assigns tasks, and evaluates results via MQTT.
+- [`Joy_Client.py`](./final_code/Joy_Client.py) | Player A’s client code (Touch sensor).
+- [`Hester_Client.py`](./final_code/Hester_Client.py) | Player B’s client code (Joystick control).
+- [`Sandy_Client.py`](./final_code/Sandy_Cilent.py) | Player C’s client code (Color sensor).
+
+---
+
+The Game Master sends story narration using the topic:
+game/story
+
+The Game Master sends individual task commands:
+game/<player_name>/task
+
+
+Each player reports success or failure to:
+game/<player_name>/result
+
+
+The Game Master broadcasts final outcome:
+game/status
+
+
+Payload: game_success or game_fail
+Broker:
+Host: farlab.infosci.cornell.edu
+Port: 1883
+Username: idd
+Password: device@theFarm
+
+---
+
+#### - 4.Story Introduction
+
+You are part of a legendary trio of master thieves, known across kingdoms as the Silent Serpents.
+Tonight, you infiltrate the ancient Temple of the Sleeping Star, a place rumored to guard the priceless relic known as the Heart of Dawn.
+
+The temple is protected by layered traps, intricate puzzles, and arcane barriers.
+Only perfect coordination will allow you to survive… and escape with the treasure.
+
+<img src="4.jpg" alt="4" width="400">
+
+##### - Challenge 1 — The Shifting Pathway
+
+A long stone pathway stretches before you.
+The floor panels slide and realign like living machinery, revealing hidden spike pits beneath.
+
+To move forward safely, your steps must be chosen with precision.
+The temple waits for your command.
+
+##### - Challenge 2 — The Runes of Awakening
+
+A towering wall carved with ancient runes begins to glow in a cool blue light.
+Each symbol corresponds to an old incantation — but only one correct combination will unlock the next chamber.
+
+A single mistake could seal the passage forever.
+
+##### - Challenge 3 — The Veil of Spectral Light
+
+Ahead, a shimmering arcane barrier blocks the path.
+Its surface ripples like moonlit water, changing color with an otherworldly rhythm.
+
+Only by matching its hue precisely can the barrier be dissolved and the path revealed.
+
+##### - Outcomes
+
+**If the action is correct:**
+Your movement is precise. The mechanism responds. The path forward opens.
+
+**If the action fails:**
+Your action falters. The mechanism resists. The temple remains sealed, and time is running out.
+
+
+
+#### 5. 🧪 User Testing Summary
+
+The videos above show the final successful user test sessions of *Silent Serpents*.  
+Each player group went through around **five trial attempts** before completing the sequence smoothly.Most participants were curious but unsure how the different sensors would interact. They expected the game to be simple and linear.
+
+Although the core mechanics are simple—direction control, rune activation, and color matching—the gameplay still required **precise coordination and timing** between participants.  
+Through multiple retries, the users learned how to communicate more efficiently and anticipate the temple’s traps together.
 
 
 [![Video 4](https://img.youtube.com/vi/vdrnqq7rVQQ/0.jpg)](https://youtu.be/vdrnqq7rVQQ?si=gwL2ycjkJ4blA21E)
+
 *Demo 4 – test with 3 users.*
-
-##### 🧪 User Testing Summary
-
-The videos above show the final successful user test sessions of *Silent Serpents*.  
-Each player group went through around **five trial attempts** before completing the sequence smoothly.  
-Although the core mechanics are simple—direction control, rune activation, and color matching—the gameplay still required **precise coordination and timing** between participants.  
-Through multiple retries, the users learned how to communicate more efficiently and anticipate the temple’s traps together.
 
 ###### 💬 User Feedback & Insights
 
@@ -242,8 +391,42 @@ Through multiple retries, the users learned how to communicate more efficiently 
 - **Team communication** dramatically improves success rate.  
 - Adding more **sensory feedback (sound, light, motion)** could make the experience more intuitive and rewarding.
 
-Overall, even as a simple prototype, *Silent Serpents Game* successfully encouraged collaboration, timing, and shared discovery—exactly the spirit of the legendary trio of thieves.
+Overall, even as a simple prototype, **Silent Serpents Game** successfully encouraged collaboration, timing, and shared discovery—exactly the spirit of the legendary trio of thieves.
 
+
+---
+
+#### 🪞 Lab 6 Reflection
+
+During Lab 6, we focused on refining the interaction logic and system response flow.  
+At first, it took several rounds of debugging before the sensors and outputs worked in sync —  
+small timing delays or signal mismatches often caused unexpected results.  
+After multiple iterations, I learned how important it is to test each component separately  
+before combining them into a complete interactive system.
+
+This lab also reminded me how *design* and *engineering* thinking intersect:  
+we weren’t just writing code, but shaping a responsive behavior that feels natural to users.  
+The moment when everything finally aligned — sensors, visuals, and feedback — was genuinely satisfying.  
+If I continue developing this prototype, I’d like to add more layered feedback (sound + light)  
+and make the interaction more expressive under different user inputs.
+
+---
+
+**Silent Serpents**, was built collaboratively by three team members, each responsible for a different hardware client and part of the interaction system.
+
+- **Hester (Player B)** – Implemented the **joystick control system** and coordinated overall device integration.  
+  Responsible for designing directional input logic, MQTT communication structure, and synchronization between devices.  
+
+- **Joy (Player A)** – Developed the **touch sensor client**, which detects user input to trigger specific in-game actions.  
+  Focused on refining signal stability, optimizing response timing, and ensuring smooth communication with the central controller.
+
+- **Sandy (Player C)** – Created the **color sensor module**, managing color detection and hue matching for the magical barrier puzzle.  
+  Worked on translating sensor data into visual game feedback and contributed to calibration and visual design.
+
+Together, the team integrated all three devices with the central **`game_master.py`** controller,  
+which narrates the story, assigns player tasks, and evaluates each group’s performance through MQTT messaging.
+
+---
 
 <details>
 	<summary><strong>(Click to Expand)</strong></summary>
