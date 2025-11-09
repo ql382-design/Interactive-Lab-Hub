@@ -210,6 +210,7 @@ This exercise helped us understand distributed interaction between hardware syst
 [![Video 4](https://img.youtube.com/vi/HpCUQ5m_lUI/0.jpg)](https://youtu.be/HpCUQ5m_lUI)
 
 *Demo 2 – Successful mechanism activation & treasure reveal.*
+
 [![Video 3](https://img.youtube.com/vi/X49TW9GbIAs/0.jpg)](https://youtu.be/X49TW9GbIAs?si=_uI-3xRdj2L-BlTg)
 
 *Demo 3 – Test with ourself.*
