@@ -270,7 +270,7 @@ Each sensor continuously reads input and checks whether the required action has 
 
 #### - **MQTT Communication Structure**
 
-All the Code are store in: [🧩 View Lab 6 Code Folder →](./Lab6/code)
+All the Code are store in: [🧩 View Lab 6 Code Folder →](./Lab%206%20code)
 
 **Server files:**
 - `app.py` - Pixel grid server (Flask + WebSocket + MQTT)
