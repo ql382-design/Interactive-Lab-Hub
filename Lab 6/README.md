@@ -196,6 +196,11 @@ Pi setup:
 
 <img src="1.jpg" alt="1" width="400">
 
+
+We successfully visualized real-time color detection from multiple devices.
+The hardest part was coordinating MQTT topics and maintaining connection stability.
+This exercise helped us understand distributed interaction between hardware systems.
+
 ---
 
 ## Part C: Make Your Own
