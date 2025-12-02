@@ -1,34 +1,59 @@
-import digitalio
-import board
-from PIL import Image, ImageDraw, ImageFont
-import adafruit_rgb_display.st7789 as st7789
+try:
+    import board
+    import busio
+    from PIL import Image, ImageDraw, ImageFont
+    import adafruit_ssd1306
+except ImportError:
+    board = None
+    busio = None
+    Image = None
+    ImageDraw = None
+    ImageFont = None
+    adafruit_ssd1306 = None
+
 
 class TFTDisplay:
+
+
     def __init__(self):
-        self.cs_pin = digitalio.DigitalInOut(board.CE0)
-        self.dc_pin = digitalio.DigitalInOut(board.D25)
-        self.reset_pin = digitalio.DigitalInOut(board.D27)
-        self.baudrate = 64000000
+        self.display = None
+        self.enabled = False
 
-        spi = board.SPI()
+        if board is None or busio is None or adafruit_ssd1306 is None or Image is None:
+            print("[OLED] Libraries missing, running in dummy mode.")
+            return
 
-        self.display = st7789.ST7789(
-            spi,
-            cs=self.cs_pin,
-            dc=self.dc_pin,
-            rst=self.reset_pin,
-            baudrate=self.baudrate,
-            width=240,
-            height=240,
-            x_offset=0,
-            y_offset=80
-        )
+        try:
+            i2c = board.I2C()  # uses SCL, SDA
+            self.display = adafruit_ssd1306.SSD1306_I2C(128, 64, i2c, addr=0x3C)
+            self.display.fill(0)
+            self.display.show()
 
-        self.image = Image.new("RGB", (240, 240))
-        self.draw = ImageDraw.Draw(self.image)
-        self.font = ImageFont.load_default()
+            self.image = Image.new("1", (128, 64))
+            self.draw = ImageDraw.Draw(self.image)
+            self.font = ImageFont.load_default()
 
-    def show_element(self, element):
-        self.draw.rectangle((0, 0, 240, 240), fill="black")
-        self.draw.text((20, 100), f"Element: {element}", fill=(255,255,255), font=self.font)
+            self.enabled = True
+            print("[OLED] SSD1306 initialized at 0x3C (128x64).")
+
+        except Exception as e:
+            print(f"[OLED] Could not initialize OLED: {e}")
+            self.display = None
+            self.enabled = False
+
+    def show_element(self, element: str):
+        if not self.enabled or self.display is None:
+            print(f"[OLED] Element -> {element}")
+            return
+
+
+        self.draw.rectangle((0, 0, 128, 64), outline=0, fill=0)
+
+        title = "Inner Constellation"
+        text = f"Element: {element}"
+
+        self.draw.text((2, 8), title, font=self.font, fill=255)
+        self.draw.text((2, 32), text, font=self.font, fill=255)
+
         self.display.image(self.image)
+        self.display.show()
