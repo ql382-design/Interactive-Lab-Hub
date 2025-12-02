@@ -50,4 +50,16 @@ class TFTDisplay:
             return
 
         # Clear screen
-        self.draw.rectangle((0, 0, 128, 64), outline=0, fill=
+        self.draw.rectangle((0, 0, 128, 64), outline=0, fill=0)
+
+        # Compute text size to center it
+        w, h = self.draw.textsize(name, font=self.font)
+        x = (128 - w) // 2
+        y = (64 - h) // 2
+
+        # Draw text
+        self.draw.text((x, y), name, font=self.font, fill=255)
+
+        # Show on the OLED
+        self.display.image(self.image)
+        self.display.show()
