@@ -32,8 +32,10 @@ class TFTDisplay:
             self.image = Image.new("1", (128, 64))
             self.draw = ImageDraw.Draw(self.image)
 
-            # Larger font (default is too small)
-            self.font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", 18)
+            # Larger readable font
+            self.font = ImageFont.truetype(
+                "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", 16
+            )
 
             self.enabled = True
             print("[OLED] Ready (SSD1306 at 0x3C).")
@@ -43,8 +45,10 @@ class TFTDisplay:
             self.enabled = False
 
 
+    # ------------------------------------------------------------
+    # Show ONE element (big centered)
+    # ------------------------------------------------------------
     def show_element(self, name: str):
-        """Show ONLY the element name, large and centered."""
         if not self.enabled:
             print(f"[OLED] {name}")
             return
@@ -52,14 +56,36 @@ class TFTDisplay:
         # Clear screen
         self.draw.rectangle((0, 0, 128, 64), outline=0, fill=0)
 
-        # Compute text size to center it
+        # Center text
         w, h = self.draw.textsize(name, font=self.font)
         x = (128 - w) // 2
         y = (64 - h) // 2
 
-        # Draw text
         self.draw.text((x, y), name, font=self.font, fill=255)
 
-        # Show on the OLED
+        self.display.image(self.image)
+        self.display.show()
+
+
+    # ------------------------------------------------------------
+    # Show list of chosen elements (up to 3)
+    # ------------------------------------------------------------
+    def show_element_list(self, elements):
+        if not self.enabled:
+            print("[OLED] Selected:", elements)
+            return
+
+        # Clear screen
+        self.draw.rectangle((0, 0, 128, 64), outline=0, fill=0)
+
+        # Title
+        self.draw.text((2, 2), "Chosen:", font=self.font, fill=255)
+
+        # List elements
+        y = 20
+        for e in elements:
+            self.draw.text((4, y), e, font=self.font, fill=255)
+            y += 16
+
         self.display.image(self.image)
         self.display.show()
