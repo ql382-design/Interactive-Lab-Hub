@@ -3,15 +3,14 @@
 from sensors.gesture_apds9960 import GestureSensor
 from sensors.camera_reflection import CameraFeed
 from sensors.tft_display import TFTDisplay
-from sensors.touch_mpr121_selector import TouchElementSelector  
+from sensors.touch_mpr121_selector import TouchElementSelector
+
 
 class SensorManager:
     def __init__(self):
         print("[SensorManager] Initializing sensors...")
 
-        # -------------------------
-        # 1. OLED display
-        # -------------------------
+        # 1. OLED / TFT
         try:
             self.tft = TFTDisplay()
             print("[SensorManager] OLED/TFT ready (or dummy).")
@@ -19,9 +18,7 @@ class SensorManager:
             print(f"[SensorManager] Failed to init TFTDisplay: {e}")
             self.tft = None
 
-        # -------------------------
         # 2. Touch selector (3 picks)
-        # -------------------------
         try:
             self.touch_selector = TouchElementSelector(oled=self.tft)
             print("[SensorManager] MPR121 touch selector ready.")
@@ -29,9 +26,7 @@ class SensorManager:
             print(f"[SensorManager] Failed to init TouchElementSelector: {e}")
             self.touch_selector = None
 
-        # -------------------------
         # 3. Gesture sensor
-        # -------------------------
         try:
             self.gesture = GestureSensor()
             print("[SensorManager] Gesture sensor ready (or in dummy mode).")
@@ -39,9 +34,7 @@ class SensorManager:
             print(f"[SensorManager] Failed to init GestureSensor: {e}")
             self.gesture = None
 
-        # -------------------------
         # 4. Camera
-        # -------------------------
         try:
             self.camera = CameraFeed()
             print("[SensorManager] Camera feed ready (or disabled).")
@@ -49,43 +42,63 @@ class SensorManager:
             print(f"[SensorManager] Failed to init CameraFeed: {e}")
             self.camera = None
 
-        # runtime state
-        self.profile_selected = False     
-        self.user_profile = None          
-        self.current_element = "None"     
+        # Runtime state
+        self.profile_selected = False     # True after 3 elements chosen
+        self.user_profile = None          # e.g. ["Fire","Water","Light"]
+        self.current_element = "None"     # last single element before profile is locked
 
+    # ------------------------------------------------------------
+    # Public: reset profile selection
+    # ------------------------------------------------------------
+    def reset_profile(self):
+        """Allow the user to re-select a 3-element profile."""
+        self.profile_selected = False
+        self.user_profile = None
+        self.current_element = "None"
+
+        # Reset touch selector
+        if self.touch_selector:
+            try:
+                self.touch_selector.reset()
+            except Exception as e:
+                print(f"[SensorManager] Failed to reset touch selector: {e}")
+
+        # Clear OLED text
+        if self.tft:
+            try:
+                self.tft.show_element_list([])
+            except Exception as e:
+                print(f"[SensorManager] Failed to clear TFT: {e}")
+
+        print("[SensorManager] Profile reset. User can select elements again.")
 
     # ----------------------------------------------------------------
     #                      MAIN UPDATE LOOP
     # ----------------------------------------------------------------
     def update(self):
         """Return a dict with:
-            profile: ["Water","Fire","Wind"] once
-            element: current simple element (fallback)
-            gesture: hand gesture
-            frame: camera frame
+            profile: ["Water","Fire","Wind"] once locked
+            element: current simple element (before profile is locked)
+            gesture: hand gesture (expand/shrink/cooler/warmer)
+            frame: camera frame (or None)
         """
 
-        # -----------------------------------------
         # 1. Touch element selection (choose 3)
-        # -----------------------------------------
         profile = None
         if not self.profile_selected and self.touch_selector is not None:
             profile = self.touch_selector.update()
 
             if profile is not None:
-                # three chosen
+                # Three chosen → lock profile
                 self.profile_selected = True
                 self.user_profile = profile
                 print(f"[SensorManager] Final profile locked: {profile}")
 
-                # show final on OLED
+                # Show final on OLED
                 if self.tft:
                     self.tft.show_element_list(profile)
 
-        # -----------------------------------------
         # 2. Gesture sensor
-        # -----------------------------------------
         gesture = None
         if self.gesture is not None:
             try:
@@ -94,9 +107,7 @@ class SensorManager:
                 print(f"[SensorManager] Error reading gesture: {e}")
                 gesture = None
 
-        # -----------------------------------------
         # 3. Camera frame
-        # -----------------------------------------
         frame = None
         if self.camera is not None:
             try:
@@ -105,19 +116,14 @@ class SensorManager:
                 print(f"[SensorManager] Error reading camera: {e}")
                 frame = None
 
-        # -----------------------------------------
         # 4. Fallback element (only used before 3-pick is finished)
-        # -----------------------------------------
         if not self.profile_selected:
-            # allow displaying last single element choice on OLED
             if self.touch_selector and len(self.touch_selector.selected) > 0:
                 self.current_element = self.touch_selector.selected[-1]
             else:
                 self.current_element = "None"
 
-        # -----------------------------------------
-        # RETURN SENSOR DATA
-        # -----------------------------------------
+        # 5. RETURN SENSOR DATA
         return {
             "profile": self.user_profile if self.profile_selected else None,
             "element": self.current_element,
