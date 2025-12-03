@@ -26,7 +26,6 @@ class TouchElementSelector:
 
     def update(self):
         """Read touch and return final 3-element profile once."""
-
         if self.selection_done:
             return None
 
@@ -38,15 +37,27 @@ class TouchElementSelector:
                     self.selected.append(elem)
                     print(f"[Touch] Selected: {elem}")
 
-                    # update OLED
+                    # Update OLED preview
                     if self.oled:
                         self.oled.show_element_list(self.selected)
 
+                # Simple debounce
                 time.sleep(0.4)
 
                 if len(self.selected) == 3:
                     self.selection_done = True
-                    print(f"[Touch] Final user profile selected → {self.selected}")
+                    print(f"[Touch] Final user profile selected {self.selected}")
                     return self.selected
 
         return None
+
+    def reset(self):
+        """Allow the user to select a new 3-element profile."""
+        self.selected = []
+        self.selection_done = False
+
+        if self.oled:
+            # Clear OLED or show empty list
+            self.oled.show_element_list([])
+
+        print("[Touch] Selection reset. Ready for new profile.")
