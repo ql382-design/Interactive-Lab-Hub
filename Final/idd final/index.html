@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Inner Constellation</title>
+<style>
+body { margin: 0; background: black; text-align:center; }
+img { width: 100%; height: auto; }
+</style>
+</head>
+<body>
+
+<h2 style="color:white">Inner Constellation</h2>
+<img src="/frame" id="view">
+
+<script>
+setInterval(() => {
+  document.getElementById("view").src = "/frame?" + new Date().getTime();
+}, 100);  // refresh every 100ms
+</script>
+
+</body>
+</html>
