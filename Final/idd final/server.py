@@ -7,6 +7,10 @@ import cv2
 from animation.animation_engine import AnimationEngine
 from sensors.sensor_manager import SensorManager
 
+
+# ---------------------------------------------------------
+# INITIALIZE GLOBAL OBJECTS
+# ---------------------------------------------------------
 app = Flask(__name__)
 
 engine = AnimationEngine()
@@ -19,50 +23,63 @@ print("System Started (Web Mode). Running Pygame in MAIN thread.")
 
 
 # ---------------------------------------------------------
-# MJPEG STREAM
+# MJPEG STREAM ENDPOINT
 # ---------------------------------------------------------
 @app.route("/frame")
 def frame_feed():
-    """Returns MJPEG stream from pygame animation."""
-    def gen():
+    """Stream MJPEG frames from pygame render output."""
+
+    def generate():
         global latest_frame
         while True:
             with frame_lock:
-                if latest_frame is None:
-                    time.sleep(0.05)
-                    continue
+                frame = latest_frame.copy() if latest_frame is not None else None
 
-                ret, jpeg = cv2.imencode(".jpg", latest_frame)
-                if not ret:
-                    continue
+            if frame is None:
+                time.sleep(0.03)
+                continue
 
-            # yield MJPEG frame
+            # Encode JPEG
+            ret, jpeg = cv2.imencode(".jpg", frame)
+            if not ret:
+                continue
+
+            # Yield a multipart frame
             yield (
                 b"--frame\r\n"
                 b"Content-Type: image/jpeg\r\n\r\n" +
-                jpeg.tobytes() + b"\r\n"
+                jpeg.tobytes() +
+                b"\r\n"
             )
-            time.sleep(0.03)
 
-    return Response(gen(),
+            time.sleep(0.02)  # ~50 FPS max
+
+    return Response(generate(),
                     mimetype="multipart/x-mixed-replace; boundary=frame")
 
 
 # ---------------------------------------------------------
-# FLASK BACKGROUND THREAD
+# FLASK THREAD
 # ---------------------------------------------------------
 def start_flask():
-    app.run(host="0.0.0.0", port=8080, debug=False, threaded=True)
+    """Run Flask server in background."""
+    app.run(
+        host="0.0.0.0",
+        port=8080,
+        debug=False,
+        threaded=True,
+        use_reloader=False
+    )
 
 
 # ---------------------------------------------------------
-# MAIN PYGAME LOOP
+# MAIN PYGAME LOOP (runs in main thread)
 # ---------------------------------------------------------
 def pygame_loop():
     global latest_frame
 
     while True:
-        # read sensors
+        # Sensor data
         data = sensors.update()
 
         element = data.get("element")
@@ -71,29 +88,37 @@ def pygame_loop():
         profile = data.get("profile")
         proximity = data.get("proximity")
 
-        # update animation
-        engine.update(profile=profile,
-                      element=element,
-                      gesture=gesture,
-                      proximity=proximity,
-                      frame=cam_frame)
+        # Update animation engine
+        engine.update(
+            profile=profile,
+            element=element,
+            gesture=gesture,
+            proximity=proximity,
+            frame=cam_frame
+        )
 
-        # read pygame screen → numpy array
+        # Convert pygame surface → numpy RGB → BGR
         surf = engine.get_frame_surface()
         if surf is not None:
-            frame = np.transpose(surf, (1, 0, 2))
-            bgr = cv2.cvtColor(frame, cv2.COLOR_RGB2BGR)
+            try:
+                frame_rgb = np.transpose(surf, (1, 0, 2))
+                frame_bgr = cv2.cvtColor(frame_rgb, cv2.COLOR_RGB2BGR)
 
-            # store for flask
-            with frame_lock:
-                latest_frame = bgr
+                with frame_lock:
+                    latest_frame = frame_bgr
+            except Exception as e:
+                print("[Server] Frame conversion error:", e)
 
         time.sleep(0.01)
 
 
 # ---------------------------------------------------------
-# START
+# ENTRY POINT
 # ---------------------------------------------------------
 if __name__ == "__main__":
-    threading.Thread(target=start_flask, daemon=True).start()
-    pygame_loop()  # must be main thread
+    # Start Flask in background thread
+    flask_thread = threading.Thread(target=start_flask, daemon=True)
+    flask_thread.start()
+
+    # Run Pygame loop in main thread
+    pygame_loop()
