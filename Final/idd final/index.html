@@ -5,78 +5,72 @@
 <title>Inner Constellation</title>
 
 <style>
-    html, body {
+    body {
         margin: 0;
         padding: 0;
+        background: black;
         overflow: hidden;
-        background: #000;
-        font-family: "Helvetica Neue", Arial, sans-serif;
+        font-family: "Arial", sans-serif;
     }
 
-    /* Fullscreen video feed */
+
     #view {
         position: fixed;
         top: 0;
         left: 0;
         width: 100vw;
         height: 100vh;
-        object-fit: cover;    /* this keeps proportion while filling screen */
+        object-fit: cover;      
+        object-position: center;
         z-index: 1;
     }
 
-    /* Info panel on top-right */
-    #infoPanel {
+
+    #hud {
         position: fixed;
-        top: 20px;
-        right: 20px;
-        padding: 16px 22px;
+        top: 40px;
+        right: 40px;
+        z-index: 2;
+        text-align: right;
+        color: white;
 
-        background: rgba(20, 20, 20, 0.45);  /* semi-transparent dark glass */
-        backdrop-filter: blur(8px);          /* glass blur */
-        -webkit-backdrop-filter: blur(8px);  /* Safari/iOS support */
-
-        border-radius: 12px;
-        color: #fff;
-        z-index: 10;
-
-        font-size: 18px;
-        line-height: 26px;
-        box-shadow: 0 0 12px rgba(0,0,0,0.35);
+        font-family: "Segoe UI", "Helvetica Neue", sans-serif;
+        text-shadow: 0 0 6px rgba(0,0,0,0.8);
     }
 
-    #title {
-        font-size: 22px;
+    #hud h1 {
+        margin: 0;
+        font-size: 36px;
         font-weight: 600;
-        margin-bottom: 8px;
-        text-shadow: 0 2px 4px rgba(0,0,0,0.4);
+        line-height: 1.2;
     }
 
-    .line {
-        opacity: 0.88;
-        text-shadow: 0 1px 3px rgba(0,0,0,0.35);
+    #hud h2 {
+        margin: 8px 0 0;
+        font-size: 22px;
+        font-weight: 400;
     }
 </style>
+
 </head>
 
 <body>
 
-    <img id="view" src="/frame">
 
-    <!-- Info Panel -->
-    <div id="infoPanel">
-        <div id="title">Inner Constellation</div>
-        <div class="line">Live Energy Field</div>
-        <div class="line">Camera Feed: On</div>
-        <div class="line" id="timestamp"></div>
-    </div>
+<img id="view" src="/frame">
+
+
+<div id="hud">
+    <h1>Inner Constellation</h1>
+    <h2>Energy Field Active</h2>
+</div>
 
 <script>
-    // Update timestamp every second
+
     setInterval(() => {
-        const t = new Date();
-        document.getElementById("timestamp").innerText =
-            t.toLocaleTimeString();
-    }, 1000);
+        const img = document.getElementById("view");
+        img.src = "/frame?" + new Date().getTime();
+    }, 60);
 </script>
 
 </body>
