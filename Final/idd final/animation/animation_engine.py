@@ -949,7 +949,7 @@ class AnimationEngine:
 
     # ------------------------------------------------------------------
     def get_frame_surface(self):
-      """Return the current pygame surface as an RGB image (numpy array)."""
+        """Return the current pygame surface as an RGB image (numpy array)."""
         surface = pygame.display.get_surface()
         if surface is None:
             return None
