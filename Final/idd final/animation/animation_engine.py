@@ -947,69 +947,9 @@ class AnimationEngine:
         print("[Animation] Profile cleared. Waiting for new selection.")
 
 
-
-# ------------------------------------------------------------------
-    def _blit_camera(self, frame):
-        try:
-            h, w = frame.shape[:2]
-        except Exception:
-            return
-
-        frame_rgb = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
-        scale = min(self.width / w, self.height / h)
-        new_size = (int(w * scale), int(h * scale))
-        frame_resized = cv2.resize(frame_rgb, new_size)
-
-        surf = pygame.surfarray.make_surface(frame_resized.swapaxes(0, 1))
-        surf.set_alpha(70)
-        x = (self.width - new_size[0]) // 2
-        y = (self.height - new_size[1]) // 2
-        self.screen.blit(surf, (x, y))
-# ------------------------------------------------------------------
-    def _draw_label(self):
-        font = pygame.font.SysFont("arial", 26)
-        title = f"Energy Field: {self.spectrum_name}"
-        self.screen.blit(font.render(title, True, (245, 245, 245)), (20, 18))
-
-        if self.current_profile:
-            elements_str = " · ".join(self.current_profile)
-        elif self.current_element:
-            elements_str = self.current_element
-        else:
-            elements_str = "None"
-
-        sub_font = pygame.font.SysFont("arial", 22)
-        self.screen.blit(sub_font.render(f"Elements: {elements_str}", True, (230, 230, 230)), (20, 50))
-
-        gesture_str = self.last_gesture if self.last_gesture else "none"
-        self.screen.blit(sub_font.render(f"Gesture: {gesture_str}", True, (230, 230, 230)), (20, 80))
-
-        debug_font = pygame.font.SysFont("arial", 16)
-        self.screen.blit(debug_font.render(f"Energy(cam): {self.motion_level:.2f}", True, (220, 220, 220)), (20, 108))
-        self.screen.blit(debug_font.render(f"Energy(hand): {self.proximity_level:.2f}", True, (220, 220, 220)), (20, 128))
-
-# ------------------------------------------------------------------
-    def _lerp_color(self, c1, c2, t):
-        t = max(0.0, min(1.0, t))
-        return (
-            int(c1[0] + (c2[0] - c1[0]) * t),
-            int(c1[1] + (c2[1] - c1[1]) * t),
-            int(c1[2] + (c2[2] - c1[2]) * t),
-        )
-
-# ------------------------------------------------------------------
-    def reset_profile(self):
-        self.current_profile = None
-        self.current_element = None
-        self.spectrum_name = "None"
-        self.style = get_spectrum_style([])
-        self.orbs.clear()
-        self.last_gesture = None
-        print("[Animation] Profile cleared. Waiting for new selection.")
-
-# ------------------------------------------------------------------
-     def get_frame_surface(self):
-        """Return the current pygame surface as an RGB image (numpy array)."""
+    # ------------------------------------------------------------------
+    def get_frame_surface(self):
+      """Return the current pygame surface as an RGB image (numpy array)."""
         surface = pygame.display.get_surface()
         if surface is None:
             return None
