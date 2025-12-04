@@ -1008,10 +1008,10 @@ class AnimationEngine:
         print("[Animation] Profile cleared. Waiting for new selection.")
 
 # ------------------------------------------------------------------
-    def get_frame_surface(self):
+     def get_frame_surface(self):
         """Return the current pygame surface as an RGB image (numpy array)."""
-        import pygame
         surface = pygame.display.get_surface()
         if surface is None:
             return None
         return pygame.surfarray.array3d(surface)
+
