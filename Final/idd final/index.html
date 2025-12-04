@@ -3,20 +3,80 @@
 <head>
 <meta charset="utf-8">
 <title>Inner Constellation</title>
+
 <style>
-body { margin: 0; background: black; text-align:center; }
-img { width: 100%; height: auto; }
+    html, body {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background: #000;
+        font-family: "Helvetica Neue", Arial, sans-serif;
+    }
+
+    /* Fullscreen video feed */
+    #view {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        object-fit: cover;    /* this keeps proportion while filling screen */
+        z-index: 1;
+    }
+
+    /* Info panel on top-right */
+    #infoPanel {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        padding: 16px 22px;
+
+        background: rgba(20, 20, 20, 0.45);  /* semi-transparent dark glass */
+        backdrop-filter: blur(8px);          /* glass blur */
+        -webkit-backdrop-filter: blur(8px);  /* Safari/iOS support */
+
+        border-radius: 12px;
+        color: #fff;
+        z-index: 10;
+
+        font-size: 18px;
+        line-height: 26px;
+        box-shadow: 0 0 12px rgba(0,0,0,0.35);
+    }
+
+    #title {
+        font-size: 22px;
+        font-weight: 600;
+        margin-bottom: 8px;
+        text-shadow: 0 2px 4px rgba(0,0,0,0.4);
+    }
+
+    .line {
+        opacity: 0.88;
+        text-shadow: 0 1px 3px rgba(0,0,0,0.35);
+    }
 </style>
 </head>
+
 <body>
 
-<h2 style="color:white">Inner Constellation</h2>
-<img src="/frame" id="view">
+    <img id="view" src="/frame">
+
+    <!-- Info Panel -->
+    <div id="infoPanel">
+        <div id="title">Inner Constellation</div>
+        <div class="line">Live Energy Field</div>
+        <div class="line">Camera Feed: On</div>
+        <div class="line" id="timestamp"></div>
+    </div>
 
 <script>
-setInterval(() => {
-  document.getElementById("view").src = "/frame?" + new Date().getTime();
-}, 100);  // refresh every 100ms
+    // Update timestamp every second
+    setInterval(() => {
+        const t = new Date();
+        document.getElementById("timestamp").innerText =
+            t.toLocaleTimeString();
+    }, 1000);
 </script>
 
 </body>
