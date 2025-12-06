@@ -103,7 +103,147 @@ If any hardware or sensor components fail, the system can still demonstrate the 
 
 ## Archive of All Code and Design Patterns
 
-#### Please view my source code（代码链接）
+All related code lives in: [idd final](./idd%20final/)
+
+#### 🧩 Sensor Layer Overview
+
+**📷 Camera — Motion & Background Feed**
+
+The camera module provides:
+
+- Continuous frame capture
+
+- Motion energy estimation by comparing consecutive grayscale frames
+
+- Soft background blending so the silhouette subtly influences animation
+
+Output is unified: get_frame() returns a processed frame or None.
+
+**🖥️ OLED / TFT Display — Minimal Physical Feedback**
+
+The OLED display module:
+
+- Shows the currently selected element
+
+- Shows the three-element personalized profile
+
+Falls back to dummy mode automatically if hardware is unavailable
+
+**👆 MPR121 Touch Sensor — Element Selection**
+
+The MPR121 maps touch pads to elemental identities:
+
+- Touch → "Fire", "Water", "Wind", "Earth", "Light", "Shadow"
+
+- Input is debounced
+
+- Supports 3-step profile selection (user picks their top three elements)
+
+#### 🌀 Animation Layer Overview
+
+**✨ Overall Architecture**
+
+The animation engine runs 60 FPS with:
+
+- A time-based update loop
+
+- Motion-driven scaling and breathing
+
+- Camera-derived features (motion, body center, size estimation)
+
+- Profile-based color palettes
+
+- 14 visual patterns + camera blending + spectrum tinting
+
+Everything is modular: each visual effect is a separate pattern method.
+
+**🎨 Core Logic**
+
+**1. Profile & Element System**
+
+If user selected a 3-element profile → full spectrum mode
+
+If only one element is touched → fallback single-color mode
+
+get_spectrum_style() provides:
+
+- base colors
+
+- background color
+
+- pattern choice (e.g., galaxy, vortex, pillar)
+
+- per-profile parameters (orb speed, pillar width, halo scale)
+
+**2. Camera → Motion, Size, and Body Position**
+
+The engine extracts:
+
+- **motion_level** → how intensely the user moves
+
+- **size_level**→ approximate distance to camera
+
+- **body_x / body_y** → centroid of motion (horizontal/vertical)
+
+These feed animation:
+
+- motion → breathing & expansion
+
+- body_x → color temperature shift (cooler ↔ warmer)
+
+- size_level → pillar size & orb radius
+
+Camera overlay is softly composited at 60% alpha.
+
+**3. Energy Model**
+
+Animation is governed by a derived energy value:
+
+- pillar height
+
+- halo radius
+
+- orb speed
+
+- bloom strength
+
+- vortex spiral range
+
+- grid pulse brightness
+
+**🌌 Visual Pattern System**
+
+All visual effects automatically adapt to:
+
+- profile colors (3-element spectrum or single fallback element)
+
+- camera motion energy
+
+- user distance (size estimation from camera)
+
+#### 📡 Web Server Layer
+
+server.py runs two parallel systems:
+
+1. Flask Web Server
+
+- Hosts the webpage (index.html)
+
+- Streams the animation frames as MJPEG (/frame)
+
+- Provides control endpoints (e.g., reset, hide/show labels)
+
+2. Pygame Animation Loop
+
+- Runs in the main thread (required by SDL)
+
+- Receives continuous sensor data
+
+- Renders the animated visual output
+
+- Publishes frames to Flask via shared memory (latest_frame)
+
+Both are synchronized using a thread-safe frame_lock.
 
 #### Connect Parts & Sensors 怎么连接的
 
