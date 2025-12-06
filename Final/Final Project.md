@@ -139,6 +139,9 @@ The MPR121 maps touch pads to elemental identities:
 
 - Supports 3-step profile selection (user picks their top three elements)
 
+<img src="images/elements.jpg" width="320">
+
+
 #### 🌀 Animation Layer Overview
 
 **✨ Overall Architecture**
