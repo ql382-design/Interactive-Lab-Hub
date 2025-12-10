@@ -226,7 +226,7 @@ These findings helped us refine gesture sensitivity, adjust projection parameter
 Much of my process revolved around building the visual identity of the installation. Early experiments showed how small choices in color temperature, particle behavior, or motion density dramatically changed the emotional tone of each element. I iterated many rounds of prototypes in Python, Pygame, Processing, and p5.py, testing how each pattern reacted to motion signals and how palettes blended in real time. One challenge was balancing visual richness with performance; several patterns had to be redesigned to avoid frame drops. Collaborating with the sensing pipeline also shaped many decisions, especially around parameter constraints and transitions. This process taught me how tightly visual design and system behavior are intertwined in interactive installations.
 
 ### Hester’s Reflection
-My process focused on developing and stabilizing the sensing logic. Integrating gesture signals, distance estimation, and touch input required careful tuning and filtering to ensure interactions felt intentional rather than noisy. Through repeated testing, I learned that sensor-based interaction often depends as much on environment and user behavior as on code. Lighting, distance from the camera, and even movement style all influenced the results. Defining what each gesture should mean—expansion, contraction, temperature shift—became an iterative negotiation between technical feasibility and conceptual clarity. This experience strengthened my understanding of how interaction vocabularies emerge through trial, error, and adjustment.
+My process focused on developing and stabilizing the sensing logic. Integrating gesture signals, distance estimation, and touch input required careful tuning and filtering to ensure interactions felt intentional rather than noisy. Through repeated testing, I learned that sensor-based interaction often depends as much on environment and user behavior as on code. Lighting, distance from the camera, and even movement style all influenced the results. Defining what each gesture should mean， expansion, contraction, temperature shift—became an iterative negotiation between technical feasibility and conceptual clarity. I also create the website instead of using VNC to show the animation. I feel like a website is more convenience and prevent lagging. and This experience strengthened my understanding of how interaction vocabularies emerge through trial, error, and adjustment.
 
 ### Sandy’s Reflection
 Sandy's process centered on connecting the project with its audience and ensuring the installation felt coherent in real space. Beyond documentation, I handled much of the logistics, including setting up the projector, adjusting projection scale and brightness, arranging the physical layout, and making sure the element cards and card box design were easy for users to understand. These spatial and equipment decisions turned out to be crucial—projection distance, ambient lighting, and hardware placement all shaped how immersive the constellation felt.
@@ -262,7 +262,7 @@ Hester was responsible for the interaction logic and sensing pipeline. This incl
 **Deliverables:**
 - `sensor.py`
 - Energy Element Cards (×10)
-- websit build
+- website build
 
 
 ### Sandy
