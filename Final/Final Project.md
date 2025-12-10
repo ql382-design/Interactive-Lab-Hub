@@ -96,170 +96,153 @@ If any hardware or sensor components fail, the system can still demonstrate the 
 #### Scenario 3
 ![Scenario 3](images/Scenario_3.jpg)
 
-### Wiring Diagram 线怎么连接的
 
-### Inner Constellation Design 外观的画
+
+### Wiring Diagram & Physical Setup
+The wiring diagram below shows the full physical setup of our **Inner Constellation** prototype. A Raspberry Pi connects to the MPR121 capacitive touch breakout, an OLED display, a USB camera, and six element cards (Fire, Water, Wind, Earth, Light, Shadow). Each card is wired to one MPR121 input so that touching the copper pads on the cards selects an element, which is then visualized on the OLED and sent to the animation engine.
+
+Key components:
+
+1. **MPR121 capacitive touch sensor** – reads touch input from the six element cards.
+2. **OLED display** – shows the currently selected element icon/state.
+3. **USB camera** – detects user presence and movement for interaction.
+4. **Element cards** – Fire, Water, Wind, Earth, Light, Shadow; each card is connected via alligator clips to the MPR121.
+5. **Raspberry Pi** – runs the main loop, reads sensor data, and communicates with the visualisation on the main screen.
+
+![Wiring diagram for Inner Constellation prototype](images/Wiring_Diagram.jpg)
+
 
 
 ## Archive of All Code and Design Patterns
 
 All related code lives in: [idd final](./idd%20final/)
 
-#### 🧩 Sensor Layer Overview
+### Sensor Layer Overview
 
-**📷 Camera — Motion & Background Feed**
+**Camera — Motion & Background Feed**
 
-The camera module provides:
+The camera module continuously captures frames, computes motion energy by comparing consecutive grayscale images, and produces a softly blended background silhouette that contributes to the final animation.  
+Its interface is simple: `get_frame()` returns either a processed frame or `None` when unavailable.
 
-- Continuous frame capture
+**OLED / TFT Display — Minimal Physical Feedback**
 
-- Motion energy estimation by comparing consecutive grayscale frames
+The OLED display provides lightweight physical feedback by showing the currently selected element as well as the user's three-element profile.  
+If the device is not detected, the system automatically falls back to a dummy display mode to maintain pipeline stability.
 
-- Soft background blending so the silhouette subtly influences animation
+**MPR121 Touch Sensor — Element Selection**
 
-Output is unified: get_frame() returns a processed frame or None.
+The MPR121 maps individual copper pads to six elemental identities—Fire, Water, Wind, Earth, Light, and Shadow.  
+Touch events are debounced for stability, and the input pipeline supports a three-step profile selection sequence used to generate a personalized spectrum.
 
-**🖥️ OLED / TFT Display — Minimal Physical Feedback**
+<p align="center">
+  <img src="images/elements.png" width="280">
+</p>
 
-The OLED display module:
 
-- Shows the currently selected element
+### Animation Layer Overview
 
-- Shows the three-element personalized profile
+**Overall Architecture**
 
-Falls back to dummy mode automatically if hardware is unavailable
+The animation engine renders at 60 FPS and integrates several input sources: time-based updates, motion-driven scaling, camera-derived features (motion level, body centroid, size estimation), and the user’s multi-element profile.  
+The system contains fourteen visual pattern modes, all implemented as modular pattern functions.
 
-**👆 MPR121 Touch Sensor — Element Selection**
+**Core Logic**
 
-The MPR121 maps touch pads to elemental identities:
+**1. Profile and Element System**  
+When a user completes the three-element sequence, the engine enters spectrum mode with blended palettes.  
+Single-element touches produce a fallback mode with a simplified color theme.  
+`get_spectrum_style()` returns base colors, background tones, preferred pattern type (such as galaxy, vortex, or pillar), and parameter presets such as orb speed or halo scale.
 
-- Touch → "Fire", "Water", "Wind", "Earth", "Light", "Shadow"
+**2. Camera-Derived Features**  
+The engine extracts motion intensity, approximate distance (size level), and a motion centroid representing horizontal and vertical body position.  
+These signals modulate animation behavior: motion affects breathing and expansion; horizontal position influences warmth vs. coolness in the color temperature; size level adjusts pillar width, orb radius, and other scale-sensitive effects.  
+A softly composited camera overlay (approximately 60% alpha) contributes to the ambient texture.
 
-- Input is debounced
+**3. Energy Model**  
+A derived energy value governs parameters such as pillar height, halo radius, orb traversal speed, bloom strength, vortex depth, and grid brightness.  
+This single energy model allows different visual modes to respond consistently to user movement.
 
-- Supports 3-step profile selection (user picks their top three elements)
+**Visual Pattern System**  
+All patterns adapt automatically to the selected color spectrum, the user's motion energy, and the inferred distance from the camera.  
+This keeps visual output coherent across modes.
 
-<img src="images/elements.png" width="320">
 
+### Web Server Layer
 
-#### 🌀 Animation Layer Overview
+`server.py` coordinates two parallel systems:
 
-**✨ Overall Architecture**
+**Flask Web Server**  
+Serves the front-end interface (`index.html`), streams animation frames via MJPEG (`/frame`), and exposes simple control endpoints such as reset and UI toggles.
 
-The animation engine runs 60 FPS with:
+**Pygame Animation Loop**  
+Runs in the main thread (required by SDL), receives continuous sensor updates, renders all animation frames, and shares the latest frame with Flask through thread-safe shared memory.  
 
-- A time-based update loop
+Both processes remain synchronized through a `frame_lock`, ensuring stable frame delivery even under high interaction load.
 
-- Motion-driven scaling and breathing
 
-- Camera-derived features (motion, body center, size estimation)
+#### Tech Demo (Functional Checkoff) 
 
-- Profile-based color palettes
 
-- 14 visual patterns + camera blending + spectrum tinting
-
-Everything is modular: each visual effect is a separate pattern method.
-
-**🎨 Core Logic**
-
-**1. Profile & Element System**
-
-If user selected a 3-element profile → full spectrum mode
-
-If only one element is touched → fallback single-color mode
-
-get_spectrum_style() provides:
-
-- base colors
-
-- background color
-
-- pattern choice (e.g., galaxy, vortex, pillar)
-
-- per-profile parameters (orb speed, pillar width, halo scale)
-
-**2. Camera → Motion, Size, and Body Position**
-
-The engine extracts:
-
-- **motion_level** → how intensely the user moves
-
-- **size_level**→ approximate distance to camera
-
-- **body_x / body_y** → centroid of motion (horizontal/vertical)
-
-These feed animation:
-
-- motion → breathing & expansion
-
-- body_x → color temperature shift (cooler ↔ warmer)
-
-- size_level → pillar size & orb radius
-
-Camera overlay is softly composited at 60% alpha.
-
-**3. Energy Model**
-
-Animation is governed by a derived energy value:
-
-- pillar height
-
-- halo radius
-
-- orb speed
-
-- bloom strength
-
-- vortex spiral range
-
-- grid pulse brightness
-
-**🌌 Visual Pattern System**
-
-All visual effects automatically adapt to:
-
-- profile colors (3-element spectrum or single fallback element)
-
-- camera motion energy
-
-- user distance (size estimation from camera)
-
-#### 📡 Web Server Layer
-
-server.py runs two parallel systems:
-
-1. Flask Web Server
-
-- Hosts the webpage (index.html)
-
-- Streams the animation frames as MJPEG (/frame)
-
-- Provides control endpoints (e.g., reset, hide/show labels)
-
-2. Pygame Animation Loop
-
-- Runs in the main thread (required by SDL)
-
-- Receives continuous sensor data
-
-- Renders the animated visual output
-
-- Publishes frames to Flask via shared memory (latest_frame)
-
-Both are synchronized using a thread-safe frame_lock.
-
-#### Connect Parts & Sensors 怎么连接的
-
-#### Tech Demo (Functional Checkoff) 功能测试视频
-
-#### Make the the mood board and construct device （mood board制作过程以及连接设备）
 
 
 
 ## Video Demo
-最终展示视频
+Below are three demo videos, each highlighting a different interaction feature:
+
+### 1. Motion-Responsive Pattern Movement  
+[Watch Video](https://youtu.be/BQ_63Se5rKE)  
+Shows how the visual patterns follow body movement with large motion amplitude.
+
+### 2. Color Temperature Shift (Left ↔ Right)  
+[Watch Video](https://youtu.be/R7gsMZxLD9I)  
+Demonstrates horizontal movement: right → warmer tones, left → cooler tones.
+
+### 3. Depth-Based Scaling (Forward ↔ Backward)  
+[Watch Video](https://youtu.be/6VBaitVTaA0)  
+Shows how stepping forward reduces pattern scale and stepping backward enlarges it.
+
+
+## User Testing
+
+To understand how visitors interacted with *Inner Constellation*, we conducted several rounds of user testing in the actual exhibition environment. These tests helped us evaluate gesture responsiveness, distance sensing, element selection flow, and overall clarity of the experience. Through observing participants, we refined motion thresholds, improved the card selection feedback, and adjusted projection brightness to ensure patterns remained visible.
+
+Below are four user testing recordings, each capturing different aspects of real user interaction:
+
+- **[User Testing 1](https://youtu.be/hkju2jcZStg)**  
+- **[User Testing 2](https://youtu.be/3vFiwFm4fbo)**  
+- **[User Testing 3](https://youtu.be/uWHozAXnjfg)**  
+- **[User Testing 4](https://youtu.be/76HgVA5d4e8)**  
+From the tests, we learned several key insights:
+- Users intuitively experimented with body movement, but needed clearer feedback about how distance influenced scale.  
+- Horizontal motion was well understood, especially once the color-temperature shift became visually distinct.  
+- Some users tried touching multiple cards at once, which helped us refine the touch debouncing and selection logic.  
+- The projection brightness and contrast needed tuning so that patterns remained visible even when users stood close to the screen.  
+
+These findings helped us refine gesture sensitivity, adjust projection parameters, and streamline the element-selection flow before the final presentation.
+
 
 ## Reflections on Process
+### Joy’s Reflection
+Much of my process revolved around building the visual identity of the installation. Early experiments showed how small choices in color temperature, particle behavior, or motion density dramatically changed the emotional tone of each element. I iterated many rounds of prototypes in Python, Pygame, Processing, and p5.py, testing how each pattern reacted to motion signals and how palettes blended in real time. One challenge was balancing visual richness with performance; several patterns had to be redesigned to avoid frame drops. Collaborating with the sensing pipeline also shaped many decisions, especially around parameter constraints and transitions. This process taught me how tightly visual design and system behavior are intertwined in interactive installations.
+
+### Hester’s Reflection
+My process focused on developing and stabilizing the sensing logic. Integrating gesture signals, distance estimation, and touch input required careful tuning and filtering to ensure interactions felt intentional rather than noisy. Through repeated testing, I learned that sensor-based interaction often depends as much on environment and user behavior as on code. Lighting, distance from the camera, and even movement style all influenced the results. Defining what each gesture should mean—expansion, contraction, temperature shift—became an iterative negotiation between technical feasibility and conceptual clarity. This experience strengthened my understanding of how interaction vocabularies emerge through trial, error, and adjustment.
+
+### Sandy’s Reflection
+Sandy's process centered on connecting the project with its audience and ensuring the installation felt coherent in real space. Beyond documentation, I handled much of the logistics, including setting up the projector, adjusting projection scale and brightness, arranging the physical layout, and making sure the element cards and card box design were easy for users to understand. These spatial and equipment decisions turned out to be crucial—projection distance, ambient lighting, and hardware placement all shaped how immersive the constellation felt.
+User testing was another major part of my work. Observing how people approached the installation revealed gaps we didn't initially anticipate, such as hesitation to touch the cards or uncertainty about where to stand. These insights directly informed layout adjustments and refinements to instructions. Preparing the README, final demo materials, and documentation also required translating a technically complex system into a clear narrative. Through this process, I learned how presentation, environment, and communication play a key role in the success of an interactive artwork.
+
+<p align="center">
+<img src="images/Energy_Card.JPG" width="55%">
+</p>
+
+<p align="center">
+<img src="images/3D_printed.jpeg" width="55%">
+</p>
+
+<p align="center">
+<img src="images/board_decoration.jpeg" width="55%">
+</p>
 
 
 ## Group Work Distribution
@@ -279,6 +262,7 @@ Hester was responsible for the interaction logic and sensing pipeline. This incl
 **Deliverables:**
 - `sensor.py`
 - Energy Element Cards (×10)
+- websit build
 
 
 ### Sandy
@@ -288,4 +272,5 @@ Sandy managed logistics, documentation, and user-facing presentation. She coordi
 - `README.md`
 - User testing notes and documentation
 - Demo video
-
+- 3D printed card box
+- Energy card design
