@@ -74,8 +74,44 @@ If any hardware or sensor components fail, the system can still demonstrate the 
 | **Timeline** | Tight schedule for testing and polishing. | Lock MVP early; layer extra features gradually. |
 
 💡 *These fallback modes ensure the installation remains functional and visually expressive, even if some hardware components are unavailable.*
+
 ## Functioning Project
-左边外观图，右边内部结构图
+
+The following images show the fully functioning version of the **Inner Constellation** interaction system.  
+All hardware components—including the Raspberry Pi, MPR121 touch sensor, OLED display, USB camera, and six elemental touch cards—are wired together to create a seamless interactive experience.
+
+### 1. Wiring Setup (Live Hardware Layout)
+
+The first image shows the complete hardware arrangement during operation.  
+Each elemental card (Fire, Water, Wind, Earth, Light, Shadow) is connected to an MPR121 input via alligator clips.  
+Touching any card triggers a capacitive reading, which is then displayed on the OLED and sent to the animation engine.
+
+<p align="center">
+  <img src="images/Wire_Setting.JPG" width="55%">
+</p>
+
+### 2. Element Selection Panel (Mounted Version)
+
+This second image shows the final mounted version of the element-selection board.  
+All six cards are neatly arranged in a 3D-printed frame, with copper foil pads at the bottom serving as capacitive touch surfaces.  
+The OLED display sits in the center to show real-time feedback of the selected element.
+
+<p align="center">
+  <img src="images/Eneergy_setting.JPG" width="45%">
+</p>
+
+Together, these components complete the functioning prototype, allowing users to physically select elements and influence the interactive constellation visualisation.
+
+### 3. Overall Setup (Final Exhibition Display)
+The final installation brings all hardware, visuals, and interaction components together into a cohesive exhibition setup.  
+The projected animation reacts in real time to user-selected elements and their gestures, while the element panel sits nearby for intuitive touch-based input.  
+This setup was used during the final showcase, allowing visitors to explore their own “Inner Constellation” through physical interaction and responsive visual feedback.
+
+<p align="center">
+  <img src="images/Overall_Setup.jpeg" width="60%">
+</p>
+
+
 
 ## Documentation of Design Process
 ### Verplank Diagram
@@ -179,8 +215,6 @@ Runs in the main thread (required by SDL), receives continuous sensor updates, r
 
 Both processes remain synchronized through a `frame_lock`, ensuring stable frame delivery even under high interaction load.
 
-
-#### Tech Demo (Functional Checkoff) 
 
 
 
