@@ -17,6 +17,12 @@
 ## Project Plan
 Hester Li(ql382), Joy Sun(js888), Huiying Zhan (hz764)
 
+### Project Motivation  
+Technology has been changing our lives in a tremendous way. AI brought infinite capacity to our work and study setting, and relentless yet useless productivity is growing out of control. Promoting endless growth like that of cancer cells, capitalism refutes death, which means it also refutes life on the other hand. Human beings have been alienated into tools of labor, and their true attributes have been weakened. In a more dramatic way, our society is permeated with death drive. 
+
+With the aim of bringing vitality back to our lives, our project serves as a trigger for people to reflect on their true forms of life. Six elements are symbols of the origins of the world, and the self-chosen element combinations refers to the person’s inner self, alter ego, in responding to the representatives of nature. This connection between inner power and visual patterns creates a dialogue between the self and the digital realm. Each interaction becomes a moment of connection between body and light, revealing an unseen aura that blurs the boundary between inner feeling and external form.
+
+
 ### Big Idea
 Inner Constellation is an interactive art installation that visualizes a person’s inner energy as a living constellation made of light, color, and motion. It invites people to reflect on their emotions through simple, intuitive interactions.
 
@@ -257,17 +263,24 @@ These findings helped us refine gesture sensitivity, adjust projection parameter
 
 ## Reflections on Process
 ### Joy’s Reflection
-Much of my process revolved around building the visual identity of the installation. Early experiments showed how small choices in color temperature, particle behavior, or motion density dramatically changed the emotional tone of each element. I iterated many rounds of prototypes in Python, Pygame, Processing, and p5.py, testing how each pattern reacted to motion signals and how palettes blended in real time. One challenge was balancing visual richness with performance; several patterns had to be redesigned to avoid frame drops. Collaborating with the sensing pipeline also shaped many decisions, especially around parameter constraints and transitions. This process taught me how tightly visual design and system behavior are intertwined in interactive installations.
+Designing the visual identity of Inner Constellation became the core of my work. I spent countless hours experimenting with how color temperature, particle behavior, and motion density could shape emotion. Small visual shifts often changed the entire tone of an element.
+I built and tested many prototypes in Python, Pygame, Processing, and p5.py, studying how patterns responded to motion and blended in real time. Balancing visual richness with performance was tough, I often had to redesign animations to keep them fluid without losing depth.
+
+Collaborating with the sensing system also influenced every decision. The sensors weren’t just inputs, they defined how visuals moved and breathed with the user. Through that process, I realized how inseparable visual design and system behavior are in interactive work.This project taught me to see code as a creative medium, one that can express emotion as much as it executes logic.
+
 
 ### Hester’s Reflection
-My work mainly focused on developing and stabilizing the sensing logic. Getting gesture signals, distance estimation, and touch inputs to behave reliably took a lot of tuning, otherwise the interaction felt noisy or accidental rather than intentional. Through repeated testing, I realized sensor-based interaction is shaped just as much by environment and user behavior as by code. Lighting, distance, and even how someone moves can completely change the system’s response. As I designed the interaction flow, I also started thinking about how to make the experience more playful and meaningful for the user. That’s when I began exploring the MPR121 touch-sensing feature: instead of asking people to click on a laptop, what if we created physical “element cards” they could touch? It felt more immersive and aligned better with the idea of an interactive ritual rather than a simple UI selection.
+My work mainly focused on developing and stabilizing the sensing logic. Getting gesture signals, distance estimation, and touch inputs to behave reliably took a lot of tuning, otherwise the interaction felt noisy or accidental rather than intentional. Through repeated testing, I realized sensor-based interaction is shaped just as much by environment and user behavior as by code. Lighting, distance, and even how someone moves can completely change the system’s response.
 
+As I designed the interaction flow, I also started thinking about how to make the experience more playful and meaningful for the user. That’s when I began exploring the MPR121 touch-sensing feature: instead of asking people to click on a laptop, what if we created physical “element cards” they could touch? It felt more immersive and aligned better with the idea of an interactive ritual rather than a simple UI selection.
 I also replaced VNC with a web interface because the animation delay over VNC made the interaction feel disconnected. Running everything through a website made responses faster and created a smoother experience overall.This whole process taught me that interaction vocabularies don’t appear all at once, they evolve through trial, error, and constant adjustment. And the more I iterated, the more I learned to design not just for functional correctness, but for curiosity, playfulness, and the small moments that make an interface feel alive.
 
-
 ### Sandy’s Reflection
-Sandy's process centered on connecting the project with its audience and ensuring the installation felt coherent in real space. Beyond documentation, I handled much of the logistics, including setting up the projector, adjusting projection scale and brightness, arranging the physical layout, and making sure the element cards and card box design were easy for users to understand. These spatial and equipment decisions turned out to be crucial—projection distance, ambient lighting, and hardware placement all shaped how immersive the constellation felt.
-User testing was another major part of my work. Observing how people approached the installation revealed gaps we didn't initially anticipate, such as hesitation to touch the cards or uncertainty about where to stand. These insights directly informed layout adjustments and refinements to instructions. Preparing the README, final demo materials, and documentation also required translating a technically complex system into a clear narrative. Through this process, I learned how presentation, environment, and communication play a key role in the success of an interactive artwork.
+My contribution focused on the parts of the project that connected the technical system to the final audience experience. In addition to preparing the README, demo video, user testing notes, and overall documentation, I took responsibility for much of the physical setup and exhibition logistics. I handled the full projector setup process—mounting and aligning the projector, calibrating projection size, adjusting brightness and contrast, and testing visibility in different ambient lighting conditions. I also arranged the physical interaction area, organized cable routing, positioned the Raspberry Pi and sensor board, and made sure the element cards were presented clearly to guide user behavior.I produced several physical components as well, including designing and assembling the 3D-printed card box and preparing the Energy Cards used during testing and exhibition. I tested the card layout, ensured the MPR121 connections stayed stable, and refined the spacing so users intuitively knew where to touch.
+
+User testing was another substantial part of my work. I filmed each interaction session and documented consistent patterns in how users approached the installation. These observations directly informed several adjustments, including clarifying the standing area, refining the projection distance for better visibility, and improving the way instructions were communicated to first-time participants.
+Across these responsibilities, my work bridged the technical system with the physical environment and the people interacting with it. I learned how much the success of an installation depends not only on code and visuals, but also on careful setup, environmental tuning, and clear communication with users.
+
 
 <p align="center">
 <img src="images/Energy_Card.JPG" width="55%">
@@ -299,6 +312,7 @@ Hester was responsible for the interaction logic, sensing pipeline, and website 
 **Deliverables:**
 - sensors design
 - `server.py`
+- Energy Element Cards (×6)
 
 
 ### Sandy
